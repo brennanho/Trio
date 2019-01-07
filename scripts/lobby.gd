@@ -30,16 +30,15 @@ func add_player_to_screen(player_name):
 
 func _ready():
 	var seed_val
-	var peer
 	start_title = get_node("Start_Game").text + "    Players: "
 	if global.network_role == "Server":
-		peer = get_node("Network").init_server()
+		global.peer = get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
-		global.my_name = str(peer.get_unique_id())
+		global.my_name = str(global.peer.get_unique_id())
 		add_player_to_screen(global.my_name)
 	else:
 		get_node("Start_Game").disabled = true
-		peer = get_node("Network").init_client(global.server_ip)
+		global.peer = get_node("Network").init_client(global.server_ip)
 	var start_game_button = self.get_child(0)
-	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, peer])
+	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])

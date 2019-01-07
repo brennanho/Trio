@@ -1,7 +1,6 @@
 extends TextureButton
 
 func _on_Create_Game_pressed():
-	print("HI")
 	global.network_role = "Server"
 	global.server_ip = IP.get_local_addresses()[1]
 	global.prev_scene = "Main.tscn"

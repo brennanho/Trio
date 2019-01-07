@@ -1,8 +1,6 @@
 extends Button
 
-func _change_to_last_scene():
+#Go back to the main menu
+func _on_Back_pressed():
 	get_tree().change_scene(global.prev_scene)
 	global.refresh_globals()
-
-func _ready():
-	self.connect("pressed", self, "_change_to_last_scene")
