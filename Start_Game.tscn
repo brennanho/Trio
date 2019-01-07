@@ -1,11 +1,22 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/game_screen.gd" type="Script" id=1]
-[ext_resource path="res://sprites/blue_1_oval_hollow.tex" type="Texture" id=2]
+[ext_resource path="res://ro_sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=2]
 [ext_resource path="res://scripts/card.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Scores.gd" type="Script" id=4]
-[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scripts/timer.gd" type="Script" id=6]
+[ext_resource path="res://ro_sprites/1_CIRC_RED_SOLID.png" type="Texture" id=4]
+[ext_resource path="res://ro_sprites/1_CIRC_GREEN_SOLID.png" type="Texture" id=5]
+[ext_resource path="res://ro_sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=6]
+[ext_resource path="res://ro_sprites/1_RHOM_BLUE_EMPTY.png" type="Texture" id=7]
+[ext_resource path="res://ro_sprites/1_XXX_BLUE_SOLID.png" type="Texture" id=8]
+[ext_resource path="res://ro_sprites/3_RHOM_GREEN_DOT.png" type="Texture" id=9]
+[ext_resource path="res://ro_sprites/2_CIRC_RED_SOLID.png" type="Texture" id=10]
+[ext_resource path="res://ro_sprites/1_XXX_GREEN_EMPTY.png" type="Texture" id=11]
+[ext_resource path="res://ro_sprites/3_RHOM_GREEN_EMPTY.png" type="Texture" id=12]
+[ext_resource path="res://ro_sprites/3_XXX_RED_EMPTY.png" type="Texture" id=13]
+[ext_resource path="res://ro_sprites/1_XXX_RED_SOLID.png" type="Texture" id=14]
+[ext_resource path="res://scripts/Scores.gd" type="Script" id=15]
+[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scripts/timer.gd" type="Script" id=17]
 
 [sub_resource type="Animation" id=1]
 
@@ -240,11 +251,12 @@ tracks/0/keys = {
 size = 35
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 5 )
+font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" index="0"]
 
+modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -258,7 +270,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Anchor" ]
+_sections_unfolded = [ "Anchor", "Material", "Theme", "Visibility" ]
 
 [node name="Game_Screen" type="Container" parent="." index="0"]
 
@@ -266,12 +278,13 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 982.0
-margin_top = -9.0
-margin_right = 1593.0
-margin_bottom = 637.0
+margin_left = 1019.0
+margin_top = -65.0
+margin_right = 1630.0
+margin_bottom = 593.0
 grow_horizontal = 0
 rect_rotation = 90.0
+rect_scale = Vector2( 1.15, 1.15 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -279,7 +292,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Grow Direction", "Rect" ]
+_sections_unfolded = [ "Grow Direction", "Material", "Visibility" ]
 
 [node name="card_1" type="TextureButton" parent="Game_Screen" index="0"]
 
@@ -308,7 +321,7 @@ group = null
 texture_normal = ExtResource( 2 )
 expand = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_1" index="0"]
 
@@ -344,10 +357,10 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_2" index="0"]
 
@@ -383,10 +396,10 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_3" index="0"]
 
@@ -422,10 +435,10 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 6 )
 expand = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "Textures", "Theme", "Visibility" ]
 
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_4" index="0"]
 
@@ -444,9 +457,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 395.0
+margin_left = 394.0
 margin_top = 490.0
-margin_right = 503.0
+margin_right = 502.0
 margin_bottom = 632.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -461,7 +474,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 7 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -500,7 +513,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 8 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -523,9 +536,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 396.0
-margin_top = 190.0
+margin_top = 193.0
 margin_right = 504.0
-margin_bottom = 332.0
+margin_bottom = 335.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -539,7 +552,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 9 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -578,7 +591,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 10 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -600,9 +613,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 217.0
+margin_left = 214.0
 margin_top = 342.0
-margin_right = 325.0
+margin_right = 322.0
 margin_bottom = 484.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -617,7 +630,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 11 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -656,7 +669,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 12 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -695,7 +708,7 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Focus", "Rect", "Textures", "Theme" ]
@@ -717,10 +730,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 401.0
-margin_top = 32.0
-margin_right = 509.0
-margin_bottom = 174.0
+margin_left = 399.0
+margin_top = 37.0
+margin_right = 507.0
+margin_bottom = 179.0
 rect_rotation = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -734,10 +747,10 @@ action_mode = 0
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 14 )
 expand = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Rect", "Textures" ]
+_sections_unfolded = [ "Textures" ]
 
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_12" index="0"]
 
@@ -767,7 +780,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
-script = ExtResource( 4 )
+script = ExtResource( 15 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Timer" type="Timer" parent="." index="2"]
@@ -803,7 +816,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 6 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
 

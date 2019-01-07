@@ -27,6 +27,7 @@ func _client_disconnected(id):
 func init_server():
 	var peer = NetworkedMultiplayerENet.new()
 	peer.create_server(8888, 5)
+	print(IP.get_local_addresses()[1])
 	peer.transfer_mode = peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(peer)
 	get_tree().connect("network_peer_connected",    self, "_client_connected")

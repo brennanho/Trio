@@ -8,7 +8,7 @@ var i = 0
 
 func refresh_card():
 	var card_name = cards.pop_front()
-	var image = load("res://sprites/" + card_name + ".tex")
+	var image = load("res://ro_sprites/" + card_name + ".png")
 	set_normal_texture(image)
 	current_card = card_name.split("_")
 	return current_card
