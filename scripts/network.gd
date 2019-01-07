@@ -1,4 +1,18 @@
 extends Node
+
+func get_host_ip():
+	var ips = []
+	var bad_ips = ['169.254', '127.0.0.1', '0:0'] 
+	for ip in IP.get_local_addresses():
+		if len(ip) <= 15:
+			var ip_ok = true
+			for bad_ip in bad_ips:
+				if ip.begins_with(bad_ip):
+					ip_ok = false
+					break
+			if ip_ok:
+				ips.append(ip)
+	return ips[-1]
  
 # EXECUTED ON CLIENT SIDE
 remote func update_players_lobby(players):
@@ -24,9 +38,10 @@ func _client_connected(id):
 func _client_disconnected(id):
 	print('Client ' + str(id) + ' has joined')
 	
+	
 func init_server():
-	var peer = NetworkedMultiplayerENet.new()
-	global.server_ip = IP.get_local_addresses()[-3]
+	var peer = NetworkedMultiplayerENet.new()	
+	global.server_ip = get_host_ip()
 	peer.create_server(8888, 5)
 	peer.set_bind_ip(global.server_ip)
 	peer.transfer_mode = peer.TRANSFER_MODE_RELIABLE
