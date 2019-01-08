@@ -17,11 +17,10 @@ func card_pressed():
 	var card = current_card
 	card.append(self.get_name())
 	get_parent().add_card(card)
-	get_node("fade").play_backwards("fader")
 	if i % 2 == 0:
-		set_scale(get_scale()*scaler)
+		get_node("fade").play("fader")
 	else:
-		set_scale(card_scale)
+		get_node("fade").play_backwards("fader")
 	i += 1
 		
 func _ready():

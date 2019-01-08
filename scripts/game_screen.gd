@@ -166,7 +166,7 @@ func add_card(card):
 				print("not a set")
 			for i in range(3):
 				var card_node = get_node(set[i][4])
-				card_node.set_scale(card_node.card_scale)
+				card_node.get_node("fade").play_backwards("fader")
 				card_node.i += 1
 			print(get_set_count())
 			set.clear()
