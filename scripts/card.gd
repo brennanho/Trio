@@ -28,6 +28,4 @@ func _ready():
 		get_parent().shuffle_cards()
 	current_card = refresh_card()
 	card_scale = get_scale()
-	self.rect_size.x = 120
-	self.rect_size.y = 160
 	self.connect("pressed", self, "card_pressed")

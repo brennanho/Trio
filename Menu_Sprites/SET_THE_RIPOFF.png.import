@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CREATE_GAME_TEMP.png-77f9fee432a05f1cb9cd7aba4c6b4623.stex"
+path="res://.import/SET_THE_RIPOFF.png-065efcca6ea0d760502635577454076d.stex"
 
 [deps]
 
-source_file="res://Menu_Sprites/CREATE_GAME_TEMP.png"
-dest_files=[ "res://.import/CREATE_GAME_TEMP.png-77f9fee432a05f1cb9cd7aba4c6b4623.stex" ]
+source_file="res://Menu_Sprites/SET_THE_RIPOFF.png"
+dest_files=[ "res://.import/SET_THE_RIPOFF.png-065efcca6ea0d760502635577454076d.stex" ]
 
 [params]
 

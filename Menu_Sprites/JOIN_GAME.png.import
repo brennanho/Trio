@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JOIN_GAME_TEMP.png-955d3620a0575fba97a96b6ddaaf861b.stex"
+path="res://.import/JOIN_GAME.png-34477aeee47d069ac6a4d62d6dc8d5a2.stex"
 
 [deps]
 
-source_file="res://Menu_Sprites/JOIN_GAME_TEMP.png"
-dest_files=[ "res://.import/JOIN_GAME_TEMP.png-955d3620a0575fba97a96b6ddaaf861b.stex" ]
+source_file="res://Menu_Sprites/JOIN_GAME.png"
+dest_files=[ "res://.import/JOIN_GAME.png-34477aeee47d069ac6a4d62d6dc8d5a2.stex" ]
 
 [params]
 

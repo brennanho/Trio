@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends GridContainer
 
 func _ready():
 	for player_name in global.players.keys():

@@ -86,15 +86,26 @@ var cards = [
 
 var set = []
 
+#Update the screen UI to display the number of sets available
+func update_sets_available(num_sets):
+	if num_sets == 1:
+		get_parent().get_node("Sets_Remaining").text = '1 set available'
+	else:
+		get_parent().get_node("Sets_Remaining").text = str(num_sets) + ' sets available'
+
+#Broadcasts a set found update to the game to all players
 sync func update_game(set, name):
 	print(cards.size())
 	global.players[name] += 1
 	get_parent().get_node("Scores").get_node(name).text = "Player " + name + " :  " + str(global.players[name])
 	
-	if cards.size() >= 3:
+	if cards.size() >= 3: #Refresh the board with new cards
 		for i in range(3):
 			var card_node = get_node(set[i][4])
 			card_node.refresh_card()
+	else: #Game over
+		global.refresh_globals()
+		get_tree().change_scene("Main.tscn")
 	
 	var refreshes = 0
 	while get_set_count() == 0 and refreshes < cards.size() and cards.size() > 0:
@@ -103,11 +114,9 @@ sync func update_game(set, name):
 		cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
 		refreshes += 1
 		print("board refresh")
-	
-	if refreshes >= cards.size(): #game over
-		global.refresh_globals()
-		get_tree().change_scene("Main.tscn")
-	
+	update_sets_available(get_set_count())
+
+#Randomizes all cards in the deck	
 func shuffle_cards():
 	seed(global.seed_val)	
 	for i in range(cards.size()):
@@ -118,16 +127,16 @@ func shuffle_cards():
 			swap_card = cards[swap_index]
 		cards[swap_index] = cards[i]
 		cards[i] = swap_card
-		
+
+#Check set logic		
 func all_same(set):
-	return set[0] == set[1] and set[1] == set[2]
-	
+	return set[0] == set[1] and set[1] == set[2]	
 func all_diff(set):
-	return set[0] != set[1] and set[1] != set[2] and set[0] != set[2]
-	
+	return set[0] != set[1] and set[1] != set[2] and set[0] != set[2]	
 func is_valid_category(set):
 	return all_same(set) or all_diff(set)
 
+#Returns true if set is valid
 func is_set(set):
 	var colours = []
 	var nums = []
@@ -140,6 +149,7 @@ func is_set(set):
 		shadings.append(card[3])
 	return is_valid_category(colours) and is_valid_category(shapes) and is_valid_category(shadings) and is_valid_category(nums)
 
+#Calculate the number of sets on the board
 func get_set_count():
 	var sets = 0
 	for i in range(1,10):
@@ -150,9 +160,11 @@ func get_set_count():
 				var card_3 = get_node("card_" + str(k)).current_card
 				var set = [card_1, card_2, card_3]
 				if is_set(set):
+					print(set)
 					sets += 1
 	return sets
 
+#Triggered when card is pressed, if 3 cards have been pressed, check if it is a set and update the game
 func add_card(card):
 	if card in set:
 		set.erase(card)
@@ -168,11 +180,9 @@ func add_card(card):
 				var card_node = get_node(set[i][4])
 				card_node.get_node("fade").play_backwards("fader")
 				card_node.i += 1
-			print(get_set_count())
 			set.clear()
 	print(set)
 	
 func _ready():
-	VisualServer.set_default_clear_color(Color(0.4,1.0,0.4))
-	print(global.players)
-	print(global.my_name)
+	update_sets_available(get_set_count())
+	
