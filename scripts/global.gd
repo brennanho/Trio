@@ -7,6 +7,7 @@ var my_name
 var players = {}
 var players_in_lobby = []
 var peer
+var upnp
 var server_ip = "127.0.0.1"
 var prev_scene
 
