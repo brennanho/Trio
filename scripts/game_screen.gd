@@ -86,6 +86,17 @@ var cards = [
 
 var set = []
 
+#Ensures there is atleast 1 set on the board
+func make_board_valid(set):
+	var refreshes = 0
+	while get_set_count() == 0 and refreshes < cards.size() and cards.size() > 0:
+		var card_node = get_node(set[0][4])
+		var back_in = card_node.refresh_card()
+		cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
+		refreshes += 1
+		print("board refresh")
+	return get_set_count()
+
 #Update the screen UI to display the number of sets available
 func update_sets_available(num_sets):
 	if num_sets == 1:
@@ -95,7 +106,6 @@ func update_sets_available(num_sets):
 
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, name):
-	print(cards.size())
 	global.players[name] += 1
 	get_parent().get_node("Scores").get_node(name).text = "Player " + name + " :  " + str(global.players[name])
 	
@@ -107,14 +117,8 @@ sync func update_game(set, name):
 		global.refresh_globals()
 		get_tree().change_scene("Main.tscn")
 	
-	var refreshes = 0
-	while get_set_count() == 0 and refreshes < cards.size() and cards.size() > 0:
-		var card_node = get_node(set[0][4])
-		var back_in = card_node.refresh_card()
-		cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
-		refreshes += 1
-		print("board refresh")
-	update_sets_available(get_set_count())
+	var num_sets = make_board_valid(set)
+	update_sets_available(num_sets)
 
 #Randomizes all cards in the deck	
 func shuffle_cards():
@@ -151,7 +155,7 @@ func is_set(set):
 
 #Calculate the number of sets on the board
 func get_set_count():
-	var sets = 0
+	var sets = []
 	for i in range(1,10):
 		var card_1 = get_node("card_" + str(i)).current_card
 		for j in range(i+1,11):
@@ -160,9 +164,8 @@ func get_set_count():
 				var card_3 = get_node("card_" + str(k)).current_card
 				var set = [card_1, card_2, card_3]
 				if is_set(set):
-					print(set)
-					sets += 1
-	return sets
+					sets.append(set)
+	return len(sets)
 
 #Triggered when card is pressed, if 3 cards have been pressed, check if it is a set and update the game
 func add_card(card):
@@ -172,7 +175,6 @@ func add_card(card):
 		set.append(card)
 		if set.size() == 3:	
 			if is_set(set):
-				print(set)
 				rpc("update_game", set, global.my_name)
 			else:
 				print("not a set")
@@ -181,8 +183,7 @@ func add_card(card):
 				card_node.get_node("fade").play_backwards("fader")
 				card_node.i += 1
 			set.clear()
-	print(set)
 	
 func _ready():
-	update_sets_available(get_set_count())
-	
+	var num_sets = make_board_valid(set)
+	update_sets_available(num_sets)

@@ -1,23 +1,30 @@
+// Server for match making system
+
 const http = require('http');
-const public_ip = require('public-ip');
-public_ip.v4().then(ip => {
-  console.log("your public ip address", ip);
+const localtunnel = require('localtunnel');
+const express = require('express');
+const socket = require('socket.io');
+
+const port = 8092;
+const server = http.createServer(express());
+
+// 'Deploy webapp'
+const tunnel = localtunnel(port, { subdomain: 'sdfdsfqgqgqerqezdczxcfeqfzxcv'}, (err, tunnel) => {
+    console.log(tunnel.url);
 });
 
-const server = http.createServer((req, res) => {
-    let content = 'ip';
+// Initiate server
+server.listen(port, () => console.log('Listening on port', port));
 
-    // append data as it comes in
-    req.on('data', data => {
-        content += data;
-    });
+let io = socket(server);
+let players = [];
+io.on('connection', function(socket) {
+    console.log('Client connected:', socket.id);
+    players.unshift(socket.id);
 
-    // write the data back to the client
-    req.on('end', () => {
-        console.log(content);
-        res.write(content);
-        res.end();
-    });
-});
+ 	console.log(players);
+})
 
-server.listen(9090, '0.0.0.0');
+io.on('message', function(msg) {
+	console.log(msg);
+})

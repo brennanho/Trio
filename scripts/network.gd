@@ -1,19 +1,7 @@
 extends Node
+const int_port = 56885
+const ext_port = 56886
 
-func get_host_ip():
-	var ips = []
-	var bad_ips = ['169.254', '127.0.0.1', '0:0'] 
-	for ip in IP.get_local_addresses():
-		if len(ip) <= 15:
-			var ip_ok = true
-			for bad_ip in bad_ips:
-				if ip.begins_with(bad_ip):
-					ip_ok = false
-					break
-			if ip_ok:
-				ips.append(ip)
-	return ips[-1]
- 
 # EXECUTED ON CLIENT SIDE
 remote func update_players_lobby(players):
 	global.players = players
@@ -23,8 +11,11 @@ remote func update_players_lobby(players):
 func _connected_to_server(id):
 	print('Client ' + str(id) + ' connected to Server')
 
-func _connect_to_server_fail(id):
-	print('Client' + str(id) + ' failed to connect to Server')
+func _connect_to_server_fail():
+	print('Client failed to connect to Server')
+
+func _connect_to_server_success():
+	print('Client connected to Server')
 
 func _disconnected_from_server(id):
 	print('Client' + str(id) + ' disconnected from Server')
@@ -38,25 +29,40 @@ func _client_connected(id):
 func _client_disconnected(id):
 	print('Client ' + str(id) + ' has joined')
 	
+func init_port_mapping():
+	var upnp = UPNP.new()
+	upnp.discover()
+	print(upnp.query_external_address())
+	var router = upnp.get_gateway()
+	router.set_igd_our_addr(global.get_host_ip())
+	if router.add_port_mapping(ext_port, int_port, "", "TCP", 0) == upnp.UPNP_RESULT_SUCCESS:
+		print("Port mapping success")
 	
 func init_server():
+	init_port_mapping()
 	var peer = NetworkedMultiplayerENet.new()	
-	global.server_ip = get_host_ip()
-	peer.create_server(8888, 5)
-	peer.set_bind_ip(global.server_ip)
+	global.server_ip = global.get_host_ip()
+	peer.create_server(int_port, 5)
+	peer.set_always_ordered(true)
 	peer.transfer_mode = peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(peer)
 	get_tree().connect("network_peer_connected",    self, "_client_connected")
 	get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
+	global.peer = peer
 	return peer
 
 func init_client(ip):
+	init_port_mapping()
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client(ip, 8888)
+	peer.create_client(ip, ext_port, 0, 0, int_port)
+	peer.set_always_ordered(true) 
 	peer.transfer_mode = peer.TRANSFER_MODE_RELIABLE
+	while peer.get_connection_status() == 1:
+		peer.poll()
 	get_tree().set_network_peer(peer)
-	get_tree().connect("connected_to_server",self,"_connected_to_server", [peer.get_unique_id()])
-	get_tree().connect("connection_failed",self,"_connect_to_server_fail")
-	get_tree().connect("server_disconnected",self,"_disconnected_from_server")
+	get_tree().connect("connected_to_server",  self,  "_connected_to_server", [peer.get_unique_id()])
+	get_tree().connect("connection_failed",    self,  "_connect_to_server_fail")
+	get_tree().connect("connection_succeeded", self,  "_connect_to_server_success")
+	get_tree().connect("server_disconnected",  self,  "_disconnected_from_server")
 	global.peer = peer
 	return peer
