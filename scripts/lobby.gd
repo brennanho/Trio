@@ -13,20 +13,31 @@ func _button_pressed(scene_to_load, seed_val, peer):
 	rpc("start_game", scene_to_load, seed_val, peer)
 
 func add_players_to_screen(players):
-	for player in global.players.keys():
-		if not (player in global.players_in_lobby):
-			add_player_to_screen(player)
+	for player in global.players_in_lobby.keys():
+		add_player_to_screen(player)
 		
-func add_player_to_screen(player_name):
-	global.players[player_name] = 0 # score
+func add_player_to_screen(player_id):
+	global.players_score[player_id] = 0 # score
 	var player = Label.new()
-	player.text = "Player " + player_name
+	player.text = str(global.fruits[player_id%global.fruits.size()])
+	var font = DynamicFont.new()
+	font.size = 40
+	font.font_data = load("res://fonts/CallingCards_Reg_sample.ttf")
+	player.add_font_override("font", font)
 	player.add_color_override("font_color", Color(0,0,0))
+	if str(player_id) == str(global.my_name):
+		player.add_color_override("font_color", Color(1,0,0))
 	player.align = ALIGN_CENTER
 	player.valign = VALIGN_CENTER
 	add_child(player)
-	global.players_in_lobby.append(player_name)
-	get_node("Start_Game").text = start_title + str(global.players.size())
+	global.players_in_lobby[player_id] = player
+	get_node("Start_Game").text = start_title + str(global.players_in_lobby.size())
+	
+func remove_player_from_screen(player_id):
+	remove_child(global.players_in_lobby[player_id])
+	global.players_in_lobby.erase(player_id)
+	global.players_score.erase(player_id)
+	get_node("Start_Game").text = start_title + str(global.players_in_lobby.size())
 
 func _ready():
 	var seed_val
@@ -35,8 +46,7 @@ func _ready():
 		global.peer = get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
-		global.my_name = str(global.peer.get_unique_id())
-		add_player_to_screen(global.my_name)
+		add_player_to_screen(1)
 	else:
 		get_node("Start_Game").disabled = true
 		global.peer = get_node("Network").init_client(global.server_ip)

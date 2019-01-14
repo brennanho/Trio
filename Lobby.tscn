@@ -31,11 +31,12 @@ margin_bottom = 592.0
 rect_rotation = 270.0
 
 [node name="Lobby" type="VBoxContainer" parent="."]
-margin_left = 916.81
-margin_top = 147.679
-margin_right = 1189.81
-margin_bottom = 723.679
+margin_left = 917.0
+margin_top = 148.0
+margin_right = 1190.0
+margin_bottom = 913.0
 rect_rotation = 89.8098
+custom_constants/separation = 10
 script = ExtResource( 1 )
 
 [node name="Start_Game" type="Button" parent="Lobby"]

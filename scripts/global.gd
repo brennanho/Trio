@@ -4,12 +4,92 @@ extends Node
 var network_role
 var seed_val
 var my_name
-var players = {}
-var players_in_lobby = []
+var players_in_lobby = {}
+var players_score = {}
 var peer
 var upnp
 var server_ip = "127.0.0.1"
 var prev_scene
+var fruits = [
+	"Apple",
+	"Apricot",
+	"Avocado",
+	"Banana",
+	"Bilberry",
+	"Blackberry",
+	"Blackcurrant",
+	"Blueberry",
+	"Boysenberry",
+	"Currant",
+	"Cherry",
+	"Cherimoya",
+	"Chico fruit",
+	"Cloudberry",
+	"Coconut",
+	"Cranberry",
+	"Cucumber",
+	"Sugar apple",
+	"Damson",
+	"Date",
+	"Dragonfruit",
+	"Durian",
+	"Elderberry",
+	"Feijoa",
+	"Fig",
+	"Goji berry",
+	"Gooseberry",
+	"GrapeRaisin",
+	"Grapefruit",
+	"Guava",
+	"Honeyberry",
+	"Huckleberry",
+	"Jabuticaba",
+	"Jackfruit",
+	"Jambul",
+	"Jujube",
+	"Kiwifruit",
+	"Kumquat",
+	"Lemon",
+	"Lime",
+	"Loquat",
+	"Longan",
+	"Lychee",
+	"Mango",
+	"Marionberry",
+	"Melon",
+	"Cantaloupe",
+	"Honeydew",
+	"Watermelon",
+	"Mulberry",
+	"Nectarine",
+	"Nance",
+	"Olive",
+	"Clementine",
+	"Mandarine",
+	"Tangerine",
+	"Papaya",
+	"Passionfruit",
+	"Peach",
+	"Pear",
+	"Persimmon",
+	"Physalis",
+	"Plantain",
+	"Pineapple",
+	"Pomegranate",
+	"Pomelo",
+	"Quince",
+	"RaspberrySalmonberry",
+	"Rambutan",
+	"Redcurrant",
+	"Salak",
+	"Satsuma",
+	"Soursop",
+	"Star fruit",
+	"Solanum quitoense",
+	"Strawberry",
+	"Tamarillo",
+	"Tamarind",
+	"Yuzu"]
 
 func get_host_ip():
 	var ips = []
@@ -28,9 +108,9 @@ func get_host_ip():
 func refresh_globals():
 	network_role = ""
 	seed_val = 0
-	players = {}
-	players_in_lobby = []
-	my_name = ""
+	players_in_lobby = {}
+	players_score = {}
+	my_name = -1
 	peer.close_connection()
 	server_ip = "127.0.0.1"
 	prev_scene = ""

@@ -26,6 +26,7 @@ func card_pressed():
 func _ready():
 	if (self.name == "card_1"):
 		get_parent().shuffle_cards()
+	get_node("fade").playback_speed = 2
 	current_card = refresh_card()
 	card_scale = get_scale()
 	self.connect("pressed", self, "card_pressed")

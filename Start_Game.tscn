@@ -21,9 +21,6 @@
 
 [sub_resource type="Animation" id=1]
 
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -40,9 +37,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=2]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -59,9 +53,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -78,9 +69,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -97,9 +85,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=5]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -116,9 +101,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -135,9 +117,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -154,9 +133,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=8]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -173,9 +149,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=9]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -192,9 +165,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=10]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -211,9 +181,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=11]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -230,9 +197,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=12]
 
 resource_name = "fader"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -249,612 +213,251 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=13]
 
 size = 42
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 16 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=14]
 
 size = 35
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 16 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Main" type="Control"]
-
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
 margin_top = -1.0
 margin_right = 1.0
 margin_bottom = -1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Material", "Theme", "Visibility" ]
 
-[node name="Game_Screen" type="GridContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Game_Screen" type="GridContainer" parent="."]
 margin_top = 998.0
 margin_right = 615.0
 margin_bottom = 1514.0
 rect_rotation = 270.0
 rect_scale = Vector2( 1.15, 1.15 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/vseparation = 33
 custom_constants/hseparation = 47
 columns = 4
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material", "Visibility", "custom_constants" ]
 
-[node name="card_1" type="TextureButton" parent="Game_Screen" index="0"]
-
+[node name="card_1" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 110.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 3 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Rect", "Textures", "Theme", "Visibility" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_1" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_1"]
 anims/fader = SubResource( 1 )
-blend_times = [  ]
 
-[node name="card_2" type="TextureButton" parent="Game_Screen" index="1"]
-
+[node name="card_2" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 157.0
 margin_right = 267.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Rect", "Textures", "Theme", "Visibility" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_2" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_2"]
 anims/fader = SubResource( 2 )
-blend_times = [  ]
 
-[node name="card_3" type="TextureButton" parent="Game_Screen" index="2"]
-
+[node name="card_3" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 314.0
 margin_right = 424.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 6 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Rect", "Textures", "Theme", "Visibility" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_3" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_3"]
 anims/fader = SubResource( 3 )
-blend_times = [  ]
 
-[node name="card_4" type="TextureButton" parent="Game_Screen" index="3"]
-
+[node name="card_4" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 471.0
 margin_right = 581.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 7 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Rect", "Textures", "Theme", "Visibility" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_4" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_4"]
 anims/fader = SubResource( 4 )
-blend_times = [  ]
 
-[node name="card_5" type="TextureButton" parent="Game_Screen" index="4"]
-
+[node name="card_5" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 183.0
 margin_right = 110.0
 margin_bottom = 333.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 8 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_5" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_5"]
 anims/fader = SubResource( 5 )
-blend_times = [  ]
 
-[node name="card_6" type="TextureButton" parent="Game_Screen" index="5"]
-
+[node name="card_6" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 157.0
 margin_top = 183.0
 margin_right = 267.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 110, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 9 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_6" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_6"]
 anims/fader = SubResource( 6 )
-blend_times = [  ]
 
-[node name="card_7" type="TextureButton" parent="Game_Screen" index="6"]
-
+[node name="card_7" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 314.0
 margin_top = 183.0
 margin_right = 424.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 10 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_7" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_7"]
 anims/fader = SubResource( 7 )
-blend_times = [  ]
 
-[node name="card_8" type="TextureButton" parent="Game_Screen" index="7"]
-
+[node name="card_8" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 471.0
 margin_top = 183.0
 margin_right = 581.0
 margin_bottom = 333.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 11 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_8" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_8"]
 anims/fader = SubResource( 8 )
-blend_times = [  ]
 
-[node name="card_9" type="TextureButton" parent="Game_Screen" index="8"]
-
+[node name="card_9" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 366.0
 margin_right = 110.0
 margin_bottom = 516.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 12 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_9" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_9"]
 anims/fader = SubResource( 9 )
-blend_times = [  ]
 
-[node name="card_10" type="TextureButton" parent="Game_Screen" index="9"]
-
+[node name="card_10" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 157.0
 margin_top = 366.0
 margin_right = 267.0
 margin_bottom = 516.0
 rect_min_size = Vector2( 100, 150 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_10" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_10"]
 anims/fader = SubResource( 10 )
-blend_times = [  ]
 
-[node name="card_11" type="TextureButton" parent="Game_Screen" index="10"]
-
+[node name="card_11" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 314.0
 margin_top = 366.0
 margin_right = 424.0
 margin_bottom = 516.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 14 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Focus", "Material", "Rect", "Textures", "Theme" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_11" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_11"]
 anims/fader = SubResource( 11 )
-blend_times = [  ]
 
-[node name="card_12" type="TextureButton" parent="Game_Screen" index="11"]
-
+[node name="card_12" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
 material = ExtResource( 2 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 471.0
 margin_top = 366.0
 margin_right = 581.0
 margin_bottom = 516.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
 action_mode = 0
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 15 )
 expand = true
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Rect", "Textures" ]
 
-[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_12" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="fade" type="AnimationPlayer" parent="Game_Screen/card_12"]
 anims/fader = SubResource( 12 )
-blend_times = [  ]
 
-[node name="Sets_Remaining" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Sets_Remaining" type="Label" parent="."]
 margin_left = 177.0
 margin_top = 264.0
 margin_right = 418.0
 margin_bottom = 307.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Scores" type="GridContainer" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Scores" type="GridContainer" parent="."]
 margin_left = 10.0
 margin_top = 11.0
 margin_right = 483.0
 margin_bottom = 215.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/vseparation = 15
-custom_constants/hseparation = 20
+custom_constants/hseparation = 45
 columns = 2
 script = ExtResource( 17 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility", "custom_constants" ]
 
-[node name="Timer" type="Timer" parent="." index="3"]
-
-process_mode = 1
+[node name="Timer" type="Timer" parent="."]
 wait_time = 1000.0
 one_shot = true
 autostart = true
 
-[node name="Label" type="Label" parent="Timer" index="0"]
-
+[node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 485.0
 margin_top = 31.0
 margin_right = 567.0
 margin_bottom = 86.0
 rect_rotation = 359.64
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 14 )
 text = "90"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 script = ExtResource( 18 )
-_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
-
 

@@ -105,9 +105,9 @@ func update_sets_available(num_sets):
 		get_parent().get_node("Sets_Remaining").text = str(num_sets) + ' sets available'
 
 #Broadcasts a set found update to the game to all players
-sync func update_game(set, name):
-	global.players[name] += 1
-	get_parent().get_node("Scores").get_node(name).text = "Player " + name + " :  " + str(global.players[name])
+sync func update_game(set, player_id):
+	global.players_score[player_id] += 1
+	get_parent().get_node("Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
 	
 	if cards.size() >= 3: #Refresh the board with new cards
 		for i in range(3):
