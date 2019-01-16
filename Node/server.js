@@ -29,8 +29,9 @@ wss.on('connection', function connection(ws) {
 			while (ids.length >= 2) {
 				let player_1_ID = ids.pop();
 				let player_2_ID = ids.pop();
-				sockets[player_1_ID].send('Opponent ID: ' + player_2_ID.toString());
-				sockets[player_2_ID].send('Opponent ID: ' + player_1_ID.toString()); 
+				sockets[player_1_ID].send('Opponent ID' + player_2_ID.toString());
+				sockets[player_2_ID].send('Opponent ID' + player_1_ID.toString());
+				console.log(player_1_ID.toString(), "V.S", player_2_ID.toString()); 
 			}
 		}
 	});
@@ -44,7 +45,7 @@ wss.on('connection', function connection(ws) {
 				delete sockets[id];
 				for( let i = 0; i < ids.length-1; i++){ 
    					if ( ids[i] == id) {
-     					arr.splice(i, 1);
+     					ids.splice(i, 1);
      					return; 
   					}
 				}
