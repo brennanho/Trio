@@ -1,25 +1,24 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/node_client.gd" type="Script" id=1]
-[ext_resource path="res://Menu_Sprites/SET_THE_RIPOFF.png" type="Texture" id=2]
-[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=3]
-[ext_resource path="res://Menu_Sprites/CREATE_GAME.png" type="Texture" id=4]
-[ext_resource path="res://scripts/button.gd" type="Script" id=5]
-[ext_resource path="res://Menu_Sprites/JOIN_GAME.png" type="Texture" id=6]
-[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Menu_Sprites/SET_THE_RIPOFF.png" type="Texture" id=1]
+[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=2]
+[ext_resource path="res://Menu_Sprites/CREATE_GAME.png" type="Texture" id=3]
+[ext_resource path="res://scripts/button.gd" type="Script" id=4]
+[ext_resource path="res://Menu_Sprites/JOIN_GAME.png" type="Texture" id=5]
+[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 45
-font_data = ExtResource( 7 )
+font_data = ExtResource( 6 )
 
 [node name="Menu" type="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = -2.0
-margin_bottom = -2.0
-script = ExtResource( 1 )
+margin_left = -2.12134
+margin_top = 1.17334
+margin_right = -5.12134
+margin_bottom = 1.17334
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
@@ -29,38 +28,38 @@ margin_top = 7.0
 margin_right = 599.0
 margin_bottom = 360.0
 rect_clip_content = true
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 expand = true
 stretch_mode = 3
 
 [node name="Create_Game" type="TextureButton" parent="."]
 light_mask = 0
-material = ExtResource( 3 )
+material = ExtResource( 2 )
 margin_left = 140.0
 margin_top = 375.0
 margin_right = 429.0
 margin_bottom = 564.0
 rect_rotation = 359.829
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 expand = true
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="Join_Game" type="TextureButton" parent="."]
-material = ExtResource( 3 )
+material = ExtResource( 2 )
 margin_left = 139.0
 margin_top = 604.0
 margin_right = 428.0
 margin_bottom = 802.0
 rect_rotation = 360.024
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="LineEdit" type="LineEdit" parent="Join_Game"]
-margin_left = 38.8816
-margin_top = 260.527
-margin_right = 266.882
-margin_bottom = 343.527
+margin_left = 33.0391
+margin_top = 264.425
+margin_right = 261.04
+margin_bottom = 347.425
 custom_fonts/font = SubResource( 1 )
 text = "127.0.0.1"
 align = 1

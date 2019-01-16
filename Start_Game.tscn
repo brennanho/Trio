@@ -230,6 +230,7 @@ margin_right = 1.0
 margin_bottom = -1.0
 
 [node name="Game_Screen" type="GridContainer" parent="."]
+editor/display_folded = true
 margin_top = 998.0
 margin_right = 615.0
 margin_bottom = 1514.0
