@@ -1,4 +1,5 @@
 extends Container
+var timer = Timer.new()
 
 var cards = [
 	'1_RHOM_BLUE_SOLID',
@@ -106,8 +107,9 @@ func update_sets_available(num_sets):
 
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, player_id):
-	global.players_score[player_id] += 1
-	get_parent().get_node("Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
+	if global.game_mode == "local":
+		global.players_score[player_id] += 1
+		get_parent().get_node("Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
 	
 	if cards.size() >= 3: #Refresh the board with new cards
 		for i in range(3):
@@ -175,7 +177,15 @@ func add_card(card):
 		set.append(card)
 		if set.size() == 3:	
 			if is_set(set):
-				rpc("update_game", set, global.my_name)
+				if global.game_mode == "remote": #Online game
+					var msg = "SET," + str(global.opp_socket_id) + "," + set[0][4].split("_")[-1] + "," + set[1][4].split("_")[-1] + "," + set[2][4].split("_")[-1]
+					global.ws.get_peer(1).put_packet(msg.to_utf8())
+					print("Sending to server:", msg)
+					update_game(set, global.my_name)
+					global.players_score[global.socket_id] += 1
+					get_parent().get_node("Scores").get_node(str(global.socket_id)).text = str(global.fruits[global.socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.socket_id])
+				else: #Local game
+					rpc("update_game", set, global.my_name)
 			else:
 				print("not a set")
 			for i in range(3):
@@ -183,7 +193,55 @@ func add_card(card):
 				card_node.get_node("fade").play_backwards("fader")
 				card_node.i += 1
 			set.clear()
+
+#Websocket signals
+#For online gameplay, when opponent sends a set has been found		
+func _set_found_received():
+	var msg = global.ws.get_peer(1).get_packet().get_string_from_utf8()
+	if msg.begins_with("SET"):
+		msg = msg.split(",")
+		var card_1 = msg[1]
+		var card_2 = msg[2]
+		var card_3 = msg[3]
+		var set = []
+		print("Opponent has found a set: ", card_1, card_2, card_3)
+		global.players_score[global.opp_socket_id] += 1
+		get_parent().get_node("Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
+		if cards.size() >= 3: #Refresh the board with new cards
+			set = [get_node("card_" + card_1).refresh_card(), get_node("card_" + card_2).refresh_card(), get_node("card_" + card_3).refresh_card()]
+		else: #Game over
+			global.refresh_globals()
+			get_tree().change_scene("Main.tscn")
+	
+		var num_sets = make_board_valid(set)
+		update_sets_available(num_sets)
+	
+func _connection_established(protocol):
+	var msg = "Rejoining game".to_utf8()
+	print(global.ws.get_peer(1).put_packet(msg))
+func _connection_closed(reason):
+	print("Connection closed:", reason)
+	global.ws.get_peer(1).put_packet("ID: " + global.socket_id + "has disconnected")
+func _connection_error():
+	print("Could not connect to server")
+	
+#Intermitently ping the server so a timeout does not occur (30 secs)
+func _on_ping_timeout():
+	global.ws.get_peer(1).put_packet("PING".to_utf8())
+	print("SENDING PING")
+
+#Keep polling for messages from server
+func _process(delta):
+	global.ws.poll()
 	
 func _ready():
 	var num_sets = make_board_valid(set)
 	update_sets_available(num_sets)
+	if global.game_mode == "remote":
+		global.ws.connect("data_received", self, "_set_found_received")
+		global.ws.connect("connection_established", self, "_connection_established")
+		global.ws.connect("connection_closed", self, "_connection_closed")
+		global.ws.connect("connection_error", self, "_connection_error")
+		set_process(true)
+	else:
+		set_process(false)

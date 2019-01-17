@@ -24,21 +24,24 @@ wss.on('connection', function connection(ws) {
 	//Player send message to server
 	ws.on('message', function message(msg) {
 		msg = "" + msg;
+		console.log(msg);
 		if (msg == "Find Match") {
 			while (ids.length >= 2) {
-				try {
-					let player_1_ID = ids.pop();
-					let player_2_ID = ids.pop();
-					console.log(Object.keys(sockets), player_1_ID, player_2_ID);
-					sockets[player_1_ID].send('ID' + player_1_ID.toString() + ', OppID' + player_2_ID.toString());
-					sockets[player_2_ID].send('ID' + player_2_ID.toString() + ', OppID' + player_1_ID.toString());
-					delete sockets[player_1_ID];
-					delete sockets[player_2_ID];
-					console.log(player_1_ID.toString(), "V.S", player_2_ID.toString()); 
-				} catch(err) {
-					console.log(err);
-				}
+				let player_1_ID = ids.pop();
+				let player_2_ID = ids.pop();
+				let seed = Math.floor(Math.random() * 1000).toString();
+				sockets[player_1_ID].send('ID' + player_1_ID.toString() + ', OppID' + player_2_ID.toString() + ',' + seed);
+				sockets[player_2_ID].send('ID' + player_2_ID.toString() + ', OppID' + player_1_ID.toString() + ',' + seed);
+				console.log(player_1_ID.toString(), "V.S", player_2_ID.toString()); 
 			}
+		} 
+		// In game messaging i.e. opponent found a set
+		if (msg.startsWith("SET")) {
+			msg = msg.split(",")
+			let opp_id = parseInt(msg[1]);
+			let set = msg[2] + "," + msg[3] + "," + msg[4];
+			sockets[opp_id].send("SET," + set);
+			console.log("Set sent to Opp_ID:", opp_id.toString());
 		}
 	});
 
@@ -49,13 +52,8 @@ wss.on('connection', function connection(ws) {
 			if (sockets[id] === ws) {
 				console.log("Player ID:", id, "has disconnected");
 				delete sockets[id];
-				for( let i = 0; i < ids.length; i++){ 
-   					if (ids[i] == id) {
-     					ids.splice(i, 1);
-     					break;
-  					}
-				}
-				break;
+     			ids.splice(ids.indexOf(id), 1);
+     			break;
 			}
 		}
 

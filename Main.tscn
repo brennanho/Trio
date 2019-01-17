@@ -1,69 +1,86 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Menu_Sprites/SET_THE_RIPOFF.png" type="Texture" id=1]
-[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=2]
-[ext_resource path="res://Menu_Sprites/CREATE_GAME.png" type="Texture" id=3]
-[ext_resource path="res://scripts/button.gd" type="Script" id=4]
-[ext_resource path="res://Menu_Sprites/JOIN_GAME.png" type="Texture" id=5]
-[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/find_opponent.gd" type="Script" id=3]
+[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=4]
+[ext_resource path="res://Menu_Sprites/CREATE_GAME.png" type="Texture" id=5]
+[ext_resource path="res://scripts/button.gd" type="Script" id=6]
+[ext_resource path="res://Menu_Sprites/JOIN_GAME.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 45
-font_data = ExtResource( 6 )
+size = 32
+font_data = ExtResource( 2 )
 
-[node name="Menu" type="Container"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 45
+font_data = ExtResource( 2 )
+
+[node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -2.12134
+margin_left = -4.17188
 margin_top = 1.17334
-margin_right = -5.12134
+margin_right = -7.17188
 margin_bottom = 1.17334
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Title" type="TextureRect" parent="."]
 margin_left = -2.0
-margin_top = 7.0
+margin_top = -13.5054
 margin_right = 599.0
-margin_bottom = 360.0
+margin_bottom = 339.495
 rect_clip_content = true
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 3
 
+[node name="Find_Opponent" type="Button" parent="."]
+margin_left = 182.617
+margin_top = 352.596
+margin_right = 415.617
+margin_bottom = 475.596
+custom_fonts/font = SubResource( 1 )
+text = "Find Opponent"
+script = ExtResource( 3 )
+
 [node name="Create_Game" type="TextureButton" parent="."]
 light_mask = 0
-material = ExtResource( 2 )
-margin_left = 140.0
-margin_top = 375.0
-margin_right = 429.0
-margin_bottom = 564.0
+material = ExtResource( 4 )
+margin_left = 145.798
+margin_top = 508.152
+margin_right = 461.798
+margin_bottom = 713.152
 rect_rotation = 359.829
-texture_normal = ExtResource( 3 )
-expand = true
-script = ExtResource( 4 )
-
-[node name="Join_Game" type="TextureButton" parent="."]
-material = ExtResource( 2 )
-margin_left = 139.0
-margin_top = 604.0
-margin_right = 428.0
-margin_bottom = 802.0
-rect_rotation = 360.024
 texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 4 )
+script = ExtResource( 6 )
+
+[node name="Join_Game" type="TextureButton" parent="."]
+material = ExtResource( 4 )
+margin_left = 143.596
+margin_top = 715.202
+margin_right = 465.596
+margin_bottom = 924.202
+rect_rotation = 360.024
+texture_normal = ExtResource( 7 )
+expand = true
+script = ExtResource( 6 )
 
 [node name="LineEdit" type="LineEdit" parent="Join_Game"]
-margin_left = 33.0391
-margin_top = 264.425
-margin_right = 261.04
-margin_bottom = 347.425
-custom_fonts/font = SubResource( 1 )
+margin_left = 41.1568
+margin_top = 231.301
+margin_right = 285.157
+margin_bottom = 289.301
+custom_fonts/font = SubResource( 2 )
 text = "127.0.0.1"
 align = 1
+caret_blink = true
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="button_down" from="Find_Opponent" to="Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Create_Game" to="Create_Game" method="_on_Create_Game_pressed"]
 [connection signal="pressed" from="Join_Game" to="Join_Game" method="_on_Join_Game_pressed"]

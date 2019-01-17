@@ -10,6 +10,11 @@ var peer
 var upnp
 var server_ip = "127.0.0.1"
 var prev_scene
+var game_mode 
+
+var socket_id
+var opp_socket_id
+var ws
 var fruits = [
 	"Apple",
 	"Apricot",
@@ -104,6 +109,9 @@ func get_host_ip():
 			if ip_ok:
 				ips.append(ip)
 	return ips[-1]
+	
+func update_remote_game(card1, card2, card3):
+	print("Opponent found a set")
 
 func refresh_globals():
 	network_role = ""

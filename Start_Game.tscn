@@ -213,6 +213,7 @@ tracks/0/keys = {
 [sub_resource type="DynamicFont" id=13]
 
 size = 42
+use_mipmaps = true
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=14]
@@ -230,7 +231,6 @@ margin_right = 1.0
 margin_bottom = -1.0
 
 [node name="Game_Screen" type="GridContainer" parent="."]
-editor/display_folded = true
 margin_top = 998.0
 margin_right = 615.0
 margin_bottom = 1514.0
@@ -421,6 +421,10 @@ script = ExtResource( 4 )
 [node name="fade" type="AnimationPlayer" parent="Game_Screen/card_12"]
 anims/fader = SubResource( 12 )
 
+[node name="ping" type="Timer" parent="Game_Screen"]
+wait_time = 25.0
+autostart = true
+
 [node name="Sets_Remaining" type="Label" parent="."]
 margin_left = 177.0
 margin_top = 264.0
@@ -462,3 +466,4 @@ align = 1
 valign = 1
 script = ExtResource( 18 )
 
+[connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
