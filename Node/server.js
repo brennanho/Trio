@@ -5,17 +5,19 @@ const localtunnel = require('localtunnel');
 const port = 8092;
 const wss = new WebSocketServer({ port: port });
 
-let id = 0;
+let id = 0;					
 let ids = []; //For priority queue
 let sockets = {}; //Maintain player sockets
 
-//'Assign random public DNS'
-const tunnel = localtunnel(port, {subdomain: 'testing123456'}, (err, tunnel) => {
-    console.log('Connect to', tunnel.url);
-});
+console.log("Starting server on port:", port);
+
+// 'Assign random public DNS'
+// const tunnel = localtunnel(port, {subdomain: 'testing123456'}, (err, tunnel) => {
+//     console.log('Connect to', tunnel.url);
+// });
 
 wss.on('connection', function connection(ws) {
-	
+
 	//Player is searching for an opponent
 	ids.unshift(id);
 	sockets[id++] = ws;
@@ -24,7 +26,7 @@ wss.on('connection', function connection(ws) {
 	//Player send message to server
 	ws.on('message', function message(msg) {
 		msg = "" + msg;
-		console.log(msg);
+		//console.log(msg);
 		if (msg == "Find Match") {
 			while (ids.length >= 2) {
 				let player_1_ID = ids.pop();
@@ -34,14 +36,19 @@ wss.on('connection', function connection(ws) {
 				sockets[player_2_ID].send('ID' + player_2_ID.toString() + ', OppID' + player_1_ID.toString() + ',' + seed);
 				console.log(player_1_ID.toString(), "V.S", player_2_ID.toString()); 
 			}
-		} 
-		// In game messaging i.e. opponent found a set
-		if (msg.startsWith("SET")) {
+		}  // In game messaging i.e. opponent found a set
+		else if (msg.startsWith("SET")) {
 			msg = msg.split(",")
 			let opp_id = parseInt(msg[1]);
 			let set = msg[2] + "," + msg[3] + "," + msg[4];
 			sockets[opp_id].send("SET," + set);
 			console.log("Set sent to Opp_ID:", opp_id.toString());
+		} 
+		else { //Not a valid message sent to server -> close connection
+			ws.close();
+			delete sockets[--id];
+     		ids.splice(ids.indexOf(id), 1);
+			console.log("Closing");
 		}
 	});
 

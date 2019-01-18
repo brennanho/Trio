@@ -7,7 +7,6 @@ var my_name
 var players_in_lobby = {}
 var players_score = {}
 var peer
-var upnp
 var server_ip = "127.0.0.1"
 var prev_scene
 var game_mode 

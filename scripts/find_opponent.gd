@@ -8,7 +8,10 @@ func _connection_established(protocol):
 	print(global.ws.get_peer(1).put_packet(msg))
 func _connection_closed(reason):
 	print("Connection closed:", reason)
-	global.ws.get_peer(1).put_packet("ID: " + global.socket_id + "has disconnected")
+	if global.socket_id != null:
+		global.ws.get_peer(1).put_packet("ID: " + global.socket_id + "has disconnected")
+	else:
+		global.ws.get_peer(1).put_packet("ID: UNKNOWN has disconnected")
 func _connection_error():
 	print("Could not connect to server")
 
@@ -17,6 +20,7 @@ func _data_received():
 	print(msg)
 	if msg.begins_with("ID"):
 		msg = msg.split(",")
+		print(msg)
 		global.socket_id = int(msg[0].substr(2,len(msg[0])))
 		global.opp_socket_id = int(msg[1].substr(6, len(msg[1])))
 		global.seed_val = int(msg[2])
@@ -36,10 +40,10 @@ func _data_received():
 		print("Opponent has found a set: ", card_1, card_2, card_3)
 
 func _on_Find_Opponent_button_down():
+	self.disabled = true
 	set_process(true)
 	while global.ws.connect_to_url(server_url, PoolStringArray(['Find Opponent']), false) != 0:
 		print("Attempting to connect to server...")
-	self.disabled = true
 
 func _process(delta):
 	global.ws.poll()
