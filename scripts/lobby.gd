@@ -41,6 +41,7 @@ func remove_player_from_screen(player_id):
 
 func _ready():
 	var seed_val
+	global.game_mode = "local"
 	start_title = get_node("Start_Game").text + "    Players: "
 	if global.network_role == "Server":
 		global.peer = get_node("Network").init_server()

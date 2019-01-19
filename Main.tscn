@@ -11,11 +11,13 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 32
+use_filter = false
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 45
+use_filter = false
 font_data = ExtResource( 2 )
 
 [node name="Menu" type="Control"]
