@@ -88,15 +88,20 @@ var cards = [
 var set = []
 
 #Ensures there is atleast 1 set on the board
-func make_board_valid(set):
-	var refreshes = 0
-	while get_set_count() == 0 and refreshes < cards.size() and cards.size() > 0:
-		var card_node = get_node(set[0][4])
-		var back_in = card_node.refresh_card()
-		cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
-		refreshes += 1
-		print("board refresh")
-	return get_set_count()
+func make_board_valid():
+	if cards.size() > 0:
+		for i in range(1,13):
+			if get_set_count() == 0:
+				var card_node = get_node("card_" + str(i))
+				var back_in = card_node.refresh_card()
+				cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
+				print("board_refresh")
+			else:
+				return get_set_count()
+	else:
+		global.refresh_globals()
+		get_tree().change_scene("Main.tscn")
+		
 
 #Update the screen UI to display the number of sets available
 func update_sets_available(num_sets):
@@ -119,7 +124,7 @@ sync func update_game(set, player_id):
 		global.refresh_globals()
 		get_tree().change_scene("Main.tscn")
 	
-	var num_sets = make_board_valid(set)
+	var num_sets = make_board_valid()
 	update_sets_available(num_sets)
 
 #Randomizes all cards in the deck	
@@ -213,7 +218,7 @@ func _set_found_received():
 			global.refresh_globals()
 			get_tree().change_scene("Main.tscn")
 	
-		var num_sets = make_board_valid(set)
+		var num_sets = make_board_valid()
 		update_sets_available(num_sets)
 	
 func _connection_established(protocol):
@@ -235,7 +240,7 @@ func _process(delta):
 	global.ws.poll()
 	
 func _ready():
-	var num_sets = make_board_valid(set)
+	var num_sets = make_board_valid()
 	update_sets_available(num_sets)
 	if global.game_mode == "remote":
 		global.ws.connect("data_received", self, "_set_found_received")

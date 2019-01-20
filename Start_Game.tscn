@@ -426,10 +426,10 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sets_Remaining" type="Label" parent="."]
-margin_left = 177.0
-margin_top = 264.0
-margin_right = 418.0
-margin_bottom = 307.0
+margin_left = 141.764
+margin_top = 261.064
+margin_right = 382.764
+margin_bottom = 304.064
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
@@ -464,10 +464,10 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 470.65
-margin_top = 33.3917
-margin_right = 552.65
-margin_bottom = 88.3917
+margin_left = 450.096
+margin_top = 253.616
+margin_right = 532.096
+margin_bottom = 308.616
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )
 text = "90"
