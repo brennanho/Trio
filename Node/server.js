@@ -12,16 +12,16 @@ let sockets = {}; //Maintain player sockets
 console.log("Starting server on port:", port);
 
 // 'Assign random public DNS'
-// const tunnel = localtunnel(port, {subdomain: 'testing123456'}, (err, tunnel) => {
-//     console.log('Connect to', tunnel.url);
-// });
+const tunnel = localtunnel(port, {subdomain: 'testing123456'}, (err, tunnel) => {
+    console.log('Connect to', tunnel.url);
+});
 
 wss.on('connection', function connection(ws) {
 
 	//Player is searching for an opponent
 	ids.unshift(id);
 	sockets[id++] = ws;
-	console.log("Players in queue:", Object.keys(sockets).length);
+	console.log("Players in queue:", ids.length);
 
 	//Player send message to server
 	ws.on('message', function message(msg) {
@@ -44,11 +44,11 @@ wss.on('connection', function connection(ws) {
 			sockets[opp_id].send("SET," + set);
 			console.log("Set sent to Opp_ID:", opp_id.toString());
 		} 
+		else if (msg == "PING") {
+			//pass
+		}
 		else { //Not a valid message sent to server -> close connection
 			ws.close();
-			delete sockets[--id];
-     		ids.splice(ids.indexOf(id), 1);
-			console.log("Closing");
 		}
 	});
 
