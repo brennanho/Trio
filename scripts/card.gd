@@ -15,6 +15,7 @@ func refresh_card():
 
 func card_pressed():
 	var card = current_card
+	print(card)
 	card.append(self.get_name())
 	get_parent().add_card(card)
 	if i % 2 == 0:

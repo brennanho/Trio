@@ -32,12 +32,6 @@ func _data_received():
 		global.players_score[global.opp_socket_id] = 0
 		global.my_name = global.socket_id
 		get_tree().change_scene("Start_Game.tscn")
-	elif msg.begins_with("SET"):
-		msg = msg.split(",")
-		var card_1 = msg[1]
-		var card_2 = msg[2]
-		var card_3 = msg[3]
-		print("Opponent has found a set: ", card_1, card_2, card_3)
 
 func _on_Find_Opponent_button_down():
 	self.disabled = true

@@ -8,6 +8,7 @@ const wss = new WebSocketServer({ port: port });
 let id = 0;					
 let ids = []; //For priority queue
 let sockets = {}; //Maintain player sockets
+let opponent_ids = {}; //Maintain 
 
 console.log("Starting server on port:", port);
 
@@ -31,6 +32,8 @@ wss.on('connection', function connection(ws) {
 			while (ids.length >= 2) {
 				let player_1_ID = ids.pop();
 				let player_2_ID = ids.pop();
+				opponent_ids[player_1_ID] = player_2_ID;
+				opponent_ids[player_2_ID] = player_1_ID;
 				let seed = Math.floor(Math.random() * 1000).toString();
 				sockets[player_1_ID].send('ID' + player_1_ID.toString() + ', OppID' + player_2_ID.toString() + ',' + seed);
 				sockets[player_2_ID].send('ID' + player_2_ID.toString() + ', OppID' + player_1_ID.toString() + ',' + seed);
@@ -45,7 +48,7 @@ wss.on('connection', function connection(ws) {
 			console.log("Set sent to Opp_ID:", opp_id.toString());
 		} 
 		else if (msg == "PING") {
-			//pass
+			//ensuring client stays alive in game
 		}
 		else { //Not a valid message sent to server -> close connection
 			ws.close();
@@ -58,8 +61,16 @@ wss.on('connection', function connection(ws) {
 		for (let id in sockets) {
 			if (sockets[id] === ws) {
 				console.log("Player ID:", id, "has disconnected");
-				delete sockets[id];
-     			ids.splice(ids.indexOf(id), 1);
+				try {
+					sockets[opponent_ids[id]].send('WIN');
+					delete opponent_ids[id];
+					delete opponent_ids[opponent_ids[id]];
+					delete sockets[id];
+					delete sockets[opponent_ids[id]];
+	     			ids.splice(ids.indexOf(id), 1);
+	     		} catch (err) {
+	     			//
+	     		}
      			break;
 			}
 		}

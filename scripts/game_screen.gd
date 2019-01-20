@@ -91,7 +91,7 @@ var set = []
 func make_board_valid():
 	if cards.size() > 0:
 		for i in range(1,13):
-			if get_set_count() == 0:
+			if get_set_count() == 0: #Shuffle a card back into the deck from the table and draw a new one
 				var card_node = get_node("card_" + str(i))
 				var back_in = card_node.refresh_card()
 				cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
@@ -217,9 +217,12 @@ func _set_found_received():
 		else: #Game over
 			global.refresh_globals()
 			get_tree().change_scene("Main.tscn")
-	
 		var num_sets = make_board_valid()
 		update_sets_available(num_sets)
+	elif msg == "WIN":
+		print("You win!")
+		global.refresh_globals()
+		get_tree().change_scene("res://Main.tscn")
 	
 func _connection_established(protocol):
 	var msg = "Rejoining game".to_utf8()
@@ -248,6 +251,6 @@ func _ready():
 		global.ws.connect("connection_closed", self, "_connection_closed")
 		global.ws.connect("connection_error", self, "_connection_error")
 		set_process(true)
-	else:
+	else: #local game i.e. same wifi or solo
 		get_parent().get_node("Timer").stop()
 		set_process(false)
