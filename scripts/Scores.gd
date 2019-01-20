@@ -1,6 +1,7 @@
 extends GridContainer
 
 func _ready():
+	self.add_color_override("bob", Color(0.1,0.5,1))
 	for player_id in global.players_score.keys():
 		var player = Label.new()
 		var font = DynamicFont.new()

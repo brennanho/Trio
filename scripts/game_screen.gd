@@ -109,7 +109,7 @@ func update_sets_available(num_sets):
 sync func update_game(set, player_id):
 	if global.game_mode == "local":
 		global.players_score[player_id] += 1
-		get_parent().get_node("Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
+		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
 	
 	if cards.size() >= 3: #Refresh the board with new cards
 		for i in range(3):
@@ -183,7 +183,7 @@ func add_card(card):
 					print("Sending to server:", msg)
 					update_game(set, global.my_name)
 					global.players_score[global.socket_id] += 1
-					get_parent().get_node("Scores").get_node(str(global.socket_id)).text = str(global.fruits[global.socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.socket_id])
+					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = str(global.fruits[global.socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.socket_id])
 				else: #Local game
 					rpc("update_game", set, global.my_name)
 			else:
@@ -206,7 +206,7 @@ func _set_found_received():
 		var set = []
 		print("Opponent has found a set: ", card_1, card_2, card_3)
 		global.players_score[global.opp_socket_id] += 1
-		get_parent().get_node("Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
+		get_parent().get_node("Color/Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
 		if cards.size() >= 3: #Refresh the board with new cards
 			set = [get_node("card_" + card_1).refresh_card(), get_node("card_" + card_2).refresh_card(), get_node("card_" + card_3).refresh_card()]
 		else: #Game over
@@ -244,4 +244,5 @@ func _ready():
 		global.ws.connect("connection_error", self, "_connection_error")
 		set_process(true)
 	else:
+		get_parent().get_node("Timer").stop()
 		set_process(false)

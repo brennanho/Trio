@@ -225,9 +225,9 @@ font_data = ExtResource( 16 )
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0
+margin_left = 0.608337
 margin_top = -1.0
-margin_right = 1.0
+margin_right = -1.39166
 margin_bottom = -1.0
 
 [node name="Game_Screen" type="GridContainer" parent="."]
@@ -435,11 +435,20 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
 align = 1
 
-[node name="Scores" type="GridContainer" parent="."]
-margin_left = 10.0
-margin_top = 11.0
-margin_right = 483.0
-margin_bottom = 215.0
+[node name="Color" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 18.0
+margin_right = 569.0
+margin_bottom = 235.0
+color = Color( 0.968627, 0.968627, 0.968627, 1 )
+
+[node name="Scores" type="GridContainer" parent="Color"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 27.0
+margin_top = 26.0
+margin_right = -105.0
+margin_bottom = -29.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
 custom_constants/vseparation = 15
@@ -455,10 +464,10 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 485.0
-margin_top = 31.0
-margin_right = 567.0
-margin_bottom = 86.0
+margin_left = 470.65
+margin_top = 33.3917
+margin_right = 552.65
+margin_bottom = 88.3917
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )
 text = "90"
