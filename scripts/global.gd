@@ -118,6 +118,7 @@ func refresh_globals():
 	players_in_lobby = {}
 	players_score = {}
 	my_name = -1
-	peer.close_connection()
 	server_ip = "127.0.0.1"
 	prev_scene = ""
+	if game_mode == "local":
+		peer.close_connection()

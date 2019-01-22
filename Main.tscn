@@ -11,11 +11,14 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 32
+use_filter = false
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 
 size = 45
+use_mipmaps = true
+use_filter = false
 font_data = ExtResource( 2 )
 
 [node name="Menu" type="Control"]
@@ -25,8 +28,6 @@ margin_left = -4.17188
 margin_top = 1.17334
 margin_right = -7.17188
 margin_bottom = 1.17334
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="Title" type="TextureRect" parent="."]
 margin_left = -2.0
@@ -80,7 +81,6 @@ text = "127.0.0.1"
 align = 1
 caret_blink = true
 
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="button_down" from="Find_Opponent" to="Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Create_Game" to="Create_Game" method="_on_Create_Game_pressed"]
 [connection signal="pressed" from="Join_Game" to="Join_Game" method="_on_Join_Game_pressed"]
