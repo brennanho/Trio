@@ -58,12 +58,16 @@ wss.on('connection', function connection(ws) {
 		//Inefficient way to remove disconnected player from queue
 		for (const [id, player] of Object.entries(players)) {
 			if (player.socket == ws) {
-				console.log("Player ID:", player.opponent_ID, "has disconnected");
-				players[player.opponent_ID].socket.send('WIN');
-				delete players[id];
-				delete players[player.opponent_ID];
-     			ids.splice(ids.indexOf(id), 1);
-     			break;
+				try {
+					console.log("Player ID:", player.opponent_ID, "has disconnected");
+					players[player.opponent_ID].socket.send('WIN');
+					delete players[id];
+					delete players[player.opponent_ID];
+	     			ids.splice(ids.indexOf(id), 1);
+	     			break;
+	     		} catch (err) {
+	     			console.log(err);
+	     		}
 			}
 		}
 

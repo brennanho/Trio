@@ -11,7 +11,7 @@ func _connection_closed(reason):
 	if global.socket_id != null:
 		global.ws.get_peer(1).put_packet("ID: " + global.socket_id + "has disconnected")
 	else:
-		global.ws.get_peer(1).put_packet("ID: UNKNOWN has disconnected")
+		global.ws.get_peer(1).put_packet("ID: UNKNOWN has disconnected".to_utf8())
 func _connection_error():
 	print("Could not connect to server")
 

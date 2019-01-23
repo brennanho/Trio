@@ -216,13 +216,11 @@ tracks/0/keys = {
 
 size = 42
 use_mipmaps = true
-use_filter = false
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=14]
 
 size = 35
-use_filter = false
 font_data = ExtResource( 16 )
 
 [node name="Main" type="Control"]
@@ -451,13 +449,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 27.0
 margin_top = 26.0
-margin_right = -105.0
+margin_right = -33.0
 margin_bottom = -29.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
-custom_constants/vseparation = 15
-custom_constants/hseparation = 45
-columns = 2
 script = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -481,13 +476,14 @@ script = ExtResource( 18 )
 
 [node name="Lifebar" type="TextureProgress" parent="."]
 visible = false
-margin_left = 72.4633
-margin_top = 72.0
-margin_right = 303.463
-margin_bottom = 136.0
+margin_left = 53.0
+margin_top = 44.0
+margin_right = 536.0
+margin_bottom = 104.0
 value = 50.0
 texture_progress = ExtResource( 19 )
 nine_patch_stretch = true
+stretch_margin_bottom = 60
 script = ExtResource( 20 )
 
 [connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
