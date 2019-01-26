@@ -1,0 +1,14 @@
+  config:
+    # target: "ws://testing123456.localtunnel.me"
+    target: "ws://127.0.0.1:8092"
+    phases:
+      - duration: 60
+        arrivalRate: 2
+  scenarios:
+    - engine: "ws"
+      flow:
+        #- send: "Find Match"
+        #- think: 1
+        - send: "Find Match"
+        - think: 1
+        - send: "PING"
