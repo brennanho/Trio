@@ -1,36 +1,25 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/game_screen.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/card_shader.tres" type="Material" id=2]
 [ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=3]
 [ext_resource path="res://scripts/card.gd" type="Script" id=4]
-[ext_resource path="res://Shaders/card_shader2.tres" type="Material" id=5]
-[ext_resource path="res://Card_Sprites/1_CIRC_RED_SOLID.png" type="Texture" id=6]
-[ext_resource path="res://Shaders/card_shader3.tres" type="Material" id=7]
-[ext_resource path="res://Card_Sprites/1_CIRC_GREEN_SOLID.png" type="Texture" id=8]
-[ext_resource path="res://Shaders/card_shader4.tres" type="Material" id=9]
-[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=10]
-[ext_resource path="res://Shaders/card_shader5.tres" type="Material" id=11]
-[ext_resource path="res://Card_Sprites/1_RHOM_BLUE_EMPTY.png" type="Texture" id=12]
-[ext_resource path="res://Shaders/card_shader6.tres" type="Material" id=13]
-[ext_resource path="res://Card_Sprites/1_XXX_BLUE_SOLID.png" type="Texture" id=14]
-[ext_resource path="res://Shaders/card_shader7.tres" type="Material" id=15]
-[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_DOT.png" type="Texture" id=16]
-[ext_resource path="res://Shaders/card_shader8.tres" type="Material" id=17]
-[ext_resource path="res://Card_Sprites/2_CIRC_RED_SOLID.png" type="Texture" id=18]
-[ext_resource path="res://Shaders/card_shader9.tres" type="Material" id=19]
-[ext_resource path="res://Card_Sprites/1_XXX_GREEN_EMPTY.png" type="Texture" id=20]
-[ext_resource path="res://Shaders/card_shader10.tres" type="Material" id=21]
-[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_EMPTY.png" type="Texture" id=22]
-[ext_resource path="res://Shaders/card_shader11.tres" type="Material" id=23]
-[ext_resource path="res://Card_Sprites/3_XXX_RED_EMPTY.png" type="Texture" id=24]
-[ext_resource path="res://Shaders/card_shader12.tres" type="Material" id=25]
-[ext_resource path="res://Card_Sprites/1_XXX_RED_SOLID.png" type="Texture" id=26]
-[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=27]
-[ext_resource path="res://scripts/Scores.gd" type="Script" id=28]
-[ext_resource path="res://scripts/timer.gd" type="Script" id=29]
-[ext_resource path="res://icon.png" type="Texture" id=30]
-[ext_resource path="res://lifebar.gd" type="Script" id=31]
+[ext_resource path="res://Card_Sprites/1_CIRC_RED_SOLID.png" type="Texture" id=5]
+[ext_resource path="res://Card_Sprites/1_CIRC_GREEN_SOLID.png" type="Texture" id=6]
+[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=7]
+[ext_resource path="res://Card_Sprites/1_RHOM_BLUE_EMPTY.png" type="Texture" id=8]
+[ext_resource path="res://Card_Sprites/1_XXX_BLUE_SOLID.png" type="Texture" id=9]
+[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_DOT.png" type="Texture" id=10]
+[ext_resource path="res://Card_Sprites/2_CIRC_RED_SOLID.png" type="Texture" id=11]
+[ext_resource path="res://Card_Sprites/1_XXX_GREEN_EMPTY.png" type="Texture" id=12]
+[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_EMPTY.png" type="Texture" id=13]
+[ext_resource path="res://Card_Sprites/3_XXX_RED_EMPTY.png" type="Texture" id=14]
+[ext_resource path="res://Card_Sprites/1_XXX_RED_SOLID.png" type="Texture" id=15]
+[ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scripts/Scores.gd" type="Script" id=17]
+[ext_resource path="res://scripts/timer.gd" type="Script" id=18]
+[ext_resource path="res://icon.png" type="Texture" id=19]
+[ext_resource path="res://lifebar.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 
@@ -227,12 +216,12 @@ tracks/0/keys = {
 
 size = 42
 use_mipmaps = true
-font_data = ExtResource( 27 )
+font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=14]
 
 size = 35
-font_data = ExtResource( 27 )
+font_data = ExtResource( 16 )
 
 [node name="Main" type="Control"]
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
@@ -271,13 +260,13 @@ anims/fader = SubResource( 1 )
 
 [node name="card_2" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 5 )
+material = ExtResource( 2 )
 margin_left = 157.0
 margin_right = 267.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
 action_mode = 0
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 4 )
 
@@ -286,13 +275,13 @@ anims/fader = SubResource( 2 )
 
 [node name="card_3" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 7 )
+material = ExtResource( 2 )
 margin_left = 314.0
 margin_right = 424.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
 action_mode = 0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 6 )
 expand = true
 script = ExtResource( 4 )
 
@@ -301,13 +290,13 @@ anims/fader = SubResource( 3 )
 
 [node name="card_4" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 9 )
+material = ExtResource( 2 )
 margin_left = 471.0
 margin_right = 581.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 110, 150 )
 action_mode = 0
-texture_normal = ExtResource( 10 )
+texture_normal = ExtResource( 7 )
 expand = true
 script = ExtResource( 4 )
 
@@ -316,12 +305,12 @@ anims/fader = SubResource( 4 )
 
 [node name="card_5" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 11 )
+material = ExtResource( 2 )
 margin_top = 183.0
 margin_right = 110.0
 margin_bottom = 333.0
 action_mode = 0
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 8 )
 expand = true
 script = ExtResource( 4 )
 
@@ -330,14 +319,14 @@ anims/fader = SubResource( 5 )
 
 [node name="card_6" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 13 )
+material = ExtResource( 2 )
 margin_left = 157.0
 margin_top = 183.0
 margin_right = 267.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 110, 0 )
 action_mode = 0
-texture_normal = ExtResource( 14 )
+texture_normal = ExtResource( 9 )
 expand = true
 script = ExtResource( 4 )
 
@@ -346,14 +335,14 @@ anims/fader = SubResource( 6 )
 
 [node name="card_7" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 15 )
+material = ExtResource( 2 )
 margin_left = 314.0
 margin_top = 183.0
 margin_right = 424.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 110, 150 )
 action_mode = 0
-texture_normal = ExtResource( 16 )
+texture_normal = ExtResource( 10 )
 expand = true
 script = ExtResource( 4 )
 
@@ -362,13 +351,13 @@ anims/fader = SubResource( 7 )
 
 [node name="card_8" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 17 )
+material = ExtResource( 2 )
 margin_left = 471.0
 margin_top = 183.0
 margin_right = 581.0
 margin_bottom = 333.0
 action_mode = 0
-texture_normal = ExtResource( 18 )
+texture_normal = ExtResource( 11 )
 expand = true
 script = ExtResource( 4 )
 
@@ -377,12 +366,12 @@ anims/fader = SubResource( 8 )
 
 [node name="card_9" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 19 )
+material = ExtResource( 2 )
 margin_top = 366.0
 margin_right = 110.0
 margin_bottom = 516.0
 action_mode = 0
-texture_normal = ExtResource( 20 )
+texture_normal = ExtResource( 12 )
 expand = true
 script = ExtResource( 4 )
 
@@ -391,14 +380,14 @@ anims/fader = SubResource( 9 )
 
 [node name="card_10" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 21 )
+material = ExtResource( 2 )
 margin_left = 157.0
 margin_top = 366.0
 margin_right = 267.0
 margin_bottom = 516.0
 rect_min_size = Vector2( 100, 150 )
 action_mode = 0
-texture_normal = ExtResource( 22 )
+texture_normal = ExtResource( 13 )
 expand = true
 script = ExtResource( 4 )
 
@@ -407,13 +396,13 @@ anims/fader = SubResource( 10 )
 
 [node name="card_11" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 23 )
+material = ExtResource( 2 )
 margin_left = 314.0
 margin_top = 366.0
 margin_right = 424.0
 margin_bottom = 516.0
 action_mode = 0
-texture_normal = ExtResource( 24 )
+texture_normal = ExtResource( 14 )
 expand = true
 script = ExtResource( 4 )
 
@@ -422,13 +411,13 @@ anims/fader = SubResource( 11 )
 
 [node name="card_12" type="TextureButton" parent="Game_Screen"]
 editor/display_folded = true
-material = ExtResource( 25 )
+material = ExtResource( 2 )
 margin_left = 471.0
 margin_top = 366.0
 margin_right = 581.0
 margin_bottom = 516.0
 action_mode = 0
-texture_normal = ExtResource( 26 )
+texture_normal = ExtResource( 15 )
 expand = true
 script = ExtResource( 4 )
 
@@ -465,10 +454,10 @@ margin_right = -33.0
 margin_bottom = -29.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
-script = ExtResource( 28 )
+script = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1000.0
+wait_time = 90.0
 one_shot = true
 autostart = true
 
@@ -484,7 +473,7 @@ custom_fonts/font = SubResource( 14 )
 text = "90"
 align = 1
 valign = 1
-script = ExtResource( 29 )
+script = ExtResource( 18 )
 
 [node name="Lifebar" type="TextureProgress" parent="."]
 visible = false
@@ -493,10 +482,10 @@ margin_top = 44.0
 margin_right = 536.0
 margin_bottom = 104.0
 value = 50.0
-texture_progress = ExtResource( 30 )
+texture_progress = ExtResource( 19 )
 nine_patch_stretch = true
 stretch_margin_bottom = 60
-script = ExtResource( 31 )
+script = ExtResource( 20 )
 
 [connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
 [connection signal="changed" from="Lifebar" to="Lifebar" method="_on_TextureProgress_changed"]

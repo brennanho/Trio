@@ -88,16 +88,18 @@ var cards = [
 var set = []
 
 #Ensures there is atleast 1 set on the board
-func make_board_valid():
+func make_board_valid(replaced_cards):
 	if cards.size() > 0:
-		for i in range(1,13):
-			if get_set_count() == 0: #Shuffle a card back into the deck from the table and draw a new one
+		for i in replaced_cards:
+			if get_set_count() < 1: #Shuffle a card back into the deck from the table and draw a new one
 				var card_node = get_node("card_" + str(i))
 				var back_in = card_node.refresh_card()
 				cards.append(back_in[0] + "_" + back_in[1] + "_" + back_in[2] + "_" + back_in[3])
 				print("board_refresh")
 			else:
 				return get_set_count()
+		print("refreshing a card outside of set found")
+		return make_board_valid([1,2,3,4,5,6,7,8,9,10,11,12])
 	else:
 		global.refresh_globals()
 		get_tree().change_scene("Main.tscn")
@@ -116,15 +118,17 @@ sync func update_game(set, player_id):
 		global.players_score[player_id] += 1
 		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
 	
+	var replaced_cards = []
 	if cards.size() >= 3: #Refresh the board with new cards
 		for i in range(3):
 			var card_node = get_node(set[i][4])
+			replaced_cards.append(card_node.name.split("_")[-1])
 			card_node.refresh_card()
 	else: #Game over
 		global.refresh_globals()
 		get_tree().change_scene("Main.tscn")
 	
-	var num_sets = make_board_valid()
+	var num_sets = make_board_valid(replaced_cards)
 	update_sets_available(num_sets)
 
 #Randomizes all cards in the deck	
@@ -219,7 +223,7 @@ func _set_found_received():
 		else: #Game over
 			global.refresh_globals()
 			get_tree().change_scene("Main.tscn")
-		var num_sets = make_board_valid()
+		var num_sets = make_board_valid([card_1, card_2, card_3])
 		update_sets_available(num_sets)
 	elif msg == "WIN":
 		print("You win!")
@@ -245,7 +249,7 @@ func _process(delta):
 	global.ws.poll()
 	
 func _ready():
-	var num_sets = make_board_valid()
+	var num_sets = make_board_valid([1,2,3])
 	update_sets_available(num_sets)
 	if global.game_mode == "remote":
 		global.ws.connect("data_received", self, "_set_found_received")
