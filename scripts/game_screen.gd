@@ -197,6 +197,7 @@ func add_card(card):
 			for i in range(3):
 				var card_node = get_node(set[i][4])
 				card_node.get_node("fade").play_backwards("fader")
+				card_node.material.set_shader_param("outline_color", Color(0.9, 0.9, 0.9, 1))
 				card_node.i += 1
 			set.clear()
 
