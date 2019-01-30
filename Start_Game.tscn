@@ -454,6 +454,7 @@ margin_right = -33.0
 margin_bottom = -29.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
+columns = 2
 script = ExtResource( 17 )
 
 [node name="Timer" type="Timer" parent="."]
