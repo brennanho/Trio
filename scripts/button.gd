@@ -8,7 +8,6 @@ func _on_Create_Game_pressed():
 
 
 func _on_Join_Game_pressed():
-	global.server_ip = get_node("LineEdit").text
 	global.network_role = "Client"
 	global.prev_scene = "Main.tscn"
 	get_tree().change_scene("Lobby.tscn")

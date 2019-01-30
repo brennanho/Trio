@@ -8,6 +8,7 @@ var players_in_lobby = {}
 var players_score = {}
 var peer
 var server_ip = "127.0.0.1"
+var udp_sock
 var prev_scene
 var game_mode 
 
@@ -82,7 +83,8 @@ var fruits = [
 	"Pomegranate",
 	"Pomelo",
 	"Quince",
-	"RaspberrySalmonberry",
+	"Raspberry",
+	"Salmonberry",
 	"Rambutan",
 	"Redcurrant",
 	"Salak",

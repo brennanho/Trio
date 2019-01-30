@@ -455,6 +455,8 @@ margin_right = -33.0
 margin_bottom = -29.0
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 10
 columns = 2
 script = ExtResource( 17 )
 
@@ -466,10 +468,10 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 450.096
-margin_top = 253.616
-margin_right = 532.096
-margin_bottom = 308.616
+margin_left = 465.752
+margin_top = 259.136
+margin_right = 541.752
+margin_bottom = 314.136
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )
 text = "90"

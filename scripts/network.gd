@@ -1,6 +1,7 @@
 extends Node
-const int_port = 56885
-const ext_port = 56885
+const udp_client_port = 56883
+const udp_server_port = 56884
+const port = 56885
 
 # EXECUTED ON CLIENT SIDE
 remote func update_players_lobby(players, id):
@@ -46,10 +47,35 @@ func _client_disconnected(id):
 			rpc_id(player_id, "remove_client_from_other_client", id)
 	get_parent().remove_player_from_screen(id)
 	
+func find_server(nil):
+	global.udp_sock = PacketPeerUDP.new()
+	global.udp_sock.set_dest_address("255.255.255.255", udp_server_port)
+	global.udp_sock.listen(udp_client_port)
+	while true:
+		global.udp_sock.put_var(global.get_host_ip())
+		global.server_ip = global.udp_sock.get_var()
+		if global.server_ip != null:
+			global.udp_sock.close()
+			return init_client(global.server_ip)
+		OS.delay_msec(2000)
+		
+func broadcast_to_clients(nil):
+	global.udp_sock = PacketPeerUDP.new()
+	var my_ip = global.get_host_ip()
+	global.udp_sock.listen(udp_server_port)
+	while true:
+		var client_ip = global.udp_sock.get_var()
+		if client_ip != null:
+			print("Sending ", client_ip, " my server_ip ", my_ip)
+			global.udp_sock.set_dest_address(client_ip, udp_client_port)
+			global.udp_sock.put_var(my_ip)
+			client_ip = null
+		OS.delay_msec(2000)
+	
 func init_server():
 	global.peer = NetworkedMultiplayerENet.new()	
 	global.server_ip = global.get_host_ip()
-	global.peer.create_server(int_port, 5)
+	global.peer.create_server(port, 5)
 	global.my_name = 1
 	global.peer.set_always_ordered(true)
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
@@ -60,7 +86,7 @@ func init_server():
 
 func init_client(ip):
 	global.peer = NetworkedMultiplayerENet.new()
-	global.peer.create_client(ip, int_port, 0, 0, 0)
+	global.peer.create_client(ip, port, 0, 0, 0)
 	global.peer.set_always_ordered(true) 
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)

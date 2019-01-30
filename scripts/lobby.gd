@@ -4,6 +4,7 @@ var start_title
 sync func start_game(scene_to_load, seed_val, peer):
 	if peer.get_unique_id() == 1: #peer is server
 		peer.refuse_new_connections = true
+		global.udp_sock.close()
 	
 	global.seed_val = seed_val
 	global.prev_scene = get_tree().current_scene
@@ -43,13 +44,15 @@ func _ready():
 	var seed_val
 	global.game_mode = "local"
 	start_title = get_node("Start_Game").text + "    Players: "
+	var thread = Thread.new()
 	if global.network_role == "Server":
 		global.peer = get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
 		add_player_to_screen(1)
+		thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
 		get_node("Start_Game").disabled = true
-		global.peer = get_node("Network").init_client(global.server_ip)
+		global.peer = thread.start(get_node("Network"), "find_server", [null])
 	var start_game_button = self.get_child(0)
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])
