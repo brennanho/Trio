@@ -245,6 +245,7 @@ columns = 4
 script = ExtResource( 1 )
 
 [node name="card_1" type="TextureButton" parent="Game_Screen"]
+editor/display_folded = true
 material = ExtResource( 2 )
 margin_right = 110.0
 margin_bottom = 150.0

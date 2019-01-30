@@ -91,12 +91,9 @@ var set = []
 func make_board_valid(victim_card):
 	while get_set_count() < 2: #Shuffle a card back into the deck from the table and draw a new one
 		var card_node = get_node("card_" + victim_card)
-		var back_in = card_node.refresh_card()
-		cards.append(PoolStringArray(back_in).join("_"))
-		print("board_refresh")
+		card_node.refresh_card()
 	return get_set_count()
 		
-
 #Update the screen UI to display the number of sets available
 func update_sets_available(num_sets):
 	if num_sets == 1:
@@ -115,7 +112,6 @@ sync func update_game(set, player_id):
 	for i in range(3): #Refresh the board with new cards
 		var card_node = get_node(set[i][4])
 		var back_in = card_node.refresh_card()
-		cards.append(PoolStringArray(back_in).join("_"))
 		victim_card = card_node.name
 	
 	var num_sets = make_board_valid(victim_card.split("_")[-1])

@@ -1,20 +1,20 @@
 extends TextureButton
 
 onready var cards = self.get_parent().cards
-var current_card 
+var current_card
 var i = 0
 
 func refresh_card():
-	#print(self.texture_normal.resource_path.split("/")[-1].split(".")[0])
+	if current_card != null:
+		get_parent().cards.append(PoolStringArray(current_card).join("_"))
 	var card_name = cards.pop_front()
 	var image = load("res://Card_Sprites/" + card_name + ".png")
 	set_normal_texture(image)
 	current_card = card_name.split("_")
-	return self.texture_normal.resource_path.split("/")[-1].split(".")[0].split("_")
+	return current_card
 
 func card_pressed():
 	var card = current_card
-	print(self.texture_normal.resource_path.split("/")[-1].split(".")[0])
 	card.append(self.get_name())
 	get_parent().add_card(card)
 	if i % 2 == 0:
