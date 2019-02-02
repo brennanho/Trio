@@ -33,11 +33,9 @@ func _disconnected_from_server(id):
 func _client_connected(id):
 	print('Client ' + str(id) + ' has joined')
 	get_parent().add_player_to_screen(id)
-	var i = 2
 	for player_id in global.players_in_lobby.keys():
 		if player_id != 1 and player_id != id:
 			rpc_id(player_id, "add_new_client_to_other_client", id)
-			i += 1
 	rpc_id(id, "update_players_lobby", global.players_in_lobby, id)
 
 func _client_disconnected(id):
@@ -46,31 +44,21 @@ func _client_disconnected(id):
 		if player_id != 1 and player_id != id:
 			rpc_id(player_id, "remove_client_from_other_client", id)
 	get_parent().remove_player_from_screen(id)
-	
-func find_server(nil):
-	global.udp_sock = PacketPeerUDP.new()
-	global.udp_sock.set_dest_address("255.255.255.255", udp_server_port)
-	global.udp_sock.listen(udp_client_port)
-	while true:
-		global.udp_sock.put_var(global.get_host_ip())
-		global.server_ip = global.udp_sock.get_var()
-		if global.server_ip != null:
-			global.udp_sock.close()
-			return init_client(global.server_ip)
-		OS.delay_msec(2000)
 		
 func broadcast_to_clients(nil):
 	global.udp_sock = PacketPeerUDP.new()
 	var my_ip = global.get_host_ip()
 	global.udp_sock.listen(udp_server_port)
-	while true:
+	global.discovery_on = true
+	while global.discovery_on:
 		var client_ip = global.udp_sock.get_var()
 		if client_ip != null:
 			print("Sending ", client_ip, " my server_ip ", my_ip)
 			global.udp_sock.set_dest_address(client_ip, udp_client_port)
 			global.udp_sock.put_var(my_ip)
 			client_ip = null
-		OS.delay_msec(2000)
+		OS.delay_msec(100)
+	return 0
 	
 func init_server():
 	global.peer = NetworkedMultiplayerENet.new()	
@@ -86,7 +74,7 @@ func init_server():
 
 func init_client(ip):
 	global.peer = NetworkedMultiplayerENet.new()
-	global.peer.create_client(ip, port, 0, 0, 0)
+	global.peer.create_client(ip, port)
 	global.peer.set_always_ordered(true) 
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)

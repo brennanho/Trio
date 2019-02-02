@@ -111,7 +111,7 @@ sync func update_game(set, player_id):
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
 		var card_node = get_node(set[i][4])
-		var back_in = card_node.refresh_card()
+		card_node.refresh_card()
 		victim_card = card_node.name
 	
 	var num_sets = make_board_valid(victim_card.split("_")[-1])
