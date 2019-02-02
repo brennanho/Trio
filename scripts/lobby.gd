@@ -46,16 +46,15 @@ func _ready():
 	var seed_val
 	global.game_mode = "local"
 	start_title = get_node("Start_Game").text + "    Players: "
-	global.discover_thread = Thread.new()
 	if global.network_role == "Server":
 		global.peer = get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
 		add_player_to_screen(1)
+		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
 		get_node("Start_Game").disabled = true
-		#global.discover_thread.start(get_node("Network"), "find_server", [null])
 		get_node("Network").init_client(global.server_ip)
 	var start_game_button = self.get_child(0)
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])

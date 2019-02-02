@@ -1,6 +1,7 @@
 extends VBoxContainer
 const udp_client_port = 56883
 const udp_server_port = 56884
+const MAX_ATTEMPTS = 100
 var servers = []
 var attempts = 0
 
@@ -25,6 +26,7 @@ func find_servers():
 	return servers
 	
 func _pressed(server_ip):
+	set_process(false)
 	global.refresh_globals()
 	global.server_ip = server_ip
 	get_tree().change_scene("Lobby.tscn")
@@ -33,7 +35,7 @@ func _process(delta):
 	var updated_servers = find_servers()
 	if updated_servers.size() == 0:
 		attempts += 1
-		if attempts >= 10:
+		if attempts >= MAX_ATTEMPTS:
 			for child in get_children():
 				servers.erase(child.text)
 				remove_child(child)
@@ -46,7 +48,7 @@ func _process(delta):
 			server_button.name = server_ip
 			server_button.text = server_ip
 			server_button.rect_min_size.y = 75
-			server_button.connect("button_down", self, "_pressed", [server_ip])
+			server_button.connect("pressed", self, "_pressed", [server_ip])
 			add_child(server_button)
 		
 func _ready():

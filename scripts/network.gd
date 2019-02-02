@@ -53,7 +53,7 @@ func broadcast_to_clients(nil):
 	while global.discovery_on:
 		var client_ip = global.udp_sock.get_var()
 		if client_ip != null:
-			print("Sending ", client_ip, " my server_ip ", my_ip)
+			#print("Sending ", client_ip, " my server_ip ", my_ip)
 			global.udp_sock.set_dest_address(client_ip, udp_client_port)
 			global.udp_sock.put_var(my_ip)
 			client_ip = null
