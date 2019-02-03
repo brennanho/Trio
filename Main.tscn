@@ -61,16 +61,15 @@ script = ExtResource( 6 )
 [node name="Join_Game" type="TextureButton" parent="."]
 material = ExtResource( 4 )
 margin_left = 143.596
-margin_top = 725.272
+margin_top = 715.202
 margin_right = 465.596
-margin_bottom = 934.272
+margin_bottom = 924.202
 rect_rotation = 360.024
 texture_normal = ExtResource( 7 )
 expand = true
 script = ExtResource( 6 )
 
 [node name="LineEdit" type="LineEdit" parent="Join_Game"]
-visible = false
 margin_left = 41.1568
 margin_top = 231.301
 margin_right = 285.157

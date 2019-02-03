@@ -3,13 +3,13 @@ var start_title
 
 sync func start_game(scene_to_load, seed_val, peer):
 	if peer.get_unique_id() == 1: #peer is server
+		global.discovery_on = false
+		global.discover_thread.wait_to_finish()
 		peer.refuse_new_connections = true
 		global.udp_sock.close()
 	
 	global.seed_val = seed_val
 	global.prev_scene = get_tree().current_scene
-	global.discovery_on = false
-	global.discover_thread.wait_to_finish()
 	get_tree().change_scene(scene_to_load + ".tscn")
 
 func _button_pressed(scene_to_load, seed_val, peer):
