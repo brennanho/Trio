@@ -21,7 +21,6 @@
 [ext_resource path="res://icon.png" type="Texture" id=19]
 [ext_resource path="res://scripts/lifebar.gd" type="Script" id=20]
 
-
 [sub_resource type="Animation" id=1]
 
 tracks/0/type = "value"

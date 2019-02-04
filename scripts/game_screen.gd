@@ -179,7 +179,7 @@ func add_card(card):
 					update_game(set, global.my_name)
 					global.players_score[global.socket_id] += 1
 					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = str(global.fruits[global.socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.socket_id])
-					get_parent().get_node("Timer").start()
+					get_node("ping").start()
 				else: #Local game
 					rpc("update_game", set, global.my_name)
 			else:
@@ -244,6 +244,6 @@ func _ready():
 		global.ws.connect("connection_error", self, "_connection_error")
 		set_process(true)
 	else: #local game i.e. same wifi or solo
-		get_parent().get_node("Timer").stop()
+		get_node("ping").stop()
 		get_node("ping").disconnect("timeout", self, "_on_ping_timeout")
 		set_process(false)

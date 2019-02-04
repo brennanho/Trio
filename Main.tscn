@@ -70,6 +70,7 @@ expand = true
 script = ExtResource( 6 )
 
 [node name="LineEdit" type="LineEdit" parent="Join_Game"]
+visible = false
 margin_left = 41.1568
 margin_top = 231.301
 margin_right = 285.157
