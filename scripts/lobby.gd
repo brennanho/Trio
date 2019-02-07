@@ -34,18 +34,15 @@ func add_player_to_screen(player_id):
 	player.valign = VALIGN_CENTER
 	add_child(player)
 	global.players_in_lobby[player_id] = player
-	get_parent().get_node("Start_Game").text = start_title + str(global.players_in_lobby.size())
 	
 func remove_player_from_screen(player_id):
 	remove_child(global.players_in_lobby[player_id])
 	global.players_in_lobby.erase(player_id)
 	global.players_score.erase(player_id)
-	get_parent().get_node("Start_Game").text = start_title + str(global.players_in_lobby.size())
 
 func _ready():
 	var seed_val
 	global.game_mode = "local"
-	start_title = get_parent().get_node("Start_Game").text + "    Players: "
 	if global.network_role == "Server":
 		global.peer = get_node("Network").init_server()
 		randomize()
@@ -54,7 +51,6 @@ func _ready():
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
-		get_node("Start_Game").disabled = true
 		get_node("Network").init_client(global.server_ip)
 	var start_game_button = get_parent().get_node("Start_Game")
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])
