@@ -17,12 +17,12 @@
 [ext_resource path="res://Menu_Sprites/FX/3LOADING_FILL.png" type="Texture" id=15]
 [ext_resource path="res://Menu_Sprites/FX/4LOADING_FULL.png" type="Texture" id=16]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 50
 font_data = ExtResource( 10 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
@@ -43,10 +43,10 @@ rect_rotation = 270.0
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1017.0
-margin_top = -11.0
-margin_right = 613.0
-margin_bottom = 421.0
+margin_left = 1030.0
+margin_top = -21.0
+margin_right = 645.0
+margin_bottom = 424.0
 rect_rotation = 90.0
 texture = ExtResource( 1 )
 expand = true
@@ -94,7 +94,7 @@ margin_top = 159.91
 margin_right = 1188.95
 margin_bottom = 215.91
 rect_rotation = 89.9868
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ROOM NAME"
 align = 1
@@ -103,8 +103,8 @@ script = ExtResource( 11 )
 [node name="Loading" type="AnimatedSprite" parent="."]
 position = Vector2( 947.176, 513.004 )
 scale = Vector2( 0.448125, 0.498043 )
-frames = SubResource( 3 )
-frame = 1
+frames = SubResource( 2 )
+frame = 2
 playing = true
 flip_v = true
 

@@ -11,7 +11,9 @@ func find_servers():
 	global.udp_sock.listen(udp_client_port)
 	global.discovery_on = true
 	if global.discovery_on:
-		for addr in IP.get_local_addresses():
+		var addresses = IP.get_local_addresses()
+		addresses.append("255.255.255.255")
+		for addr in addresses:
 			var parts = addr.split('.')
 			if parts.size() == 4:
 				parts[3] = '255'
@@ -48,8 +50,11 @@ func _process(delta):
 			server_button.name = server_ip
 			server_button.text = server_ip
 			server_button.rect_min_size.y = 75
+			server_button.mouse_filter = server_button.MOUSE_FILTER_PASS
 			server_button.connect("pressed", self, "_pressed", [server_ip])
 			add_child(server_button)
 		
 func _ready():
+	rect_min_size.x = get_parent().rect_size.x
+	rect_min_size.y = get_parent().rect_size.y
 	set_process(true)

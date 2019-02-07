@@ -46,7 +46,10 @@ margin_bottom = 1.17334
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 12.0
+margin_left = -26.0
+margin_top = -32.0
+margin_right = 38.0
+margin_bottom = 22.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
@@ -101,7 +104,7 @@ visible = false
 position = Vector2( 503.56, 662.227 )
 scale = Vector2( 0.143161, 0.197384 )
 frames = SubResource( 2 )
-frame = 6
+frame = 2
 playing = true
 
 [connection signal="button_down" from="Find_Opponent" to="Find_Opponent" method="_on_Find_Opponent_button_down"]

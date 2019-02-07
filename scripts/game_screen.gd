@@ -103,14 +103,12 @@ func update_sets_available(num_sets):
 
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, player_id):
-	print(cards.size())
 	if global.game_mode == "local":
 		global.players_score[player_id] += 1
 		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
-		print(set[i][4])
 		var card_node = get_node(set[i][4]).get_node("card")
 		card_node.refresh_card()
 		victim_card = card_node.get_parent().name
@@ -183,8 +181,8 @@ func add_card(card):
 					get_node("ping").start()
 				else: #Local game
 					rpc("update_game", set, global.my_name)
-			else:
-				print("not a set")
+			else: #Not a set
+				pass
 			for i in range(3):
 				var card_node = get_node(set[i][4])
 				card_node.self_modulate = "#ffffff"

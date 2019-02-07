@@ -51,6 +51,7 @@ func _ready():
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
+		get_parent().get_node("Start_Game").disabled = true
 		get_node("Network").init_client(global.server_ip)
 		get_parent().get_node("Start_Game").disabled = true
 	var start_game_button = get_parent().get_node("Start_Game")

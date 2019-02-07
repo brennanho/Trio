@@ -99,7 +99,14 @@ var fruits = [
 	"Tamarillo",
 	"Tamarind",
 	"Yuzu"]
-
+	
+func ip_to_name(ip):
+	var hashed = 0
+	ip = ip.split('.')
+	for num in ip:
+		hashed += int(num)
+	return fruits[hashed%fruits.size()]
+	
 func get_host_ip():
 	var ips = []
 	var bad_ips = ['169.254', '127.0.0.1', '0:0'] 
