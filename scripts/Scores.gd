@@ -6,7 +6,7 @@ func _ready():
 		var player = Label.new()
 		var font = DynamicFont.new()
 		font.size = 40
-		font.font_data = load("res://fonts/CallingCards_Reg_sample.ttf")
+		font.font_data = load("res://fonts/Robi-Regular.ttf")
 		player.text =  str(global.fruits[player_id%global.fruits.size()]) + " : " + str(global.players_score[player_id])
 		player.align = player.ALIGN_RIGHT
 		player.add_font_override("font", font)

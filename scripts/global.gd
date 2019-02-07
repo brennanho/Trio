@@ -134,7 +134,6 @@ func refresh_globals():
 	players_in_lobby = {}
 	players_score = {}
 	my_name = -1
-	global.udp_sock.close()
+	udp_sock.close()
 	if game_mode == "local" and typeof(peer) == 17: #Valid peer object
-		if peer.get_connection_status() != 0: #disconnected already
-			peer.close_connection()
+		peer.close_connection()

@@ -38,6 +38,10 @@ window/handheld/emulate_touchscreen=true
 
 "Default Clear Color"=false
 
+[memory]
+
+limits/multithreaded_server/rid_pool_prealloc=100
+
 [rendering]
 
 quality/subsurface_scattering/quality=2

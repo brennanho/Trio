@@ -6,5 +6,5 @@
 
 render_priority = 1
 shader = ExtResource( 1 )
-shader_param/scaler = 2.0
+shader_param/scaler = 1.0
 

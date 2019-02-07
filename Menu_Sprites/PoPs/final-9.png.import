@@ -2,18 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JOIN_GAME.png-34477aeee47d069ac6a4d62d6dc8d5a2.stex"
+path="res://.import/final-9.png-99f275d7279c8c3a898dfcd69cacc5df.stex"
 
 [deps]
 
-source_file="res://Menu_Sprites/JOIN_GAME.png"
-dest_files=[ "res://.import/JOIN_GAME.png-34477aeee47d069ac6a4d62d6dc8d5a2.stex" ]
+source_file="res://Menu_Sprites/PoPs/final-9.png"
+dest_files=[ "res://.import/final-9.png-99f275d7279c8c3a898dfcd69cacc5df.stex" ]
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -23,6 +24,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

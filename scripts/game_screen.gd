@@ -90,7 +90,7 @@ var set = []
 #Ensures there is atleast 1 set on the board
 func make_board_valid(victim_card):
 	while get_set_count() < 2: #Shuffle a card back into the deck from the table and draw a new one
-		var card_node = get_node("card_" + victim_card)
+		var card_node = get_node("card_" + victim_card).get_node("card")
 		card_node.refresh_card()
 	return get_set_count()
 		
@@ -110,9 +110,10 @@ sync func update_game(set, player_id):
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
-		var card_node = get_node(set[i][4])
+		print(set[i][4])
+		var card_node = get_node(set[i][4]).get_node("card")
 		card_node.refresh_card()
-		victim_card = card_node.name
+		victim_card = card_node.get_parent().name
 	
 	var num_sets = make_board_valid(victim_card.split("_")[-1])
 	update_sets_available(num_sets)
@@ -154,11 +155,11 @@ func is_set(set):
 func get_set_count():
 	var sets = []
 	for i in range(1,10):
-		var card_1 = get_node("card_" + str(i)).current_card
+		var card_1 = get_node("card_" + str(i)).get_node("card").current_card
 		for j in range(i+1,11):
-			var card_2 = get_node("card_" + str(j)).current_card
+			var card_2 = get_node("card_" + str(j)).get_node("card").current_card
 			for k in range(j+1,12):
-				var card_3 = get_node("card_" + str(k)).current_card
+				var card_3 = get_node("card_" + str(k)).get_node("card").current_card
 				var set = [card_1, card_2, card_3]
 				if is_set(set):
 					sets.append(set)
@@ -186,9 +187,15 @@ func add_card(card):
 				print("not a set")
 			for i in range(3):
 				var card_node = get_node(set[i][4])
-				card_node.get_node("fade").play_backwards("fader")
-				card_node.material.set_shader_param("outline_color", Color(0.9, 0.9, 0.9, 1))
-				card_node.i += 1
+				card_node.self_modulate = "#ffffff"
+				card_node.get_node("card").i += 1
+				if i != 2:
+					card_node.get_node("card").rect_position.x -= 15
+				else:
+					card_node.get_node("card").rect_position.x += 15
+				
+				card_node.get_node("card").get_node("fade").play_backwards("fader")
+				#card_node.i += 1
 			set.clear()
 
 #Websocket signals
@@ -205,7 +212,7 @@ func _set_found_received():
 		global.players_score[global.opp_socket_id] += 1
 		get_parent().get_node("Color/Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
 		if cards.size() >= 3: #Refresh the board with new cards
-			set = [get_node("card_" + card_1).refresh_card(), get_node("card_" + card_2).refresh_card(), get_node("card_" + card_3).refresh_card()]
+			set = [get_node("card_" + card_1).get_node("card").refresh_card(), get_node("card_" + card_2).get_node("card").refresh_card(), get_node("card_" + card_3).get_node("card").refresh_card()]
 		else: #Game over
 			global.refresh_globals()
 			get_tree().change_scene("Main.tscn")

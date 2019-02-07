@@ -1,5 +1,5 @@
 shader_type canvas_item;
-uniform float scaler = 7.5;
+uniform float scaler = 2.0;
 
 void vertex() {
 	VERTEX.x += cos(TIME + VERTEX.x + VERTEX.y/2.0) * scaler;

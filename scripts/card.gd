@@ -1,12 +1,12 @@
 extends TextureButton
 
-onready var cards = self.get_parent().cards
+onready var cards = self.get_parent().get_parent().cards
 var current_card
 var i = 0
 
 func refresh_card():
 	if current_card != null:
-		get_parent().cards.append(PoolStringArray(current_card).join("_"))
+		get_parent().get_parent().cards.append(PoolStringArray(current_card).join("_"))
 	var card_name = cards.pop_front()
 	var image = load("res://Card_Sprites/" + card_name + ".png")
 	set_normal_texture(image)
@@ -15,17 +15,21 @@ func refresh_card():
 
 func card_pressed():
 	var card = current_card
-	card.append(self.get_name())
-	get_parent().add_card(card)
+	card.append(get_parent().get_name())
+	get_parent().get_parent().add_card(card)
 	if i % 2 == 0:
-		get_node("fade").play("fader")
+		#get_node("fade").play("fader")
+		self.rect_position.x += 15
+		get_parent().self_modulate = "#002956"
 	else:
-		get_node("fade").play_backwards("fader")
+		self.rect_position.x -= 15
+		get_parent().self_modulate = "#ffffff"
+		#get_node("fade").play_backwards("fader")
 	i += 1
 		
 func _ready():
-	if (self.name == "card_1"):
-		get_parent().shuffle_cards()
+	if (get_parent().get_name() == "card_1"):
+		get_parent().get_parent().shuffle_cards()
 	get_node("fade").playback_speed = 2
 	current_card = refresh_card()
 	self.connect("pressed", self, "card_pressed")

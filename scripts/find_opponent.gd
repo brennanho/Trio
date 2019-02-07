@@ -3,7 +3,7 @@ const server_url = "ws://testing123456.localtunnel.me/socket.io/?EIO=3&transport
 const localhost = "ws://127.0.0.1:8092/socket.io/?EIO=3&transport=websocket"
 
 #Websocket signals
-func _connection_established(protocol):
+func _connection_established():
 	var msg = "Find Match".to_utf8()
 	print(global.ws.get_peer(1).put_packet(msg))
 func _connection_closed(reason):
