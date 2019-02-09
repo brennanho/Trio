@@ -191,9 +191,7 @@ func add_card(card):
 					card_node.get_node("card").rect_position.x -= 15
 				else:
 					card_node.get_node("card").rect_position.x += 15
-				
 				card_node.get_node("card").get_node("fade").play_backwards("fader")
-				#card_node.i += 1
 			set.clear()
 
 #Websocket signals
@@ -209,17 +207,13 @@ func _set_found_received():
 		print("Opponent has found a set: ", card_1, card_2, card_3)
 		global.players_score[global.opp_socket_id] += 1
 		get_parent().get_node("Color/Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
-		if cards.size() >= 3: #Refresh the board with new cards
-			set = [get_node("card_" + card_1).get_node("card").refresh_card(), get_node("card_" + card_2).get_node("card").refresh_card(), get_node("card_" + card_3).get_node("card").refresh_card()]
-		else: #Game over
-			global.refresh_globals()
-			get_tree().change_scene("Main.tscn")
+		set = [get_node("card_" + card_1).get_node("card").refresh_card(), get_node("card_" + card_2).get_node("card").refresh_card(), get_node("card_" + card_3).get_node("card").refresh_card()]
 		var num_sets = make_board_valid(card_1)
 		update_sets_available(num_sets)
 	elif msg == "WIN":
 		print("You win!")
 		global.refresh_globals()
-		get_tree().change_scene("res://Main.tscn")
+		Transition.fade_to("res://Main.tscn")
 	
 func _connection_established(protocol):
 	var msg = "Rejoining game".to_utf8()

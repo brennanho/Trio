@@ -12,7 +12,7 @@
 [ext_resource path="res://Menu_Sprites/FX/3LOADING_FILL.png" type="Texture" id=10]
 [ext_resource path="res://Menu_Sprites/FX/4LOADING_FULL.png" type="Texture" id=11]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 
 size = 50
 font_data = ExtResource( 2 )
@@ -44,7 +44,7 @@ VScrollBar/styles/grabber_pressed = SubResource( 4 )
 VScrollBar/styles/scroll = SubResource( 5 )
 VScrollBar/styles/scroll_focus = SubResource( 6 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
@@ -72,20 +72,19 @@ expand = true
 [node name="Title" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 165.0
-margin_top = 100.32
-margin_right = -185.0
-margin_bottom = -910.68
-custom_fonts/font = SubResource( 8 )
+margin_left = 180.867
+margin_top = 112.693
+margin_right = -169.133
+margin_bottom = -898.307
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Available Rooms"
-percent_visible = -0.0714286
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_left = 99.5564
 margin_top = 214.165
-margin_right = 548.556
+margin_right = 549.556
 margin_bottom = 959.165
 mouse_filter = 1
 mouse_default_cursor_shape = 1
@@ -97,20 +96,21 @@ show_behind_parent = true
 script = ExtResource( 3 )
 
 [node name="Back" type="TextureButton" parent="."]
-margin_left = 6.0
-margin_top = 14.0
-margin_right = 145.0
-margin_bottom = 122.0
+margin_left = 13.9334
+margin_top = 23.5201
+margin_right = 152.933
+margin_bottom = 131.52
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 expand = true
 script = ExtResource( 6 )
 
 [node name="Loading" type="AnimatedSprite" parent="."]
-position = Vector2( 544.722, 66.3526 )
+position = Vector2( 549.482, 56.8326 )
 rotation = 1.5708
 scale = Vector2( 0.499022, 0.562123 )
-frames = SubResource( 1 )
+frames = SubResource( 8 )
+frame = 3
 playing = true
 
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]

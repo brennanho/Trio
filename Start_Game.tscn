@@ -208,27 +208,29 @@ modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
-margin_top = 4.0
+margin_top = 2.0
 margin_right = -4.0
-margin_bottom = -1.0
+margin_bottom = 19.0
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -17.5719
-margin_right = 45.4281
+margin_left = -27.0
+margin_top = -24.0
+margin_right = 47.0
+margin_bottom = -2.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="Game_Screen" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 591.0
-margin_top = 360.0
-margin_right = 591.0
-margin_bottom = -132.0
+margin_left = 587.299
+margin_top = 367.448
+margin_right = 575.299
+margin_bottom = -124.552
 rect_rotation = 90.0
 rect_scale = Vector2( 1.1, 1.1 )
 custom_constants/vseparation = 33

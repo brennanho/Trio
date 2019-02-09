@@ -26,7 +26,7 @@ func _connect_to_server_success():
 
 func _disconnected_from_server(id):
 	print('Client' + str(id) + ' disconnected from Server')
-	get_tree().change_scene(global.prev_scene)
+	Transition.fade_to(global.prev_scene)
 	global.refresh_globals()
 
 # EXECUTED ON SERVER SIDE
