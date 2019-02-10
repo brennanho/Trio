@@ -194,13 +194,13 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=13]
 
-size = 42
+size = 60
 use_mipmaps = true
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
 
-size = 35
+size = 60
 font_data = ExtResource( 7 )
 
 [node name="Main" type="Control"]
@@ -619,10 +619,10 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sets_Remaining" type="Label" parent="."]
-margin_left = 141.764
-margin_top = 261.064
-margin_right = 382.764
-margin_bottom = 304.064
+margin_left = 34.4277
+margin_top = 259.213
+margin_right = 376.428
+margin_bottom = 315.213
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
@@ -650,17 +650,17 @@ columns = 2
 script = ExtResource( 8 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 465.752
+margin_left = 452.798
 margin_top = 259.136
-margin_right = 541.752
-margin_bottom = 314.136
+margin_right = 528.798
+margin_bottom = 315.136
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )
 text = "90"

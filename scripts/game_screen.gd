@@ -1,5 +1,4 @@
 extends Container
-var timer = Timer.new()
 
 var cards = [
 	'1_RHOM_BLUE_SOLID',

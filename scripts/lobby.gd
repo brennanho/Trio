@@ -53,6 +53,5 @@ func _ready():
 	else:
 		get_parent().get_node("Start_Game").disabled = true
 		get_node("Network").init_client(global.server_ip)
-		get_parent().get_node("Start_Game").disabled = true
 	var start_game_button = get_parent().get_node("Start_Game")
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])
