@@ -96,7 +96,7 @@ margin_bottom = 215.91
 rect_rotation = 89.9868
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "ROOM NAME"
+text = "No WiFi..."
 align = 1
 script = ExtResource( 11 )
 
@@ -104,7 +104,7 @@ script = ExtResource( 11 )
 position = Vector2( 947.176, 513.004 )
 scale = Vector2( 0.448125, 0.498043 )
 frames = SubResource( 2 )
-frame = 2
+frame = 4
 playing = true
 flip_v = true
 

@@ -6,7 +6,6 @@ func _on_Create_Game_pressed():
 	global.prev_scene = "Main.tscn"
 	Transition.fade_to("Lobby.tscn")
 
-
 func _on_Join_Game_pressed():
 	global.network_role = "Client"
 	global.prev_scene = "Main.tscn"

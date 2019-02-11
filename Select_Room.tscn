@@ -110,7 +110,7 @@ position = Vector2( 549.482, 56.8326 )
 rotation = 1.5708
 scale = Vector2( 0.499022, 0.562123 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]

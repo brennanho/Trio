@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Menu_Sprites/BG_MENU_GLACIER.png" type="Texture" id=1]
 [ext_resource path="res://Menu_Sprites/TRIO_TITLE.png" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=17]
 [ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=18]
 [ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=19]
+[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://scripts/highscore.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -34,6 +36,11 @@ animations = [ {
 "speed": 7.0
 } ]
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 45
+font_data = ExtResource( 20 )
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,19 +53,19 @@ margin_bottom = 1.17334
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -26.0
+margin_left = -27.7581
 margin_top = -32.0
-margin_right = 38.0
+margin_right = 36.2419
 margin_bottom = 22.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
 
 [node name="Title" type="TextureRect" parent="."]
-margin_left = -2.0
-margin_top = -13.5054
-margin_right = 599.0
-margin_bottom = 339.495
+margin_left = -9.03241
+margin_top = 56.3235
+margin_right = 573.968
+margin_bottom = 381.323
 rect_clip_content = true
 texture = ExtResource( 2 )
 expand = true
@@ -77,10 +84,10 @@ script = ExtResource( 4 )
 [node name="Create_Game" type="TextureButton" parent="."]
 light_mask = 0
 material = ExtResource( 5 )
-margin_left = 23.5732
-margin_top = 333.827
-margin_right = 573.573
-margin_bottom = 663.827
+margin_left = 34.3066
+margin_top = 377.549
+margin_right = 547.307
+margin_bottom = 672.549
 rect_rotation = 359.829
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
@@ -89,10 +96,10 @@ script = ExtResource( 8 )
 
 [node name="Join_Game" type="TextureButton" parent="."]
 material = ExtResource( 5 )
-margin_left = 26.0266
-margin_top = 667.574
-margin_right = 576.027
-margin_bottom = 997.574
+margin_left = 18.9675
+margin_top = 687.226
+margin_right = 564.968
+margin_bottom = 1001.23
 rect_rotation = 360.024
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 10 )
@@ -104,8 +111,20 @@ visible = false
 position = Vector2( 503.56, 662.227 )
 scale = Vector2( 0.143161, 0.197384 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
+
+[node name="Highscore" type="Label" parent="."]
+margin_left = 240.695
+margin_top = 28.5525
+margin_right = 590.695
+margin_bottom = 115.553
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score: 
+"
+align = 1
+script = ExtResource( 21 )
 
 [connection signal="button_down" from="Find_Opponent" to="Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Create_Game" to="Create_Game" method="_on_Create_Game_pressed"]

@@ -18,13 +18,11 @@ func card_pressed():
 	card.append(get_parent().get_name())
 	get_parent().get_parent().add_card(card)
 	if i % 2 == 0:
-		#get_node("fade").play("fader")
 		self.rect_position.x += 15
 		get_parent().self_modulate = "#002956"
 	else:
 		self.rect_position.x -= 15
 		get_parent().self_modulate = "#ffffff"
-		#get_node("fade").play_backwards("fader")
 	i += 1
 		
 func _ready():

@@ -85,10 +85,11 @@ var cards = [
 ]
 
 var set = []
+const MIN_SETS = 2
 
 #Ensures there is atleast 1 set on the board
 func make_board_valid(victim_card):
-	while get_set_count() < 2: #Shuffle a card back into the deck from the table and draw a new one
+	while get_set_count() < MIN_SETS: #Shuffle a card back into the deck from the table and draw a new one
 		var card_node = get_node("card_" + victim_card).get_node("card")
 		card_node.refresh_card()
 	return get_set_count()

@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 #Tutorial: https://fede0d.github.io/blog/2016/02/07/Godot-Extra-Tips-2.html
-
 # STORE THE SCENE PATH
 var path = ""
 

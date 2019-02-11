@@ -4,6 +4,8 @@ var timer
 func _process(delta):
 	self.text = str(stepify(timer.time_left, 1))
 	if timer.is_stopped():
+		if global.players_score[global.my_name] > global.load_score():
+			global.save_score(global.players_score[global.my_name])
 		var network_role = global.network_role
 		global.refresh_globals()
 		global.network_role = network_role

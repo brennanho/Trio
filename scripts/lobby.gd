@@ -1,5 +1,8 @@
 extends VBoxContainer
-var start_title
+const FONT_SIZE = 45
+const BLACK = Color(0,0,0)
+const RED = Color(1,0,0)
+
 
 sync func start_game(scene_to_load, seed_val, peer):
 	if peer.get_unique_id() == 1: #peer is server
@@ -24,12 +27,12 @@ func add_player_to_screen(player_id):
 	var player = Label.new()
 	player.text = str(global.fruits[player_id%global.fruits.size()])
 	var font = DynamicFont.new()
-	font.size = 40
+	font.size = FONT_SIZE
 	font.font_data = load("res://fonts/Robi-Regular.ttf")
 	player.add_font_override("font", font)
-	player.add_color_override("font_color", Color(0,0,0))
+	player.add_color_override("font_color", BLACK)
 	if str(player_id) == str(global.my_name):
-		player.add_color_override("font_color", Color(1,0,0))
+		player.add_color_override("font_color", RED)
 	player.align = ALIGN_CENTER
 	player.valign = VALIGN_CENTER
 	add_child(player)

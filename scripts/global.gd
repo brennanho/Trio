@@ -14,6 +14,7 @@ var udp_sock
 var prev_scene
 var game_mode 
 var discover_thread
+var high_score = 0
 
 var socket_id
 var opp_socket_id
@@ -99,6 +100,26 @@ var fruits = [
 	"Tamarillo",
 	"Tamarind",
 	"Yuzu"]
+	
+#Save current high score	
+func save_score(score):
+	var data = File.new()
+	data.open("user://game.save", File.WRITE)
+	var save_data = {"score": score}
+	data.store_line(to_json(save_data))
+	data.close()
+		
+#Load high score on game start
+func load_score():
+	var data = File.new()
+	data.open("user://game.save", File.READ)
+	if data.get_len() == 0:
+		data.close()
+		return 0
+	else:
+		var load_data = parse_json(data.get_line())
+		data.close()
+		return load_data['score']
 	
 func ip_to_name(ip):
 	var hashed = 0

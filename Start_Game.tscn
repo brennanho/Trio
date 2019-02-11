@@ -194,13 +194,13 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=13]
 
-size = 60
+size = 55
 use_mipmaps = true
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
 
-size = 60
+size = 55
 font_data = ExtResource( 7 )
 
 [node name="Main" type="Control"]
@@ -488,7 +488,6 @@ playback_speed = 2.25
 anims/fader = SubResource( 8 )
 
 [node name="card_9" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
 margin_top = 366.0
 margin_right = 110.0
 margin_bottom = 516.0
@@ -619,9 +618,9 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sets_Remaining" type="Label" parent="."]
-margin_left = 34.4277
+margin_left = 45.5315
 margin_top = 259.213
-margin_right = 376.428
+margin_right = 387.531
 margin_bottom = 315.213
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -657,9 +656,9 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 452.798
+margin_left = 460.2
 margin_top = 259.136
-margin_right = 528.798
+margin_right = 536.2
 margin_bottom = 315.136
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )

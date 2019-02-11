@@ -2,6 +2,9 @@ extends VBoxContainer
 const udp_client_port = 56883
 const udp_server_port = 56884
 const MAX_ATTEMPTS = 150
+const BROADCAST_ADDR = "255.255.255.255"
+const BUTTON_MARGIN_TOP = 30
+const FONT_SIZE = 40
 var servers = {}
 
 class Server:
@@ -20,7 +23,7 @@ func find_servers():
 	global.discovery_on = true
 	if global.discovery_on:
 		var addresses = IP.get_local_addresses()
-		addresses.append("255.255.255.255")
+		addresses.append(BROADCAST_ADDR)
 		for addr in addresses:
 			var parts = addr.split('.')
 			if parts.size() == 4:
@@ -32,7 +35,6 @@ func find_servers():
 					var server_ip_split = PoolStringArray(server_ip.split(".")).join("")
 					if not(server_ip in updated_servers):
 						updated_servers[server_ip] = server_ip_split
-			global.wait(0.1)
 	global.udp_sock.close()
 	return updated_servers
 	
@@ -55,13 +57,13 @@ func _process(delta):
 			var server_button = TextureButton.new()
 			var label = Label.new()
 			var font = DynamicFont.new()
-			font.size = 40
+			font.size = FONT_SIZE
 			font.font_data = load("res://fonts/Robi-Regular.ttf")
 			label.add_font_override("font", font)
 			label.add_color_override("font_color", Color(0,0,0))
 			label.text = server_ip
 			label.margin_left = get_parent().rect_size.x/3.5
-			label.margin_top = 30
+			label.margin_top = BUTTON_MARGIN_TOP
 			server_button.name = server_ip
 			server_button.mouse_filter = server_button.MOUSE_FILTER_PASS
 			server_button.connect("pressed", self, "_pressed", [server_ip])

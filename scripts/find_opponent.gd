@@ -1,6 +1,6 @@
 extends Button
-const server_url = "ws://testing123456.localtunnel.me/socket.io/?EIO=3&transport=websocket"
-const localhost = "ws://127.0.0.1:8092/socket.io/?EIO=3&transport=websocket"
+const SERVER_URL = "ws://testing123456.localtunnel.me/socket.io/?EIO=3&transport=websocket"
+const LOCALHOST = "ws://127.0.0.1:8092/socket.io/?EIO=3&transport=websocket"
 
 #Websocket signals
 func _connection_established():
@@ -36,7 +36,7 @@ func _data_received():
 func _on_Find_Opponent_button_down():
 	self.disabled = true
 	set_process(true)
-	while global.ws.connect_to_url(server_url, PoolStringArray(['Find Opponent']), false) != 0:
+	while global.ws.connect_to_url(SERVER_URL, PoolStringArray(['Find Opponent']), false) != 0:
 		print("Attempting to connect to server...")
 
 func _process(delta):
