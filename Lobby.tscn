@@ -18,12 +18,10 @@
 [ext_resource path="res://Menu_Sprites/FX/4LOADING_FULL.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 50
 font_data = ExtResource( 10 )
 
 [sub_resource type="SpriteFrames" id=2]
-
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,

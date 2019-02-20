@@ -2,6 +2,7 @@ extends Node
 const udp_client_port = 56883
 const udp_server_port = 56884
 const port = 56885
+const MAX_CLIENTS = 5
 
 # EXECUTED ON CLIENT SIDE
 remote func update_players_lobby(players, id):
@@ -60,14 +61,14 @@ func broadcast_to_clients(nil):
 func init_server():
 	global.peer = NetworkedMultiplayerENet.new()	
 	global.server_ip = global.get_host_ip()
-	global.peer.create_server(port, 5)
+	global.peer.create_server(port, MAX_CLIENTS)
 	global.my_name = 1
 	global.peer.set_always_ordered(true)
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)
 	get_tree().connect("network_peer_connected",    self, "_client_connected")
 	get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
-	return global.peer
+	
 
 func init_client(ip):
 	global.peer = NetworkedMultiplayerENet.new()
@@ -78,4 +79,3 @@ func init_client(ip):
 	get_tree().connect("connected_to_server",  self,  "_connected_to_server", [global.peer.get_unique_id()])
 	get_tree().connect("connection_failed",    self,  "_connect_to_server_fail")
 	get_tree().connect("server_disconnected",  self,  "_disconnected_from_server", [ip])
-	return global.peer

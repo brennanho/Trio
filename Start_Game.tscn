@@ -13,7 +13,6 @@
 [ext_resource path="res://scripts/lifebar.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -28,7 +27,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -43,7 +41,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -58,7 +55,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -73,7 +69,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -88,7 +83,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -103,7 +97,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -118,7 +111,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -133,7 +125,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -148,7 +139,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -163,7 +153,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -178,7 +167,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -193,13 +181,11 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=13]
-
 size = 55
 use_mipmaps = true
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
-
 size = 55
 font_data = ExtResource( 7 )
 
@@ -227,10 +213,10 @@ expand = true
 [node name="Game_Screen" type="GridContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 587.299
-margin_top = 367.448
-margin_right = 575.299
-margin_bottom = -124.552
+margin_left = 584.578
+margin_top = 370.169
+margin_right = 572.578
+margin_bottom = -121.831
 rect_rotation = 90.0
 rect_scale = Vector2( 1.1, 1.1 )
 custom_constants/vseparation = 33

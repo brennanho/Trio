@@ -47,7 +47,7 @@ func _ready():
 	var seed_val
 	global.game_mode = "local"
 	if global.network_role == "Server":
-		global.peer = get_node("Network").init_server()
+		get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
 		add_player_to_screen(1)
