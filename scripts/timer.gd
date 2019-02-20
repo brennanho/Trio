@@ -16,7 +16,7 @@ remote func update_time(time):
 		OS.delay_msec(1000)
 		game_over()
 
-func _fixed_process(delta):
+func _process(delta):
 	self.text = str(stepify(timer.time_left, 1))
 	rpc("update_time", timer.time_left)
 	if timer.is_stopped():

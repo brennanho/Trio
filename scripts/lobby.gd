@@ -25,7 +25,7 @@ func add_players_to_screen(players):
 func add_player_to_screen(player_id):
 	global.players_score[player_id] = 0 # score
 	var player = Label.new()
-	player.text = str(global.fruits[player_id%global.fruits.size()])
+	player.text =  str(global.ip_to_name(global.peer.get_peer_address(player_id)))
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
 	font.font_data = load("res://fonts/Robi-Regular.ttf")
