@@ -62,9 +62,6 @@ func _process(delta):
 			font.font_data = load("res://fonts/Robi-Regular.ttf")
 			label.add_font_override("font", font)
 			label.add_color_override("font_color", Color(0,0,0))
-			label.text = server_ip
-			label.margin_left = get_parent().rect_size.x/3.5
-			label.margin_top = BUTTON_MARGIN_TOP
 			server_button.name = server_ip
 			server_button.mouse_filter = server_button.MOUSE_FILTER_PASS
 			server_button.connect("pressed", self, "_pressed", [server_ip])
@@ -77,6 +74,9 @@ func _process(delta):
 			var server = Server.new(server_button, 0, server_ip)
 			servers[server_ip] = server
 			server_button.add_child(label)
+			label.margin_left = label.get_parent().texture_normal.get_width()/6
+			label.text = global.ip_to_name(server_ip)
+			label.margin_top = BUTTON_MARGIN_TOP
 			add_child(server_button)
 		
 func _ready():

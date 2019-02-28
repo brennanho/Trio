@@ -20,12 +20,11 @@ func _button_pressed(scene_to_load, seed_val, peer):
 
 func add_players_to_screen(players):
 	for player in global.players_in_lobby.keys():
-		add_player_to_screen(player)
+		add_player_to_screen(player, global.players_ips[player])
 		
-func add_player_to_screen(player_id):
-	global.players_score[player_id] = 0 # score
+func add_player_to_screen(player_id, ip):
 	var player = Label.new()
-	player.text = str(global.fruits[player_id%global.fruits.size()])
+	player.text = global.ip_to_name(ip)
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
 	font.font_data = load("res://fonts/Robi-Regular.ttf")
@@ -37,6 +36,8 @@ func add_player_to_screen(player_id):
 	player.valign = VALIGN_CENTER
 	add_child(player)
 	global.players_in_lobby[player_id] = player
+	global.players_score[player_id] = 0
+	global.players_ips[player_id] = ip
 	
 func remove_player_from_screen(player_id):
 	remove_child(global.players_in_lobby[player_id])
@@ -50,7 +51,7 @@ func _ready():
 		get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
-		add_player_to_screen(1)
+		add_player_to_screen(1, global.get_host_ip())
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:

@@ -7,6 +7,7 @@ var seed_val
 var my_name
 var players_in_lobby = {}
 var players_score = {}
+var players_ips = {}
 var peer = null
 var discovery_on = true
 var server_ip = "127.0.0.1"

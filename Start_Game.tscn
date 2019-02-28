@@ -13,6 +13,7 @@
 [ext_resource path="res://scripts/lifebar.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -27,6 +28,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -41,6 +43,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -55,6 +58,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -69,6 +73,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -83,6 +88,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -97,6 +103,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -111,6 +118,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -125,6 +133,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -139,6 +148,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -153,6 +163,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -167,6 +178,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -181,12 +193,14 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=13]
+
 size = 55
-use_mipmaps = true
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
+
 size = 55
+use_mipmaps = false
 font_data = ExtResource( 7 )
 
 [node name="Main" type="Control"]
@@ -649,8 +663,8 @@ margin_bottom = 315.136
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 14 )
 text = "90"
-align = 1
-valign = 1
+align = 3
+valign = 3
 script = ExtResource( 9 )
 
 [node name="Lifebar" type="TextureProgress" parent="."]
