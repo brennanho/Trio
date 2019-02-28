@@ -111,6 +111,7 @@ visible = false
 position = Vector2( 503.56, 662.227 )
 scale = Vector2( 0.143161, 0.197384 )
 frames = SubResource( 2 )
+frame = 6
 playing = true
 
 [node name="Highscore" type="Label" parent="."]

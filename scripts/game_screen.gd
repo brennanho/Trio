@@ -105,7 +105,7 @@ func update_sets_available(num_sets):
 sync func update_game(set, player_id):
 	if global.game_mode == "local":
 		global.players_score[player_id] += 1
-		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = str(global.fruits[player_id%global.fruits.size()]) + " :  " + str(global.players_score[player_id])
+		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = global.ip_to_name(global.players_ips[player_id]) + " :  " + str(global.players_score[player_id])
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
@@ -177,7 +177,7 @@ func add_card(card):
 					print("Sending to server:", msg)
 					update_game(set, global.my_name)
 					global.players_score[global.socket_id] += 1
-					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = str(global.fruits[global.socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.socket_id])
+					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = global.ip_to_name(global.players_ips[global.socket_id]) + " :  " + str(global.players_score[global.socket_id])
 					get_node("ping").start()
 				else: #Local game
 					rpc("update_game", set, global.my_name)
