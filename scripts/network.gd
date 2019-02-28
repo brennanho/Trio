@@ -59,7 +59,8 @@ func broadcast_to_clients(nil):
 	return 0
 	
 func init_server():
-	global.peer = NetworkedMultiplayerENet.new()	
+	if global.peer == null:
+		global.peer = NetworkedMultiplayerENet.new()	
 	global.server_ip = global.get_host_ip()
 	global.peer.create_server(port, MAX_CLIENTS)
 	global.my_name = 1
@@ -71,7 +72,8 @@ func init_server():
 	
 
 func init_client(ip):
-	global.peer = NetworkedMultiplayerENet.new()
+	if global.peer == null:
+		global.peer = NetworkedMultiplayerENet.new()
 	global.peer.create_client(ip, port)
 	global.peer.set_always_ordered(true) 
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE

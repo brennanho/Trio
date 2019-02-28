@@ -18,7 +18,8 @@ class Server:
 
 func find_servers():
 	var updated_servers = {}
-	global.udp_sock = PacketPeerUDP.new()
+	if global.udp_sock == null:
+		global.udp_sock = PacketPeerUDP.new()
 	global.udp_sock.listen(udp_client_port)
 	global.discovery_on = true
 	if global.discovery_on:

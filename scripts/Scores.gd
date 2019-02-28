@@ -10,7 +10,7 @@ func _ready():
 		var font = DynamicFont.new()
 		font.size = FONT_SIZE
 		font.font_data = load("res://fonts/Robi-Regular.ttf")
-		player.text =  str(global.ip_to_name(global.peer.get_peer_address(player_id))) + " : " + str(global.players_score[player_id])
+		player.text =  str(global.fruits[player_id%global.fruits.size()]) + " : " + str(global.players_score[player_id])
 		player.align = player.ALIGN_RIGHT
 		player.add_font_override("font", font)
 		player.add_color_override("font_color", BLACK)
