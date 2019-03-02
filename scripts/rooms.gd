@@ -69,17 +69,21 @@ func _process(delta):
 			server_button.texture_pressed = load("res://Menu_Sprites/BLANK_ON.png")
 			server_button.expand = true
 			server_button.stretch_mode = server_button.STRETCH_SCALE
+			server_button.rect_size.x = get_parent().rect_size.x
+			server_button.rect_size.y = get_parent().rect_size.y/7
 			server_button.rect_min_size.x = get_parent().rect_size.x
 			server_button.rect_min_size.y = get_parent().rect_size.y/7
 			var server = Server.new(server_button, 0, server_ip)
 			servers[server_ip] = server
 			server_button.add_child(label)
-			label.margin_left = label.get_parent().texture_normal.get_width()/6
+			label.valign = label.ALIGN_CENTER
+			label.align = label.ALIGN_CENTER
+			label.rect_size = server_button.rect_size
 			label.text = global.ip_to_name(server_ip)
-			label.margin_top = BUTTON_MARGIN_TOP
 			add_child(server_button)
 		
 func _ready():
 	rect_min_size.x = get_parent().rect_size.x
 	rect_min_size.y = get_parent().rect_size.y
+	global.prev_scene = "Main.tscn"
 	set_process(true)

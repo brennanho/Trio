@@ -3,7 +3,6 @@ const FONT_SIZE = 45
 const BLACK = Color(0,0,0)
 const RED = Color(1,0,0)
 
-
 sync func start_game(scene_to_load, seed_val, peer):
 	if peer.get_unique_id() == 1: #peer is server
 		global.discovery_on = false
@@ -55,7 +54,10 @@ func _ready():
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
-		get_parent().get_node("Start_Game").disabled = true
+		get_parent().get_node("Room_Name").get_font("font").size = 80
+		get_parent().get_node("Room_Name").rect_position.x -= 100
+		get_parent().get_node("Start_Game").queue_free()
+		global.prev_scene = "Select_Room.tscn"
 		get_node("Network").init_client(global.server_ip)
 	var start_game_button = get_parent().get_node("Start_Game")
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])

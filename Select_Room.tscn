@@ -14,7 +14,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 50
+size = 60
+outline_size = 1
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
@@ -44,7 +45,7 @@ VScrollBar/styles/grabber_pressed = SubResource( 4 )
 VScrollBar/styles/scroll = SubResource( 5 )
 VScrollBar/styles/scroll_focus = SubResource( 6 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=9]
 
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
@@ -72,20 +73,21 @@ expand = true
 [node name="Title" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 180.867
-margin_top = 112.693
-margin_right = -169.133
-margin_bottom = -898.307
+margin_left = 147.932
+margin_top = 99.8052
+margin_right = -143.068
+margin_bottom = -901.195
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Available Rooms"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_left = 99.5564
-margin_top = 214.165
-margin_right = 549.556
-margin_bottom = 959.165
+margin_left = 100.0
+margin_top = 214.0
+margin_right = 550.0
+margin_bottom = 959.0
+rect_min_size = Vector2( 450, 745 )
 mouse_filter = 1
 mouse_default_cursor_shape = 1
 theme = SubResource( 7 )
@@ -93,6 +95,9 @@ scroll_horizontal_enabled = false
 
 [node name="Rooms" type="VBoxContainer" parent="ScrollContainer"]
 show_behind_parent = true
+margin_right = 450.0
+margin_bottom = 745.0
+rect_min_size = Vector2( 450, 745 )
 script = ExtResource( 3 )
 
 [node name="Back" type="TextureButton" parent="."]
@@ -109,8 +114,8 @@ script = ExtResource( 6 )
 position = Vector2( 549.482, 56.8326 )
 rotation = 1.5708
 scale = Vector2( 0.499022, 0.562123 )
-frames = SubResource( 8 )
-frame = 1
+frames = SubResource( 9 )
+frame = 3
 playing = true
 
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]

@@ -16,6 +16,7 @@ var prev_scene
 var game_mode 
 var discover_thread
 var high_score = 0
+const LOOPBACK = "127.0.0.1"
 
 var socket_id
 var opp_socket_id
@@ -123,6 +124,8 @@ func load_score():
 		return load_data['score']
 	
 func ip_to_name(ip):
+	if ip == LOOPBACK:
+		return "Connect to WiFi"
 	var hashed = 0
 	ip = ip.split('.')
 	for num in ip:
@@ -141,6 +144,8 @@ func get_host_ip():
 					break
 			if ip_ok:
 				ips.append(ip)
+	if len(ips) == 0:
+		return LOOPBACK
 	return ips[-1]
 
 func wait(seconds):
@@ -161,6 +166,7 @@ func refresh_globals():
 	network_role = ""
 	seed_val = 0
 	players_in_lobby = {}
+	players_ips = {}
 	players_score = {}
 	my_name = -1
 	udp_sock.close()
