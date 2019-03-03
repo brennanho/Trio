@@ -103,8 +103,12 @@ func update_sets_available(num_sets):
 
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, player_id):
-	if global.game_mode == "local":
+	if global.game_mode == global.LOCAL_GAME:
 		global.players_score[player_id] += 1
+		var firework = get_parent().get_node("Color").get_node("Scores").get_node(str(player_id)).get_node("Firework")
+		firework.visible = true
+		firework.play()
+		global.wait(1, firework)
 		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = global.ip_to_name(global.players_ips[player_id]) + " :  " + str(global.players_score[player_id])
 	
 	var victim_card
@@ -171,7 +175,7 @@ func add_card(card):
 		set.append(card)
 		if set.size() == 3:	
 			if is_set(set):
-				if global.game_mode == "remote": #Online game
+				if global.game_mode == global.REMOTE_GAME: #Online game
 					var msg = "SET," + str(global.opp_socket_id) + "," + set[0][4].split("_")[-1] + "," + set[1][4].split("_")[-1] + "," + set[2][4].split("_")[-1]
 					global.ws.get_peer(1).put_packet(msg.to_utf8())
 					print("Sending to server:", msg)
@@ -186,11 +190,8 @@ func add_card(card):
 			for i in range(3):
 				var card_node = get_node(set[i][4])
 				card_node.self_modulate = "#ffffff"
-				card_node.get_node("card").i += 1
-				if i != 2:
-					card_node.get_node("card").rect_position.x -= 15
-				else:
-					card_node.get_node("card").rect_position.x += 15
+				card_node.get_node("card").button_up()
+				card_node.get_node("card").pressed = false
 				card_node.get_node("card").get_node("fade").play_backwards("fader")
 			set.clear()
 
@@ -236,7 +237,7 @@ func _process(delta):
 func _ready():
 	var num_sets = make_board_valid("1")
 	update_sets_available(num_sets)
-	if global.game_mode == "remote":
+	if global.game_mode == global.REMOTE_GAME:
 		global.ws.connect("data_received", self, "_set_found_received")
 		global.ws.connect("connection_established", self, "_connection_established")
 		global.ws.connect("connection_closed", self, "_connection_closed")

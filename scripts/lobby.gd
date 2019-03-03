@@ -2,6 +2,9 @@ extends VBoxContainer
 const FONT_SIZE = 45
 const BLACK = Color(0,0,0)
 const RED = Color(1,0,0)
+const FONT_PATH = "res://fonts/Robi-Regular.ttf"
+
+onready var FONT = load(FONT_PATH)
 
 sync func start_game(scene_to_load, seed_val, peer):
 	if peer.get_unique_id() == 1: #peer is server
@@ -26,7 +29,7 @@ func add_player_to_screen(player_id, ip):
 	player.text = global.ip_to_name(ip)
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
-	font.font_data = load("res://fonts/Robi-Regular.ttf")
+	font.font_data = FONT
 	player.add_font_override("font", font)
 	player.add_color_override("font_color", BLACK)
 	if str(player_id) == str(global.my_name):
@@ -45,8 +48,8 @@ func remove_player_from_screen(player_id):
 
 func _ready():
 	var seed_val
-	global.game_mode = "local"
-	if global.network_role == "Server":
+	global.game_mode = global.LOCAL_GAME
+	if global.network_role == global.ENET_SERVER:
 		get_node("Network").init_server()
 		randomize()
 		seed_val = randi()

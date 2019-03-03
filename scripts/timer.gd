@@ -7,8 +7,8 @@ func game_over():
 	var network_role = global.network_role
 	global.refresh_globals()
 	global.network_role = network_role
-	global.prev_scene = "Main.tscn"
-	Transition.fade_to("Lobby.tscn")
+	global.prev_scene = global.MAIN_SCENE
+	Transition.fade_to(global.LOBBY_SCENE)
 
 remote func update_time(time):
 	self.text = str(stepify(time, 1))
@@ -29,7 +29,7 @@ func _ready():
 	timer.start()
 	self.text = str(timer.time_left)
 	self.add_color_override("font_color", Color(0,0,0))
-	if global.network_role == "Server":
+	if global.network_role == global.ENET_SERVER:
 		set_process(true)
 	else:
 		set_process(false)

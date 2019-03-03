@@ -16,7 +16,20 @@ var prev_scene
 var game_mode 
 var discover_thread
 var high_score = 0
+
+#CONSTS
 const LOOPBACK = "127.0.0.1"
+const ENET_SERVER = "Server"
+const ENET_CLIENT = "Client"
+const LOCAL_GAME = "Local"
+const REMOTE_GAME = "Remote"
+
+#SCENES
+const MAIN_SCENE = "Main.tscn"
+const ROOMS_SCENE = "Select_Room.tscn"
+const LOBBY_SCENE = "Lobby.tscn"
+const GAME_SCENE = "Start_Game.tscn"
+
 
 var socket_id
 var opp_socket_id
@@ -148,11 +161,15 @@ func get_host_ip():
 		return LOOPBACK
 	return ips[-1]
 
-func wait(seconds):
-    self._create_timer(self, seconds, true, "_emit_timer_end_signal")
-    yield(self,"timer_end")
+func wait(seconds, firework=null):
+	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
+	yield(self,"timer_end")
+	if firework != null:
+		firework.visible = false
+	
 func _emit_timer_end_signal():
-    emit_signal("timer_end")
+	emit_signal("timer_end")
+	
 func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_function):
     var timer = Timer.new()
     timer.set_one_shot(bool_is_oneshot)
@@ -172,3 +189,4 @@ func refresh_globals():
 	udp_sock.close()
 	if game_mode == "local" and typeof(peer) == 17: #Valid peer object
 		peer.close_connection()
+		peer.disconnect_peer(peer.get_unique_id(), true)

@@ -1,11 +1,21 @@
 extends VBoxContainer
+
+#CONSTANTS
 const udp_client_port = 56883
 const udp_server_port = 56884
 const MAX_ATTEMPTS = 150
 const BROADCAST_ADDR = "255.255.255.255"
 const BUTTON_MARGIN_TOP = 30
 const FONT_SIZE = 40
+const FONT_PATH = "res://fonts/Robi-Regular.ttf"
+const BLANK_ON_PATH = "res://Menu_Sprites/BLANK_OFF.png"
+const BLANK_OFF_PATH = "res://Menu_Sprites/BLANK_OFF.png"
+
+#VARS
 var servers = {}
+onready var FONT = load(FONT_PATH)
+onready var BLANK_OFF = load(BLANK_OFF_PATH)
+onready var BLANK_ON = load(BLANK_ON_PATH)
 
 class Server:
 	var button
@@ -43,7 +53,7 @@ func _pressed(server_ip):
 	set_process(false)
 	global.refresh_globals()
 	global.server_ip = server_ip
-	Transition.fade_to("Lobby.tscn")
+	Transition.fade_to(global.LOBBY_SCENE)
 	
 func _process(delta):
 	var updated_servers = find_servers()
@@ -59,14 +69,14 @@ func _process(delta):
 			var label = Label.new()
 			var font = DynamicFont.new()
 			font.size = FONT_SIZE
-			font.font_data = load("res://fonts/Robi-Regular.ttf")
+			font.font_data = FONT
 			label.add_font_override("font", font)
 			label.add_color_override("font_color", Color(0,0,0))
 			server_button.name = server_ip
 			server_button.mouse_filter = server_button.MOUSE_FILTER_PASS
 			server_button.connect("pressed", self, "_pressed", [server_ip])
-			server_button.texture_normal = load("res://Menu_Sprites/BLANK_OFF.png")
-			server_button.texture_pressed = load("res://Menu_Sprites/BLANK_ON.png")
+			server_button.texture_normal = BLANK_OFF
+			server_button.texture_pressed = BLANK_ON
 			server_button.expand = true
 			server_button.stretch_mode = server_button.STRETCH_SCALE
 			server_button.rect_size.x = get_parent().rect_size.x
@@ -85,5 +95,5 @@ func _process(delta):
 func _ready():
 	rect_min_size.x = get_parent().rect_size.x
 	rect_min_size.y = get_parent().rect_size.y
-	global.prev_scene = "Main.tscn"
+	global.prev_scene = global.MAIN_SCENE
 	set_process(true)
