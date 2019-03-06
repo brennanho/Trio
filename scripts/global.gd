@@ -187,6 +187,5 @@ func refresh_globals():
 	players_score = {}
 	my_name = -1
 	udp_sock.close()
-	if game_mode == "local" and typeof(peer) == 17: #Valid peer object
+	if game_mode == LOCAL_GAME and typeof(peer) == 17: #Valid peer object
 		peer.close_connection()
-		peer.disconnect_peer(peer.get_unique_id(), true)

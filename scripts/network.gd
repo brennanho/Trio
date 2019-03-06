@@ -70,7 +70,6 @@ func init_server():
 	get_tree().connect("network_peer_connected",    self, "_client_connected")
 	get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
 	
-
 func init_client(ip):
 	global.peer = NetworkedMultiplayerENet.new()
 	global.peer.create_client(ip, port)
