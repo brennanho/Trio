@@ -4,8 +4,8 @@ onready var cards = self.get_parent().get_parent().cards
 var current_card
 var BUTTON_UP_POS
 var BUTTON_DOWN_POS
+var card_imgs = {}
 
-const PLAYBACK_SPEED = 2
 const CARD_SPRITES_PATH = "res://Card_Sprites/"
 const DARK_BLUE = "#002956"
 const BLACK = "#ffffff"
@@ -15,17 +15,25 @@ func refresh_card():
 	if current_card != null:
 		get_parent().get_parent().cards.append(PoolStringArray(current_card).join("_"))
 	var card_name = cards.pop_front()
-	var image = load(CARD_SPRITES_PATH + card_name + ".png")
+	var image = card_imgs[card_name]
 	set_normal_texture(image)
 	current_card = card_name.split("_")
 	return current_card
 
-func button_up():
-	self.rect_position.x = BUTTON_UP_POS
+func button_up(not_set=false):
+	if !not_set:
+		get_node("Press").play_backwards("Press")
+	else:
+		get_node("Press").play_backwards("Press")
+		get_node("Fade").play_backwards("fader")
 	get_parent().self_modulate = BLACK
+		
 
 func button_down():
-	self.rect_position.x = BUTTON_DOWN_POS
+	var anim = get_node("Press").get_animation("Press")
+	var idx = anim.find_track(".:rect_position")
+	anim.track_set_key_value(idx,1, Vector2(BUTTON_DOWN_POS, self.rect_position.y))
+	get_node("Press").play("Press")
 	get_parent().self_modulate = DARK_BLUE
 	
 func _card_pressed(pressed):
@@ -38,11 +46,12 @@ func _card_pressed(pressed):
 	get_parent().get_parent().add_card(card)
 		
 func _ready():
+	for card in cards:
+		card_imgs[card] = load(CARD_SPRITES_PATH + card + ".png")
 	BUTTON_UP_POS = self.rect_position.x
 	BUTTON_DOWN_POS = self.rect_position.x + CARD_OFFSET
 	if (get_parent().get_name() == "card_1"):
 		get_parent().get_parent().shuffle_cards()
-	get_node("fade").playback_speed = PLAYBACK_SPEED
 	current_card = refresh_card()
 	self.toggle_mode = true
 	self.connect("toggled", self, "_card_pressed") 

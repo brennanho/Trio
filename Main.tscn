@@ -30,22 +30,23 @@ margin_right = -7.17188
 margin_bottom = 1.17334
 
 [node name="Background" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.215686 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -27.7581
-margin_top = -32.0
-margin_right = 36.2419
-margin_bottom = 22.0
+margin_left = 616.188
+margin_top = -4.29004
+margin_right = 680.188
+margin_bottom = 49.71
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
 
 [node name="Title" type="TextureRect" parent="."]
-margin_left = -9.03241
-margin_top = 56.3235
-margin_right = 573.968
-margin_bottom = 381.323
+margin_left = 4.60004
+margin_top = 49.5073
+margin_right = 587.6
+margin_bottom = 374.507
 rect_clip_content = true
 texture = ExtResource( 2 )
 expand = true
@@ -64,10 +65,10 @@ script = ExtResource( 4 )
 [node name="Create_Game" type="TextureButton" parent="."]
 light_mask = 0
 material = ExtResource( 5 )
-margin_left = 34.3066
-margin_top = 377.549
-margin_right = 547.307
-margin_bottom = 672.549
+margin_left = 38.0
+margin_top = 378.0
+margin_right = 553.0
+margin_bottom = 673.0
 rect_rotation = 359.829
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
@@ -76,9 +77,9 @@ script = ExtResource( 8 )
 
 [node name="Join_Game" type="TextureButton" parent="."]
 material = ExtResource( 5 )
-margin_left = 18.9675
+margin_left = 24.233
 margin_top = 687.226
-margin_right = 564.968
+margin_right = 570.234
 margin_bottom = 1001.23
 rect_rotation = 360.024
 texture_normal = ExtResource( 9 )

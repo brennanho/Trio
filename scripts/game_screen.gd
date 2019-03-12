@@ -190,9 +190,8 @@ func add_card(card):
 			for i in range(3):
 				var card_node = get_node(set[i][4])
 				card_node.self_modulate = "#ffffff"
-				card_node.get_node("card").button_up()
 				card_node.get_node("card").pressed = false
-				card_node.get_node("card").get_node("fade").play_backwards("fader")
+				card_node.get_node("card").button_up(true)
 			set.clear()
 
 #Websocket signals
