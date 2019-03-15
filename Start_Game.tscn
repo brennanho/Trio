@@ -775,14 +775,14 @@ __meta__ = {
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
-self_modulate = Color( 1, 1, 1, 0.607843 )
+self_modulate = Color( 1, 1, 1, 0.196078 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 609.801
-margin_top = 3.31073
-margin_right = 683.801
-margin_bottom = 25.3108
+margin_left = -33.66
+margin_top = -17.7864
+margin_right = 40.34
+margin_bottom = 4.21362
 texture = ExtResource( 1 )
 expand = true
 
@@ -1406,7 +1406,7 @@ position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
 frames = SubResource( 38 )
 animation = "firework"
-frame = 4
+frame = 7
 speed_scale = 0.75
 playing = true
 flip_v = true

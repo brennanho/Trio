@@ -12,7 +12,7 @@ remote func update_players_lobby(players, players_ips, id):
 	get_parent().add_players_to_screen(global.players_in_lobby)
 	
 remote func add_new_client_to_other_client(id, ip):
-	get_parent().add_player_to_screen(id, ip)
+	get_parent().add_player_to_screen(len(global.players_in_lobby)+1,id, ip)
 	
 remote func remove_client_from_other_client(id):
 	get_parent().remove_player_from_screen(id)
@@ -34,10 +34,10 @@ func _disconnected_from_server(id):
 # EXECUTED ON SERVER SIDE
 func _client_connected(id):
 	print('Client ' + str(id) + ' has joined')
-	get_parent().add_player_to_screen(id, global.peer.get_peer_address(id))
+	get_parent().add_player_to_screen(len(global.players_in_lobby)+1,id, global.peer.get_peer_address(id))
 	for player_id in global.players_in_lobby.keys():
 		if player_id != 1 and player_id != id:
-			rpc_id(player_id, "add_new_client_to_other_client", id, global.peer.get_peer_address(player_id))
+			rpc_id(player_id, "add_new_client_to_other_client", id, global.peer.get_peer_address(id))
 	rpc_id(id, "update_players_lobby", global.players_in_lobby, global.players_ips, id)
 
 func _client_disconnected(id):

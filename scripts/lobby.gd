@@ -21,12 +21,14 @@ func _button_pressed(scene_to_load, seed_val, peer):
 	rpc("start_game", scene_to_load, seed_val, peer)
 
 func add_players_to_screen(players):
+	var player_num = 1
 	for player in global.players_in_lobby.keys():
-		add_player_to_screen(player, global.players_ips[player])
+		add_player_to_screen(player_num, player, global.players_ips[player])
+		player_num += 1
 		
-func add_player_to_screen(player_id, ip):
+func add_player_to_screen(player_num, player_id, ip):
 	var player = Label.new()
-	player.text = global.ip_to_name(ip)
+	player.text = str(player_num) + ". " + global.ip_to_name(ip)
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
 	font.font_data = FONT
@@ -53,7 +55,7 @@ func _ready():
 		get_node("Network").init_server()
 		randomize()
 		seed_val = randi()
-		add_player_to_screen(1, global.get_host_ip())
+		add_player_to_screen(1,1, global.get_host_ip())
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
