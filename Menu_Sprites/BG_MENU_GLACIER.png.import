@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/BG_MENU_GLACIER.png-541e0afe290b0687f930e37a16696b7c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

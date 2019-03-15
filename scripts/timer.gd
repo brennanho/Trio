@@ -11,23 +11,34 @@ func game_over():
 	Transition.fade_to(global.LOBBY_SCENE)
 
 remote func update_time(time):
-	self.text = str(stepify(time, 1))
+	self.text = time_to_mmss(stepify(time, 1))
 	if time <= 0.5:
 		OS.delay_msec(1000)
 		game_over()
 
 func _process(delta):
-	self.text = str(stepify(timer.time_left, 1))
+	self.text = time_to_mmss(stepify(timer.time_left, 1))
 	rpc("update_time", timer.time_left)
 	if timer.is_stopped():
 		rpc("update_time", 0)
 		game_over()
 		set_process(false)
+		
+func time_to_mmss(time):
+	time = int(time)
+	if time < 60:
+		if time < 10:
+			return "0:0" + str(time)
+		return "0:" + str(time)
+	elif time % 60 == 0:
+		return str(time/60) + ":00"
+	else:
+		return str(time/60) + ":" + str(time%60)
 	
 func _ready():
 	timer = get_parent()
 	timer.start()
-	self.text = str(timer.time_left)
+	self.text = time_to_mmss(timer.time_left)
 	self.add_color_override("font_color", Color(0,0,0))
 	if global.network_role == global.ENET_SERVER:
 		set_process(true)

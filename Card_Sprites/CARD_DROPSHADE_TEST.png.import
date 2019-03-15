@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/CARD_DROPSHADE_TEST.png-9a5f5ef4d4b3b7e457789d7aa620a55f.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

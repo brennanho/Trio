@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/CREATEGAME_OFF.png-4cb79cb1c37fe6629879e4a1635e4b99.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

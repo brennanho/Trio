@@ -70,9 +70,12 @@ margin_left = 143.615
 margin_top = 119.231
 margin_right = -147.385
 margin_bottom = -881.769
+hint_tooltip = "
+"
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 text = "Available Rooms"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
