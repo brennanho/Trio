@@ -104,7 +104,7 @@ func update_sets_available(num_sets):
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, player_id):
 	if global.game_mode == global.LOCAL_GAME:
-		global.players_score[player_id] += 1
+		global.players_score[player_id] += int(rand_range(80,100))
 		var firework = get_parent().get_node("Color").get_node("Scores").get_node(str(player_id)).get_node("Firework")
 		firework.visible = true
 		firework.play()

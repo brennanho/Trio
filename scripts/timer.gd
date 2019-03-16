@@ -33,6 +33,8 @@ func time_to_mmss(time):
 	elif time % 60 == 0:
 		return str(time/60) + ":00"
 	else:
+		if time%60 < 10:
+			return str(time/60) + ":0" + str(time%60)
 		return str(time/60) + ":" + str(time%60)
 	
 func _ready():
