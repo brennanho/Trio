@@ -744,7 +744,6 @@ tracks/1/keys = {
 
 [sub_resource type="DynamicFont" id=37]
 size = 55
-outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="SpriteFrames" id=38]
@@ -756,7 +755,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=39]
-size = 50
+size = 55
 font_data = ExtResource( 7 )
 
 [node name="Main" type="Control"]
@@ -769,20 +768,17 @@ margin_right = -4.0
 margin_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
-self_modulate = Color( 1, 1, 1, 0.196078 )
+self_modulate = Color( 1, 1, 1, 0.607843 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -33.66
-margin_top = -17.7864
-margin_right = 40.34
-margin_bottom = 4.21362
+margin_left = 609.801
+margin_top = 3.31073
+margin_right = 683.801
+margin_bottom = 25.3108
 texture = ExtResource( 1 )
 expand = true
 
@@ -1366,37 +1362,36 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sets_Remaining" type="Label" parent="."]
-margin_left = 43.9447
-margin_top = 260.935
-margin_right = 385.944
-margin_bottom = 316.935
+margin_left = 53.7666
+margin_top = 251.113
+margin_right = 395.766
+margin_bottom = 307.113
 custom_fonts/font = SubResource( 37 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0.921569, 0.921569, 0.921569, 1 )
-custom_colors/font_color_shadow = Color( 0.74902, 0.74902, 0.74902, 1 )
 text = "3 sets available"
 align = 1
 
 [node name="Color" type="TextureRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.596078 )
-margin_left = 3.0
-margin_top = 12.0
-margin_right = 594.0
-margin_bottom = 252.0
+margin_left = 3.14941
+margin_top = 12.1494
+margin_right = 594.149
+margin_bottom = 217.149
 texture = ExtResource( 8 )
 expand = true
 
 [node name="Scores" type="GridContainer" parent="Color"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 43.0
+margin_left = 48.0
 margin_top = 31.0
-margin_right = -52.0
-margin_bottom = -35.0
+margin_right = -50.9996
+margin_bottom = -34.9996
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 50
+columns = 2
 script = ExtResource( 9 )
 
 [node name="Firework" type="AnimatedSprite" parent="Color/Scores"]
@@ -1419,17 +1414,13 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 461.344
-margin_top = 266.493
-margin_right = 546.344
-margin_bottom = 322.493
+margin_left = 479.354
+margin_top = 250.943
+margin_right = 555.354
+margin_bottom = 306.943
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 39 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0.92549, 0.92549, 0.92549, 1 )
-custom_constants/shadow_as_outline = 0
-text = "2:00"
+text = "90"
 align = 3
 valign = 3
 script = ExtResource( 19 )

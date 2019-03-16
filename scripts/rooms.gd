@@ -8,7 +8,7 @@ const BROADCAST_ADDR = "255.255.255.255"
 const BUTTON_MARGIN_TOP = 30
 const FONT_SIZE = 40
 const FONT_PATH = "res://fonts/Robi-Regular.ttf"
-const BLANK_ON_PATH = "res://Menu_Sprites/BLANK_OFF.png"
+const BLANK_ON_PATH = "res://Menu_Sprites/BLANK_ON.png"
 const BLANK_OFF_PATH = "res://Menu_Sprites/BLANK_OFF.png"
 const BLACK = Color(0,0,0)
 

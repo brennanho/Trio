@@ -56,10 +56,10 @@ margin_bottom = 13.0
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 632.431
-margin_top = 8.63391
-margin_right = 632.431
-margin_bottom = 8.63391
+margin_left = 658.333
+margin_top = 2.15848
+margin_right = 658.333
+margin_bottom = 2.15845
 texture = ExtResource( 1 )
 expand = true
 
@@ -70,12 +70,9 @@ margin_left = 143.615
 margin_top = 119.231
 margin_right = -147.385
 margin_bottom = -881.769
-hint_tooltip = "
-"
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 text = "Available Rooms"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -111,7 +108,7 @@ position = Vector2( 549.482, 56.8326 )
 rotation = 1.5708
 scale = Vector2( 0.499022, 0.562123 )
 frames = SubResource( 8 )
-frame = 4
+frame = 2
 playing = true
 
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
