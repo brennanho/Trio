@@ -106,10 +106,11 @@ sync func update_game(set, player_id):
 	if global.game_mode == global.LOCAL_GAME:
 		global.players_score[player_id] += int(rand_range(80,100))
 		var firework = get_parent().get_node("Color").get_node("Scores").get_node(str(player_id)).get_node("Firework")
-		firework.visible = true
-		firework.play()
-		global.wait(1, firework)
-		get_parent().get_node("Color/Scores").get_node(str(player_id)).text = global.ip_to_name(global.players_ips[player_id]) + " :  " + str(global.players_score[player_id])
+		if firework != null:
+			firework.visible = true
+			firework.play()
+			global.wait(1, firework)
+			get_parent().get_node("Color/Scores").get_node(str(player_id)).text = global.ip_to_name(global.players_ips[player_id]) + " :  " + str(global.players_score[player_id])
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
@@ -203,7 +204,6 @@ func _set_found_received():
 		var card_1 = msg[1]
 		var card_2 = msg[2]
 		var card_3 = msg[3]
-		var set = []
 		print("Opponent has found a set: ", card_1, card_2, card_3)
 		global.players_score[global.opp_socket_id] += 1
 		get_parent().get_node("Color/Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])

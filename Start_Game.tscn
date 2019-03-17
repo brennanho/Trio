@@ -23,6 +23,7 @@
 [ext_resource path="res://scripts/lifebar.gd" type="Script" id=21]
 
 [sub_resource type="Animation" id=1]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -37,6 +38,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -53,6 +55,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -83,6 +86,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -97,6 +101,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -113,6 +118,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -143,6 +149,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -157,6 +164,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -173,6 +181,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -203,6 +212,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -217,6 +227,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -233,6 +244,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -263,6 +275,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=13]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -277,6 +290,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=14]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -293,6 +307,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=15]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -323,6 +338,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=16]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -337,6 +353,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=17]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -353,6 +370,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=18]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -383,6 +401,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=19]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -397,6 +416,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=20]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -413,6 +433,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=21]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -443,6 +464,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=22]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -457,6 +479,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=23]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -473,6 +496,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=24]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -503,6 +527,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=25]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -517,6 +542,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=26]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -533,6 +559,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=27]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -563,6 +590,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=28]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -577,6 +605,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=29]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -593,6 +622,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=30]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -623,6 +653,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=31]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -637,6 +668,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=32]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -653,6 +685,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=33]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -683,6 +716,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=34]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -697,6 +731,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=35]
+
 resource_name = "Press"
 length = 0.25
 tracks/0/type = "value"
@@ -713,6 +748,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=36]
+
 resource_name = "Change"
 length = 0.5
 tracks/0/type = "method"
@@ -743,10 +779,12 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=37]
+
 size = 55
 font_data = ExtResource( 7 )
 
 [sub_resource type="SpriteFrames" id=38]
+
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
@@ -755,6 +793,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=39]
+
 size = 55
 font_data = ExtResource( 7 )
 
@@ -783,7 +822,6 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="Game_Screen" type="GridContainer" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1363,10 +1401,10 @@ wait_time = 25.0
 autostart = true
 
 [node name="Sets_Remaining" type="Label" parent="."]
-margin_left = 53.7666
-margin_top = 251.113
-margin_right = 395.766
-margin_bottom = 307.113
+margin_left = 37.0251
+margin_top = 248.721
+margin_right = 379.024
+margin_bottom = 304.721
 custom_fonts/font = SubResource( 37 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
@@ -1402,7 +1440,7 @@ position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
 frames = SubResource( 38 )
 animation = "firework"
-frame = 1
+frame = 2
 speed_scale = 0.75
 playing = true
 flip_v = true
@@ -1415,10 +1453,10 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 479.354
+margin_left = 462.612
 margin_top = 250.943
-margin_right = 555.354
-margin_bottom = 306.943
+margin_right = 540.612
+margin_bottom = 355.943
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 39 )
 text = "180
