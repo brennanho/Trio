@@ -50,5 +50,5 @@ limits/multithreaded_server/rid_pool_prealloc=100
 
 quality/subsurface_scattering/quality=2
 quality/subsurface_scattering/scale=1
-environment/default_clear_color=Color( 0.972549, 0.972549, 0.972549, 1 )
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"
