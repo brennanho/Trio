@@ -3,13 +3,14 @@ extends Node
 
 signal timer_end
 var network_role
-var seed_val
+var seed_val = 0
 var my_name
 var players_in_lobby = {}
 var players_score = {}
 var players_ips = {}
 var peer = null
 var discovery_on = true
+var SINGLE_PLAYER = false
 var server_ip = "127.0.0.1"
 var udp_sock
 var prev_scene
@@ -26,6 +27,7 @@ const REMOTE_GAME = "Remote"
 
 #SCENES
 const MAIN_SCENE = "Main.tscn"
+const MULTIPLAYER_SCENE = "Multiplayer.tscn"
 const ROOMS_SCENE = "Select_Room.tscn"
 const LOBBY_SCENE = "Lobby.tscn"
 const GAME_SCENE = "Start_Game.tscn"
@@ -161,11 +163,19 @@ func get_host_ip():
 		return LOOPBACK
 	return ips[-1]
 
-func wait(seconds, firework=null):
+func wait(seconds, firework=null, flying_tile=null):
+	var wr
+	var wrf
+	if firework != null:
+		wr = weakref(firework)
+	if flying_tile != null:
+		wrf = weakref(flying_tile)
 	self._create_timer(self, seconds, true, "_emit_timer_end_signal")
 	yield(self,"timer_end")
-	if firework != null:
+	if wr != null and wr.get_ref():
 		firework.visible = false
+	if wrf != null and wrf.get_ref():
+		flying_tile.play("Anim")
 	
 func _emit_timer_end_signal():
 	emit_signal("timer_end")
@@ -186,6 +196,7 @@ func refresh_globals():
 	players_ips = {}
 	players_score = {}
 	my_name = -1
-	udp_sock.close()
+	if udp_sock != null:
+		udp_sock.close()
 	if game_mode == LOCAL_GAME and typeof(peer) == 17: #Valid peer object
 		peer.close_connection()

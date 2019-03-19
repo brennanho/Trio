@@ -1,26 +1,33 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=63 format=2]
 
-[ext_resource path="res://Menu_Sprites/BG_MENU_GLACIER.png" type="Texture" id=1]
-[ext_resource path="res://scripts/game_screen.gd" type="Script" id=2]
-[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=3]
-[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=4]
-[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=5]
-[ext_resource path="res://scripts/card.gd" type="Script" id=6]
-[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Menu_Sprites/BLUE.png" type="Texture" id=8]
-[ext_resource path="res://scripts/Scores.gd" type="Script" id=9]
-[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=10]
-[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=11]
-[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=12]
-[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=13]
-[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=14]
-[ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=15]
-[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=16]
-[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=17]
-[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=18]
-[ext_resource path="res://scripts/timer.gd" type="Script" id=19]
-[ext_resource path="res://icon.png" type="Texture" id=20]
-[ext_resource path="res://scripts/lifebar.gd" type="Script" id=21]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=1]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/game_screen.gd" type="Script" id=4]
+[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=5]
+[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=6]
+[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=7]
+[ext_resource path="res://scripts/card.gd" type="Script" id=8]
+[ext_resource path="res://Menu_Sprites/BLUE.png" type="Texture" id=9]
+[ext_resource path="res://scripts/Scores.gd" type="Script" id=10]
+[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=11]
+[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=12]
+[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=13]
+[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=14]
+[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=15]
+[ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=16]
+[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=17]
+[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=18]
+[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=19]
+[ext_resource path="res://scripts/timer.gd" type="Script" id=20]
+[ext_resource path="res://icon.png" type="Texture" id=21]
+[ext_resource path="res://scripts/lifebar.gd" type="Script" id=22]
+
+[sub_resource type="DynamicFont" id=40]
+
+size = 90
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=1]
 
@@ -781,12 +788,12 @@ tracks/1/keys = {
 [sub_resource type="DynamicFont" id=37]
 
 size = 55
-font_data = ExtResource( 7 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="SpriteFrames" id=38]
 
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "firework",
 "speed": 15.0
@@ -795,7 +802,7 @@ animations = [ {
 [sub_resource type="DynamicFont" id=39]
 
 size = 55
-font_data = ExtResource( 7 )
+font_data = ExtResource( 3 )
 
 [node name="Main" type="Control"]
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
@@ -808,20 +815,43 @@ margin_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color( 0.882353, 0.882353, 0.882353, 1 )
-self_modulate = Color( 1, 1, 1, 0.607843 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 609.801
-margin_top = 3.31073
-margin_right = 683.801
-margin_bottom = 25.3108
+[node name="Title" type="TextureRect" parent="."]
+margin_left = 199.175
+margin_top = 12.5876
+margin_right = 381.175
+margin_bottom = 107.588
 texture = ExtResource( 1 )
 expand = true
 
+[node name="StarL" type="TextureRect" parent="Title"]
+margin_left = -41.4825
+margin_top = 22.4124
+margin_right = 4.51752
+margin_bottom = 60.4124
+texture = ExtResource( 2 )
+expand = true
+
+[node name="StarR" type="TextureRect" parent="Title"]
+margin_left = 187.0
+margin_top = 20.0
+margin_right = 233.0
+margin_bottom = 58.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Single_Score" type="Label" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 253.21
+margin_top = 135.623
+margin_right = 350.21
+margin_bottom = 227.623
+custom_fonts/font = SubResource( 40 )
+text = "0"
+align = 1
+valign = 1
+
 [node name="Game_Screen" type="GridContainer" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -837,21 +867,22 @@ rect_scale = Vector2( 1.1, 1.1 )
 custom_constants/vseparation = 33
 custom_constants/hseparation = 47
 columns = 4
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="card_1" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
 margin_right = 110.0
 margin_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_1"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -869,9 +900,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
 playback_speed = 5.0
@@ -892,12 +923,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_2"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -915,9 +946,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
 playback_speed = 5.0
@@ -938,12 +969,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_3"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -961,9 +992,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
 playback_speed = 5.0
@@ -984,12 +1015,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_4"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1007,9 +1038,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
 playback_speed = 5.0
@@ -1030,12 +1061,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_5"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1053,9 +1084,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
 playback_speed = 5.0
@@ -1077,12 +1108,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_6"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1100,9 +1131,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
 playback_speed = 5.0
@@ -1124,12 +1155,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_7"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1147,9 +1178,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
 playback_speed = 5.0
@@ -1171,12 +1202,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_8"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1194,9 +1225,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
 playback_speed = 5.0
@@ -1217,12 +1248,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_9"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1240,9 +1271,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
 playback_speed = 5.0
@@ -1264,12 +1295,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_10"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1287,9 +1318,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
 playback_speed = 5.0
@@ -1311,12 +1342,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_11"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1334,9 +1365,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
 playback_speed = 5.0
@@ -1358,12 +1389,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_12"]
-material = ExtResource( 4 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1381,9 +1412,9 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
 playback_speed = 5.0
@@ -1416,22 +1447,28 @@ margin_left = 3.14941
 margin_top = 12.1494
 margin_right = 594.149
 margin_bottom = 217.149
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 expand = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Scores" type="GridContainer" parent="Color"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 48.0
-margin_top = 31.0
-margin_right = -50.9996
-margin_bottom = -34.9996
+margin_left = 50.3917
+margin_top = 23.825
+margin_right = -48.6079
+margin_bottom = -42.1746
 rect_min_size = Vector2( 50, 50 )
 rect_rotation = 360.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 50
 columns = 2
-script = ExtResource( 9 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Firework" type="AnimatedSprite" parent="Color/Scores"]
 visible = false
@@ -1440,7 +1477,6 @@ position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
 frames = SubResource( 38 )
 animation = "firework"
-frame = 2
 speed_scale = 0.75
 playing = true
 flip_v = true
@@ -1453,17 +1489,17 @@ autostart = true
 [node name="Label" type="Label" parent="Timer"]
 modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 462.612
-margin_top = 250.943
-margin_right = 540.612
-margin_bottom = 355.943
+margin_left = 455.059
+margin_top = 243.39
+margin_right = 533.059
+margin_bottom = 348.39
 rect_rotation = 359.64
 custom_fonts/font = SubResource( 39 )
 text = "180
 "
 align = 3
 valign = 3
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 
 [node name="Lifebar" type="TextureProgress" parent="."]
 visible = false
@@ -1472,10 +1508,10 @@ margin_top = 44.0
 margin_right = 536.0
 margin_bottom = 104.0
 value = 50.0
-texture_progress = ExtResource( 20 )
+texture_progress = ExtResource( 21 )
 nine_patch_stretch = true
 stretch_margin_bottom = 60
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 
 [connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
 [connection signal="changed" from="Lifebar" to="Lifebar" method="_on_TextureProgress_changed"]

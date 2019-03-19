@@ -96,5 +96,5 @@ func _process(delta):
 func _ready():
 	rect_min_size.x = get_parent().rect_size.x
 	rect_min_size.y = get_parent().rect_size.y
-	global.prev_scene = global.MAIN_SCENE
+	global.prev_scene = global.MULTIPLAYER_SCENE
 	set_process(true)

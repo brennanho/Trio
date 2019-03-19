@@ -2,8 +2,13 @@ extends Label
 var timer
 	
 func game_over():
-	if global.players_score[global.my_name] > global.load_score():
-		global.save_score(global.players_score[global.my_name])
+	if global.SINGLE_PLAYER == true:
+		if int(get_parent().get_parent().get_node("Single_Score").text) > global.load_score:
+			global.save_score(int(get_parent().get_parent().get_node("Single_Score").text))
+			Transition.fade_to(global.MAIN_SCENE)
+	else:
+		if global.players_score[global.my_name] > global.load_score():
+			global.save_score(global.players_score[global.my_name])
 	var network_role = global.network_role
 	global.refresh_globals()
 	global.network_role = network_role
@@ -18,7 +23,10 @@ remote func update_time(time):
 
 func _process(delta):
 	self.text = time_to_mmss(stepify(timer.time_left, 1))
-	rpc("update_time", timer.time_left)
+	if global.SINGLE_PLAYER == true:
+		update_time(timer.time_left)
+	else:
+		rpc("update_time", timer.time_left)
 	if timer.is_stopped():
 		rpc("update_time", 0)
 		game_over()

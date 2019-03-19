@@ -120,6 +120,19 @@ sync func update_game(set, player_id):
 	
 	var num_sets = make_board_valid(victim_card.split("_")[-1])
 	update_sets_available(num_sets)
+	
+func update_singleplayer_game(set):
+	var score = int(get_parent().get_node("Single_Score").text)
+	get_parent().get_node("Single_Score").text = str(score + (int(rand_range(80,100))))
+	var victim_card
+	for i in range(3): #Refresh the board with new cards
+		var card_node = get_node(set[i][4]).get_node("card")
+		card_node.get_node("Change").play("Change")
+		victim_card = card_node.get_parent().name
+	
+	var num_sets = make_board_valid(victim_card.split("_")[-1])
+	update_sets_available(num_sets)
+	
 
 #Randomizes all cards in the deck	
 func shuffle_cards():
@@ -185,7 +198,10 @@ func add_card(card):
 					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = global.ip_to_name(global.players_ips[global.socket_id]) + " :  " + str(global.players_score[global.socket_id])
 					get_node("ping").start()
 				else: #Local game
-					rpc("update_game", set, global.my_name)
+					if global.SINGLE_PLAYER == true:
+						update_singleplayer_game(set)
+					else:
+						rpc("update_game", set, global.my_name)
 			else: #Not a set
 				pass
 			for i in range(3):
@@ -243,6 +259,11 @@ func _ready():
 		global.ws.connect("connection_error", self, "_connection_error")
 		set_process(true)
 	else: #local game i.e. same wifi or solo
+		if global.SINGLE_PLAYER == true:
+			get_parent().get_node("Color").visible = false
+		else:
+			get_parent().get_node("Title").visible = false
+			get_parent().get_node("Single_Score").visible = false
 		get_node("ping").stop()
 		get_node("ping").disconnect("timeout", self, "_on_ping_timeout")
 		set_process(false)

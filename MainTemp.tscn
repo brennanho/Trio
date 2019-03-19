@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=1]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=2]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_OFF.png" type="Texture" id=3]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_ON.png" type="Texture" id=4]
+[ext_resource path="res://scripts/main_menu_buttons.gd" type="Script" id=5]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_OFF.png" type="Texture" id=6]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_ON.png" type="Texture" id=7]
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.27209
+margin_right = 2.27209
+
+[node name="Title" type="TextureRect" parent="."]
+margin_left = 87.1091
+margin_top = 148.155
+margin_right = 481.109
+margin_bottom = 356.155
+texture = ExtResource( 1 )
+expand = true
+
+[node name="StarL" type="TextureRect" parent="Title"]
+margin_left = -63.6179
+margin_top = 31.809
+margin_right = 3.38208
+margin_bottom = 90.809
+texture = ExtResource( 2 )
+
+[node name="StarR" type="TextureRect" parent="Title"]
+margin_left = 395.34
+margin_top = 24.9927
+margin_right = 462.34
+margin_bottom = 83.9927
+texture = ExtResource( 2 )
+
+[node name="Singleplayer" type="TextureButton" parent="."]
+margin_left = 154.912
+margin_top = 431.714
+margin_right = 426.912
+margin_bottom = 618.714
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="Multiplayer" type="TextureButton" parent="."]
+margin_left = 158.912
+margin_top = 672.721
+margin_right = 419.912
+margin_bottom = 868.721
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+expand = true
+script = ExtResource( 5 )
+
+[connection signal="pressed" from="Singleplayer" to="Singleplayer" method="_on_Singleplayer_pressed"]
+[connection signal="pressed" from="Multiplayer" to="Multiplayer" method="_on_Multiplayer_pressed"]

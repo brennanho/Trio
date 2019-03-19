@@ -62,7 +62,7 @@ func _ready():
 		get_parent().get_parent().get_node("Room_Name").get_font("font").size = 80
 		get_parent().get_parent().get_node("Room_Name").rect_position.x -= 100
 		get_parent().get_parent().get_node("Start_Game").queue_free()
-		global.prev_scene = "Select_Room.tscn"
+		global.prev_scene = global.ROOMS_SCENE
 		get_node("Network").init_client(global.server_ip)
 	var start_game_button = get_parent().get_parent().get_node("Start_Game")
 	start_game_button.connect("pressed", self, "_button_pressed", [start_game_button.get_name(), seed_val, global.peer])
