@@ -8,8 +8,8 @@ var path = ""
 func fade_to(scn_path):
 	self.path = scn_path # store the scene path
 	self.layer = 2
-	get_node("Background").get_node("AnimationPlayer").play("transition") # play the transition animation
-	get_node("Background2").get_node("AnimationPlayer").play("transition") # play the transition animation
+	get_node("Background3/AnimationPlayer").play("transition") # play the transition animation
+	get_node("Background4/AnimationPlayer").play("transition") # play the transition animation
 
 # PRIVATE FUNCTION. CALLED AT THE MIDDLE OF THE TRANSITION ANIMATION
 func change_scene():

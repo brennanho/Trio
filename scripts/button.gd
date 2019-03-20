@@ -12,5 +12,4 @@ func _on_Join_Game_pressed():
 	Transition.fade_to(global.ROOMS_SCENE)
 	
 func _ready():
-	global.wait(5, null, get_parent().get_node("Create_Game/Flying_Tiles/Tile3/Anim").play("Anim"))
-	global.wait(5, null, get_parent().get_node("Create_Game/Flying_Tiles/Tile4/Anim").play("Anim"))
+	global.prev_scene = global.MAIN_SCENE

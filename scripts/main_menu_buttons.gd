@@ -12,6 +12,4 @@ func _on_Multiplayer_pressed():
 	Transition.fade_to(global.MULTIPLAYER_SCENE)
 	
 func _ready():
-	global.wait(5, null, get_parent().get_node("Singleplayer/Flying_Tiles/Tile3/Anim"))
-	global.wait(5, null, get_parent().get_node("Singleplayer/Flying_Tiles/Tile4/Anim"))
 	global.prev_scene = global.MAIN_SCENE

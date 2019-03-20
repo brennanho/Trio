@@ -3,16 +3,16 @@ var timer
 	
 func game_over():
 	if global.SINGLE_PLAYER == true:
-		if int(get_parent().get_parent().get_node("Single_Score").text) > global.load_score:
+		if int(get_parent().get_parent().get_node("Single_Score").text) > global.load_score():
 			global.save_score(int(get_parent().get_parent().get_node("Single_Score").text))
-			Transition.fade_to(global.MAIN_SCENE)
+		Transition.fade_to(global.MAIN_SCENE)
 	else:
 		if global.players_score[global.my_name] > global.load_score():
 			global.save_score(global.players_score[global.my_name])
 	var network_role = global.network_role
 	global.refresh_globals()
 	global.network_role = network_role
-	global.prev_scene = global.MAIN_SCENE
+	global.prev_scene = global.MULTIPLAYER_SCENE
 	Transition.fade_to(global.LOBBY_SCENE)
 
 remote func update_time(time):

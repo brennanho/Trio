@@ -1,36 +1,37 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=68 format=2]
 
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=1]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=2]
-[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://scripts/game_screen.gd" type="Script" id=4]
-[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=5]
-[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=6]
-[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=7]
-[ext_resource path="res://scripts/card.gd" type="Script" id=8]
-[ext_resource path="res://Menu_Sprites/BLUE.png" type="Texture" id=9]
-[ext_resource path="res://scripts/Scores.gd" type="Script" id=10]
-[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=11]
-[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=12]
-[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=13]
-[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=14]
-[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=15]
-[ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=16]
-[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=17]
-[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=18]
-[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=19]
-[ext_resource path="res://scripts/timer.gd" type="Script" id=20]
-[ext_resource path="res://icon.png" type="Texture" id=21]
-[ext_resource path="res://scripts/lifebar.gd" type="Script" id=22]
+[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/game_screen.gd" type="Script" id=2]
+[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=3]
+[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=4]
+[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=5]
+[ext_resource path="res://scripts/card.gd" type="Script" id=6]
+[ext_resource path="res://Menu_Sprites/BLUE.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Scores.gd" type="Script" id=8]
+[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=9]
+[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=10]
+[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=11]
+[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=12]
+[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=13]
+[ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=14]
+[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=15]
+[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=16]
+[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=17]
+[ext_resource path="res://scripts/timer.gd" type="Script" id=18]
+[ext_resource path="res://icon.png" type="Texture" id=19]
+[ext_resource path="res://scripts/lifebar.gd" type="Script" id=20]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=21]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=22]
+[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=23]
+[ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=24]
+[ext_resource path="res://scripts/back.gd" type="Script" id=25]
 
-[sub_resource type="DynamicFont" id=40]
-
+[sub_resource type="DynamicFont" id=1]
 size = 90
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=1]
-
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -42,688 +43,576 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+resource_name = "Press"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=4]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=7]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=8]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=9]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=10]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=11]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=12]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=13]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=14]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=15]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=16]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=17]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=18]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=19]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=20]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=21]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=22]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=23]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=24]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=25]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=26]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=27]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=28]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=29]
-
-resource_name = "Press"
-length = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
 [sub_resource type="Animation" id=30]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
 [sub_resource type="Animation" id=31]
-
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=32]
-
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=33]
-
-resource_name = "Change"
-length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=34]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -737,9 +626,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
 }
 
-[sub_resource type="Animation" id=35]
-
-resource_name = "Press"
+[sub_resource type="Animation" id=33]
 length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -754,9 +641,7 @@ tracks/0/keys = {
 "values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
 }
 
-[sub_resource type="Animation" id=36]
-
-resource_name = "Change"
+[sub_resource type="Animation" id=34]
 length = 0.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -785,24 +670,111 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=37]
+[sub_resource type="Animation" id=35]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
 
+[sub_resource type="Animation" id=36]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=38]
 size = 55
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
-[sub_resource type="SpriteFrames" id=38]
-
+[sub_resource type="SpriteFrames" id=39]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "firework",
 "speed": 15.0
 } ]
 
-[sub_resource type="DynamicFont" id=39]
-
+[sub_resource type="DynamicFont" id=40]
 size = 55
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=41]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="Main" type="Control"]
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
@@ -815,43 +787,18 @@ margin_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="TextureRect" parent="."]
-margin_left = 199.175
-margin_top = 12.5876
-margin_right = 381.175
-margin_bottom = 107.588
-texture = ExtResource( 1 )
-expand = true
-
-[node name="StarL" type="TextureRect" parent="Title"]
-margin_left = -41.4825
-margin_top = 22.4124
-margin_right = 4.51752
-margin_bottom = 60.4124
-texture = ExtResource( 2 )
-expand = true
-
-[node name="StarR" type="TextureRect" parent="Title"]
-margin_left = 187.0
-margin_top = 20.0
-margin_right = 233.0
-margin_bottom = 58.0
-texture = ExtResource( 2 )
-expand = true
-
 [node name="Single_Score" type="Label" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
 margin_left = 253.21
 margin_top = 135.623
 margin_right = 350.21
 margin_bottom = 227.623
-custom_fonts/font = SubResource( 40 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
 
 [node name="Game_Screen" type="GridContainer" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -867,7 +814,7 @@ rect_scale = Vector2( 1.1, 1.1 )
 custom_constants/vseparation = 33
 custom_constants/hseparation = 47
 columns = 4
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 
 [node name="card_1" type="TextureRect" parent="Game_Screen"]
 editor/display_folded = true
@@ -877,12 +824,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_1"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -900,20 +847,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 1 )
+anims/fader = SubResource( 2 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 2 )
+anims/Press = SubResource( 3 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
-anims/Change = SubResource( 3 )
+anims/Change = SubResource( 4 )
 
 [node name="card_2" type="TextureRect" parent="Game_Screen"]
 margin_left = 157.0
@@ -923,12 +870,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_2"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -946,20 +893,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 4 )
+anims/fader = SubResource( 5 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 5 )
+anims/Press = SubResource( 6 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
-anims/Change = SubResource( 6 )
+anims/Change = SubResource( 7 )
 
 [node name="card_3" type="TextureRect" parent="Game_Screen"]
 margin_left = 314.0
@@ -969,12 +916,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_3"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -992,20 +939,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 7 )
+anims/fader = SubResource( 8 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 8 )
+anims/Press = SubResource( 9 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
-anims/Change = SubResource( 9 )
+anims/Change = SubResource( 10 )
 
 [node name="card_4" type="TextureRect" parent="Game_Screen"]
 margin_left = 471.0
@@ -1015,12 +962,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_4"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1038,22 +985,23 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 10 )
+anims/fader = SubResource( 11 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 11 )
+anims/Press = SubResource( 12 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
-anims/Change = SubResource( 12 )
+anims/Change = SubResource( 13 )
 
 [node name="card_5" type="TextureRect" parent="Game_Screen"]
+material = ExtResource( 4 )
 margin_top = 183.0
 margin_right = 110.0
 margin_bottom = 333.0
@@ -1061,12 +1009,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_5"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1081,23 +1029,24 @@ grow_vertical = 2
 rect_min_size = Vector2( 11, 15 )
 rect_scale = Vector2( 1.05, 1 )
 rect_pivot_offset = Vector2( 90, 75 )
+rect_clip_content = true
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 13 )
+anims/fader = SubResource( 14 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 14 )
+anims/Press = SubResource( 15 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
-anims/Change = SubResource( 15 )
+anims/Change = SubResource( 16 )
 
 [node name="card_6" type="TextureRect" parent="Game_Screen"]
 margin_left = 157.0
@@ -1108,12 +1057,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_6"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1131,20 +1080,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 16 )
+anims/fader = SubResource( 17 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 17 )
+anims/Press = SubResource( 18 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
-anims/Change = SubResource( 18 )
+anims/Change = SubResource( 19 )
 
 [node name="card_7" type="TextureRect" parent="Game_Screen"]
 margin_left = 314.0
@@ -1155,12 +1104,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_7"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1178,20 +1127,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 19 )
+anims/fader = SubResource( 20 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 20 )
+anims/Press = SubResource( 21 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
-anims/Change = SubResource( 21 )
+anims/Change = SubResource( 22 )
 
 [node name="card_8" type="TextureRect" parent="Game_Screen"]
 margin_left = 471.0
@@ -1202,12 +1151,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_8"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1225,20 +1174,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 22 )
+anims/fader = SubResource( 23 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 23 )
+anims/Press = SubResource( 24 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
-anims/Change = SubResource( 24 )
+anims/Change = SubResource( 25 )
 
 [node name="card_9" type="TextureRect" parent="Game_Screen"]
 margin_top = 366.0
@@ -1248,12 +1197,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_9"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1271,20 +1220,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 25 )
+anims/fader = SubResource( 26 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 26 )
+anims/Press = SubResource( 27 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
-anims/Change = SubResource( 27 )
+anims/Change = SubResource( 28 )
 
 [node name="card_10" type="TextureRect" parent="Game_Screen"]
 margin_left = 157.0
@@ -1295,12 +1244,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_10"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1318,20 +1267,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 28 )
+anims/fader = SubResource( 29 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 29 )
+anims/Press = SubResource( 30 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
-anims/Change = SubResource( 30 )
+anims/Change = SubResource( 31 )
 
 [node name="card_11" type="TextureRect" parent="Game_Screen"]
 margin_left = 314.0
@@ -1342,12 +1291,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_11"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1365,20 +1314,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 31 )
+anims/fader = SubResource( 32 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 32 )
+anims/Press = SubResource( 33 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
-anims/Change = SubResource( 33 )
+anims/Change = SubResource( 34 )
 
 [node name="card_12" type="TextureRect" parent="Game_Screen"]
 margin_left = 471.0
@@ -1389,12 +1338,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_12"]
-material = ExtResource( 6 )
+material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1412,20 +1361,20 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 5 )
 expand = true
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 34 )
+anims/fader = SubResource( 35 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 35 )
+anims/Press = SubResource( 36 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
-anims/Change = SubResource( 36 )
+anims/Change = SubResource( 37 )
 
 [node name="ping" type="Timer" parent="Game_Screen"]
 wait_time = 25.0
@@ -1436,7 +1385,7 @@ margin_left = 37.0251
 margin_top = 248.721
 margin_right = 379.024
 margin_bottom = 304.721
-custom_fonts/font = SubResource( 37 )
+custom_fonts/font = SubResource( 38 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 sets available"
 align = 1
@@ -1447,7 +1396,7 @@ margin_left = 3.14941
 margin_top = 12.1494
 margin_right = 594.149
 margin_bottom = 217.149
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -1465,7 +1414,7 @@ rect_rotation = 360.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 50
 columns = 2
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1475,7 +1424,7 @@ visible = false
 self_modulate = Color( 1, 0.286275, 0.286275, 1 )
 position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
-frames = SubResource( 38 )
+frames = SubResource( 39 )
 animation = "firework"
 speed_scale = 0.75
 playing = true
@@ -1494,12 +1443,12 @@ margin_top = 243.39
 margin_right = 533.059
 margin_bottom = 348.39
 rect_rotation = 359.64
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 text = "180
 "
 align = 3
 valign = 3
-script = ExtResource( 20 )
+script = ExtResource( 18 )
 
 [node name="Lifebar" type="TextureProgress" parent="."]
 visible = false
@@ -1508,10 +1457,58 @@ margin_top = 44.0
 margin_right = 536.0
 margin_bottom = 104.0
 value = 50.0
-texture_progress = ExtResource( 21 )
+texture_progress = ExtResource( 19 )
 nine_patch_stretch = true
 stretch_margin_bottom = 60
-script = ExtResource( 22 )
+script = ExtResource( 20 )
+
+[node name="Title" type="TextureRect" parent="."]
+margin_left = 190.453
+margin_top = 7.52005
+margin_right = 397.453
+margin_bottom = 119.52
+texture = ExtResource( 21 )
+expand = true
+
+[node name="StarL" type="TextureRect" parent="Title"]
+editor/display_folded = true
+margin_left = -29.9886
+margin_top = 33.1866
+margin_right = 13.0114
+margin_bottom = 73.1866
+rect_rotation = 317.76
+rect_pivot_offset = Vector2( 19.7139, 23.335 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Anim" type="AnimationPlayer" parent="Title/StarL"]
+autoplay = "Rotate"
+anims/Rotate = SubResource( 41 )
+
+[node name="StarR" type="TextureRect" parent="Title"]
+margin_left = 206.094
+margin_top = 33.1353
+margin_right = 252.094
+margin_bottom = 75.1353
+rect_rotation = 45.0
+rect_pivot_offset = Vector2( 21.6329, 20.2129 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Anim" type="AnimationPlayer" parent="Title/StarR"]
+autoplay = "Rotate"
+anims/Rotate = SubResource( 42 )
+
+[node name="Back" type="TextureButton" parent="Title"]
+margin_left = -183.317
+margin_top = 16.4754
+margin_right = -113.317
+margin_bottom = 73.4754
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+expand = true
+script = ExtResource( 25 )
 
 [connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
 [connection signal="changed" from="Lifebar" to="Lifebar" method="_on_TextureProgress_changed"]
+[connection signal="pressed" from="Title/Back" to="Title/Back" method="_on_Back_pressed"]

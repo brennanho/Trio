@@ -229,7 +229,7 @@ func _set_found_received():
 	elif msg == "WIN":
 		print("You win!")
 		global.refresh_globals()
-		Transition.fade_to("res://Main.tscn")
+		Transition.fade_to(global.MAIN_SCENE)
 	
 func _connection_established(protocol):
 	var msg = "Rejoining game".to_utf8()

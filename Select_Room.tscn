@@ -76,11 +76,11 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Available Rooms"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_left = 100.0
-margin_top = 214.0
-margin_right = 550.0
-margin_bottom = 959.0
-rect_min_size = Vector2( 450, 745 )
+margin_left = 147.486
+margin_top = 246.377
+margin_right = 497.486
+margin_bottom = 991.377
+rect_min_size = Vector2( 350, 745 )
 mouse_filter = 1
 mouse_default_cursor_shape = 1
 theme = SubResource( 7 )
@@ -88,10 +88,13 @@ scroll_horizontal_enabled = false
 
 [node name="Rooms" type="VBoxContainer" parent="ScrollContainer"]
 show_behind_parent = true
-margin_right = 450.0
+margin_right = 350.0
 margin_bottom = 745.0
-rect_min_size = Vector2( 450, 745 )
+rect_min_size = Vector2( 350, 745 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 13.9334
@@ -108,7 +111,7 @@ position = Vector2( 549.482, 56.8326 )
 rotation = 1.5708
 scale = Vector2( 0.499022, 0.562123 )
 frames = SubResource( 8 )
-frame = 3
+frame = 4
 playing = true
 
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
