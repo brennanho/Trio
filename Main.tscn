@@ -354,10 +354,10 @@ margin_right = -0.00317383
 margin_bottom = -0.0090332
 
 [node name="Title" type="TextureRect" parent="."]
-margin_left = 96.5162
-margin_top = 122.726
-margin_right = 490.516
-margin_bottom = 330.726
+margin_left = 87.0
+margin_top = 128.0
+margin_right = 481.0
+margin_bottom = 336.0
 texture = ExtResource( 1 )
 expand = true
 
@@ -391,7 +391,6 @@ autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
 
 [node name="Singleplayer" type="TextureButton" parent="."]
-editor/display_folded = true
 show_behind_parent = true
 material = ExtResource( 3 )
 margin_left = 160.0
@@ -410,10 +409,10 @@ margin_bottom = 40.0
 [node name="Tile" type="TextureRect" parent="Singleplayer/Flying_Tiles"]
 show_behind_parent = true
 use_parent_material = true
-margin_left = 191.56
-margin_top = -347.029
-margin_right = 338.556
-margin_bottom = -129.06
+margin_left = 212.988
+margin_top = -343.133
+margin_right = 359.984
+margin_bottom = -125.164
 rect_rotation = 234.475
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
@@ -511,10 +510,10 @@ anims/Anim = SubResource( 8 )
 
 [node name="Multiplayer" type="TextureButton" parent="."]
 material = ExtResource( 3 )
-margin_left = 161.184
-margin_top = 661.36
-margin_right = 422.184
-margin_bottom = 857.36
+margin_left = 160.0
+margin_top = 660.0
+margin_right = 432.0
+margin_bottom = 847.0
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
 expand = true

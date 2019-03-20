@@ -297,10 +297,10 @@ script = ExtResource( 2 )
 
 [node name="Join_Game" type="TextureButton" parent="Background"]
 material = ExtResource( 3 )
-margin_left = 146.604
-margin_top = 617.315
-margin_right = 435.604
-margin_bottom = 852.315
+margin_left = 160.0
+margin_top = 660.0
+margin_right = 432.0
+margin_bottom = 850.0
 rect_rotation = 360.024
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
@@ -335,10 +335,10 @@ anims/Anim = SubResource( 2 )
 [node name="Tile4" type="TextureRect" parent="Background/Join_Game/Flying_Tiles"]
 show_behind_parent = true
 use_parent_material = true
-margin_left = -251.259
-margin_top = 23.9869
-margin_right = -104.262
-margin_bottom = 241.95
+margin_left = -270.851
+margin_top = 33.0392
+margin_right = -123.854
+margin_bottom = 251.002
 rect_rotation = 12.1076
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
@@ -418,10 +418,10 @@ anims/Anim = SubResource( 7 )
 [node name="Create_Game" type="TextureButton" parent="Background"]
 light_mask = 0
 material = ExtResource( 3 )
-margin_left = 150.964
-margin_top = 375.0
-margin_right = 433.964
-margin_bottom = 590.0
+margin_left = 160.0
+margin_top = 420.0
+margin_right = 432.0
+margin_bottom = 610.0
 rect_rotation = 359.829
 rect_pivot_offset = Vector2( 79.1722, 54.407 )
 texture_normal = ExtResource( 13 )
@@ -453,9 +453,9 @@ expand = true
 script = ExtResource( 18 )
 
 [node name="Title" type="TextureRect" parent="Background"]
-margin_left = 87.1559
+margin_left = 87.0
 margin_top = 128.0
-margin_right = 481.156
+margin_right = 481.0
 margin_bottom = 336.0
 texture = ExtResource( 19 )
 expand = true
