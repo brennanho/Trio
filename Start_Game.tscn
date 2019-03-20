@@ -875,6 +875,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_2"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -921,6 +922,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_3"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -967,6 +969,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_4"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -1014,6 +1017,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_5"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -1062,6 +1066,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_6"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -1109,6 +1114,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_7"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -1156,6 +1162,7 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_8"]
+editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5
@@ -1426,6 +1433,7 @@ position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
 frames = SubResource( 39 )
 animation = "firework"
+frame = 3
 speed_scale = 0.75
 playing = true
 flip_v = true

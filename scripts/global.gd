@@ -189,8 +189,8 @@ func _create_timer(object_target, float_wait_time, bool_is_oneshot, string_funct
     self.add_child(timer)
     timer.start()
 	
-func refresh_globals():
-	network_role = ""
+func refresh_globals(role=""):
+	network_role = role
 	seed_val = 0
 	players_in_lobby = {}
 	players_ips = {}

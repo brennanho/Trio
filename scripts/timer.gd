@@ -9,11 +9,9 @@ func game_over():
 	else:
 		if global.players_score[global.my_name] > global.load_score():
 			global.save_score(global.players_score[global.my_name])
-	var network_role = global.network_role
-	global.refresh_globals()
-	global.network_role = network_role
-	global.prev_scene = global.MULTIPLAYER_SCENE
-	Transition.fade_to(global.LOBBY_SCENE)
+		global.refresh_globals(global.network_role)
+		global.prev_scene = global.MULTIPLAYER_SCENE
+		Transition.fade_to(global.LOBBY_SCENE)
 
 remote func update_time(time):
 	self.text = time_to_mmss(stepify(time, 1))

@@ -2,7 +2,7 @@ extends TextureButton
 
 #Go back to the main menu
 func _on_Back_pressed():
-	if global.network_role == global.ENET_SERVER and !global.SINGLE_PLAYER:
+	if global.network_role == global.ENET_SERVER and global.discover_thread != null:
 		if global.discovery_on == true:
 			global.discovery_on = false
 			global.discover_thread.wait_to_finish()
