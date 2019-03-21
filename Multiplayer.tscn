@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://fonts/CallingCards_Bold_sample.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/find_opponent.gd" type="Script" id=2]
@@ -12,21 +12,22 @@
 [ext_resource path="res://Menu_Sprites/x_trans_red.png" type="Texture" id=10]
 [ext_resource path="res://Menu_Sprites/blue_rhom_trans.png" type="Texture" id=11]
 [ext_resource path="res://Menu_Sprites/green_circ_trans.png" type="Texture" id=12]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_OFF.png" type="Texture" id=13]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_ON.png" type="Texture" id=14]
-[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=15]
-[ext_resource path="res://scripts/highscore.gd" type="Script" id=16]
-[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=17]
-[ext_resource path="res://scripts/back.gd" type="Script" id=18]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=19]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=20]
+[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Name.gd" type="Script" id=14]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_ON.png" type="Texture" id=15]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_OFF.png" type="Texture" id=16]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_ON.png" type="Texture" id=17]
+[ext_resource path="res://scripts/highscore.gd" type="Script" id=18]
+[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=19]
+[ext_resource path="res://scripts/back.gd" type="Script" id=20]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=21]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -83,7 +84,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -112,7 +112,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -141,7 +140,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -170,7 +168,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -199,7 +196,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "Anim"
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -224,14 +220,24 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 10 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -274.592, -247.568 ), Vector2( 104.782, -562.782 ) ]
+"values": [ Vector2( -367.001, -392.165 ), Vector2( 306.275, -789.606 ) ]
 }
 
 [sub_resource type="DynamicFont" id=8]
-size = 45
-font_data = ExtResource( 15 )
+size = 35
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="DynamicFont" id=9]
+size = 45
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 45
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=11]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -247,8 +253,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Rotate"
+[sub_resource type="Animation" id=12]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -272,6 +277,9 @@ margin_left = -4.0
 margin_top = 4.0
 margin_right = -4.0
 margin_bottom = 4.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.215686 )
@@ -284,6 +292,9 @@ margin_right = 6.0
 margin_bottom = -6.0
 expand = true
 stretch_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Find_Opponent" type="Button" parent="Background"]
 visible = false
@@ -298,9 +309,9 @@ script = ExtResource( 2 )
 [node name="Join_Game" type="TextureButton" parent="Background"]
 material = ExtResource( 3 )
 margin_left = 160.0
-margin_top = 660.0
+margin_top = 694.859
 margin_right = 432.0
-margin_bottom = 850.0
+margin_bottom = 884.859
 rect_rotation = 360.024
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
@@ -308,6 +319,7 @@ expand = true
 script = ExtResource( 6 )
 
 [node name="Flying_Tiles" type="Control" parent="Background/Join_Game"]
+editor/display_folded = true
 show_behind_parent = true
 margin_left = 2.01292
 margin_top = -4.21628
@@ -399,13 +411,13 @@ autoplay = "Anim"
 anims/Anim = SubResource( 6 )
 
 [node name="Tile6" type="TextureRect" parent="Background/Join_Game/Flying_Tiles"]
-editor/display_folded = true
 show_behind_parent = true
 use_parent_material = true
-margin_left = 104.782
-margin_top = -562.782
-margin_right = 251.777
-margin_bottom = -344.837
+margin_left = -344.593
+margin_top = -405.393
+margin_right = -197.598
+margin_bottom = -187.448
+rect_rotation = 11.9819
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
 texture = ExtResource( 12 )
@@ -415,49 +427,87 @@ expand = true
 autoplay = "Anim"
 anims/Anim = SubResource( 7 )
 
-[node name="Create_Game" type="TextureButton" parent="Background"]
-light_mask = 0
-material = ExtResource( 3 )
-margin_left = 160.0
-margin_top = 420.0
-margin_right = 432.0
-margin_bottom = 610.0
-rect_rotation = 359.829
-rect_pivot_offset = Vector2( 79.1722, 54.407 )
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 14 )
-expand = true
-script = ExtResource( 6 )
+[node name="Name" type="LineEdit" parent="Background/Join_Game"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -166.225
+margin_top = -605.593
+margin_right = 94.7748
+margin_bottom = -523.593
+custom_fonts/font = SubResource( 8 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/clear_button_color = Color( 1, 1, 1, 1 )
+align = 1
+max_length = 12
+script = ExtResource( 14 )
+
+[node name="Name" type="Label" parent="Background/Join_Game/Name"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+max_lines_visible = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Background" type="TextureRect" parent="Background/Join_Game/Name"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.84412
+margin_top = -0.00247192
+margin_right = 5.84412
+margin_bottom = -0.00247192
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Create_Game" type="TextureButton" parent="Background"]
+light_mask = 0
+material = ExtResource( 3 )
+margin_left = 160.0
+margin_top = 445.847
+margin_right = 432.0
+margin_bottom = 635.847
+rect_rotation = 359.829
+rect_pivot_offset = Vector2( 79.1722, 54.407 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+expand = true
+script = ExtResource( 6 )
+
 [node name="Highscore" type="Label" parent="Background"]
-margin_left = 17.0
-margin_top = 35.0
-margin_right = 244.0
-margin_bottom = 122.0
-custom_fonts/font = SubResource( 8 )
+margin_left = 18.8566
+margin_top = 23.9823
+margin_right = 245.857
+margin_bottom = 110.982
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "High Score: 
 "
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 
 [node name="Back" type="TextureButton" parent="Background"]
 margin_left = 457.26
 margin_top = 7.0
 margin_right = 584.26
 margin_bottom = 119.0
-texture_normal = ExtResource( 17 )
+texture_normal = ExtResource( 19 )
 expand = true
-script = ExtResource( 18 )
+script = ExtResource( 20 )
 
 [node name="Title" type="TextureRect" parent="Background"]
-margin_left = 87.0
-margin_top = 128.0
-margin_right = 481.0
-margin_bottom = 336.0
-texture = ExtResource( 19 )
+margin_left = 87.95
+margin_top = 184.304
+margin_right = 481.95
+margin_bottom = 392.304
+texture = ExtResource( 21 )
 expand = true
 
 [node name="StarL" type="TextureRect" parent="Background/Title"]
@@ -468,12 +518,12 @@ margin_right = 3.3821
 margin_bottom = 96.6817
 rect_rotation = 317.76
 rect_pivot_offset = Vector2( 31.5927, 29.5528 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Background/Title/StarL"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 9 )
+anims/Rotate = SubResource( 11 )
 
 [node name="StarR" type="TextureRect" parent="Background/Title"]
 editor/display_folded = true
@@ -483,14 +533,16 @@ margin_right = 462.341
 margin_bottom = 93.081
 rect_rotation = 208.499
 rect_pivot_offset = Vector2( 31.5927, 29.5528 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Background/Title/StarR"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 10 )
+anims/Rotate = SubResource( 12 )
 
 [connection signal="button_down" from="Background/Find_Opponent" to="Background/Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Background/Join_Game" to="Background/Join_Game" method="_on_Join_Game_pressed"]
+[connection signal="text_changed" from="Background/Join_Game/Name" to="Background/Join_Game/Name" method="_on_Name_text_changed"]
+[connection signal="text_entered" from="Background/Join_Game/Name" to="Background/Join_Game/Name" method="_on_Name_text_entered"]
 [connection signal="pressed" from="Background/Create_Game" to="Background/Create_Game" method="_on_Create_Game_pressed"]
 [connection signal="pressed" from="Background/Back" to="Background/Back" method="_on_Back_pressed"]

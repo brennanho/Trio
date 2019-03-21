@@ -1,7 +1,15 @@
-extends Label
+extends LineEdit
 
-func _process(delta):
-	self.text = get_node("Name").text
-	
+onready var text_node = get_node("Name")
+
+func _on_Name_text_changed(new_text):
+	text_node.text = new_text
+
+func _on_Name_text_entered(new_text):
+	if text_node.text == "":
+		text_node.text = global.load_data('name')
+	global.save_data('name', text_node.text)
+
 func _ready():
-	set_process(true)
+	var name = global.load_data('name')
+	text_node.text = name

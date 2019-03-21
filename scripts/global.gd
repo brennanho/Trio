@@ -17,6 +17,8 @@ var prev_scene
 var game_mode 
 var discover_thread
 var high_score = 0
+var player_name
+var room_name
 
 #CONSTS
 const LOOPBACK = "127.0.0.1"
@@ -24,6 +26,7 @@ const ENET_SERVER = "Server"
 const ENET_CLIENT = "Client"
 const LOCAL_GAME = "Local"
 const REMOTE_GAME = "Remote"
+const SAVE_FILE = "user://game.save"
 
 #SCENES
 const MAIN_SCENE = "Main.tscn"
@@ -118,25 +121,28 @@ var fruits = [
 	"Tamarind",
 	"Yuzu"]
 	
-#Save current high score	
-func save_score(score):
+#Save data in json file	
+func save_data(key, val):
 	var data = File.new()
-	data.open("user://game.save", File.WRITE)
-	var save_data = {"score": score}
+	data.open(SAVE_FILE, File.WRITE)
+	var save_data = {key: val}
 	data.store_line(to_json(save_data))
 	data.close()
 		
 #Load high score on game start
-func load_score():
+func load_data(key):
 	var data = File.new()
-	data.open("user://game.save", File.READ)
+	data.open(SAVE_FILE, File.READ)
 	if data.get_len() == 0:
 		data.close()
-		return 0
 	else:
 		var load_data = parse_json(data.get_line())
 		data.close()
-		return load_data['score']
+		if key in load_data.keys():
+			return load_data[key]
+		if key == 'name':
+			return ip_to_name(get_host_ip())
+	return 0
 	
 func ip_to_name(ip):
 	if ip == LOOPBACK:
