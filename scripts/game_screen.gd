@@ -97,9 +97,9 @@ func make_board_valid(victim_card):
 #Update the screen UI to display the number of sets available
 func update_sets_available(num_sets):
 	if num_sets == 1:
-		get_parent().get_node("Sets_Remaining").text = '1 set available'
+		get_parent().get_node("Sets_Remaining").text = '1 Trio available'
 	else:
-		get_parent().get_node("Sets_Remaining").text = str(num_sets) + ' sets available'
+		get_parent().get_node("Sets_Remaining").text = str(num_sets) + ' Trios available'
 
 #Broadcasts a set found update to the game to all players
 sync func update_game(set, player_id):

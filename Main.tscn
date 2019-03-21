@@ -1,39 +1,40 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=1]
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=2]
-[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=3]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_OFF.png" type="Texture" id=4]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_ON.png" type="Texture" id=5]
-[ext_resource path="res://scripts/main_menu_buttons.gd" type="Script" id=6]
-[ext_resource path="res://Menu_Sprites/alpha_rhom1.png" type="Texture" id=7]
-[ext_resource path="res://Menu_Sprites/x_clear_trans.png" type="Texture" id=8]
-[ext_resource path="res://Menu_Sprites/red_circle_filled_trans.png" type="Texture" id=9]
-[ext_resource path="res://Menu_Sprites/x_trans_red.png" type="Texture" id=10]
-[ext_resource path="res://Menu_Sprites/blue_rhom_trans.png" type="Texture" id=11]
-[ext_resource path="res://Menu_Sprites/green_circ_trans.png" type="Texture" id=12]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_OFF.png" type="Texture" id=13]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_ON.png" type="Texture" id=14]
-[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=15]
-[ext_resource path="res://scripts/highscore.gd" type="Script" id=16]
-[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=17]
-[ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=18]
+[ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/highscore.gd" type="Script" id=4]
+[ext_resource path="res://Shaders/main_menu_button.tres" type="Material" id=5]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_OFF.png" type="Texture" id=6]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/SINGLEPLAYER_ON.png" type="Texture" id=7]
+[ext_resource path="res://scripts/main_menu_buttons.gd" type="Script" id=8]
+[ext_resource path="res://Menu_Sprites/alpha_rhom1.png" type="Texture" id=9]
+[ext_resource path="res://Menu_Sprites/x_clear_trans.png" type="Texture" id=10]
+[ext_resource path="res://Menu_Sprites/red_circle_filled_trans.png" type="Texture" id=11]
+[ext_resource path="res://Menu_Sprites/x_trans_red.png" type="Texture" id=12]
+[ext_resource path="res://Menu_Sprites/blue_rhom_trans.png" type="Texture" id=13]
+[ext_resource path="res://Menu_Sprites/green_circ_trans.png" type="Texture" id=14]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_OFF.png" type="Texture" id=15]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/MULTIPLAYER_ON.png" type="Texture" id=16]
+[ext_resource path="res://Menu_Sprites/HOWTO_OFF.png" type="Texture" id=17]
+[ext_resource path="res://Menu_Sprites/HOWTO_ON.png" type="Texture" id=18]
 [ext_resource path="res://scripts/help.gd" type="Script" id=19]
-[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=20]
-[ext_resource path="res://Card_Sprites/1_CIRC_RED_DOT.png" type="Texture" id=21]
-[ext_resource path="res://Card_Sprites/3_XXX_BLUE_DOT.png" type="Texture" id=22]
-[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_SOLID.png" type="Texture" id=23]
-[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=24]
-[ext_resource path="res://Card_Sprites/2_CIRC_RED_EMPTY.png" type="Texture" id=25]
-[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_DOT.png" type="Texture" id=26]
-[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_SOLID.png" type="Texture" id=27]
-[ext_resource path="res://Card_Sprites/1_RHOM_GREEN_DOT.png" type="Texture" id=28]
-[ext_resource path="res://Card_Sprites/3_RHOM_RED_SOLID.png" type="Texture" id=29]
-[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_DOT.png" type="Texture" id=30]
-[ext_resource path="res://Card_Sprites/3_XXX_BLUE_SOLID.png" type="Texture" id=31]
-[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_SOLID.png" type="Texture" id=32]
-[ext_resource path="res://Menu_Sprites/HOWTO_OFF.png" type="Texture" id=33]
-[ext_resource path="res://Menu_Sprites/HOWTO_ON.png" type="Texture" id=34]
+[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=20]
+[ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=21]
+[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=22]
+[ext_resource path="res://Card_Sprites/1_CIRC_RED_DOT.png" type="Texture" id=23]
+[ext_resource path="res://Card_Sprites/3_XXX_BLUE_DOT.png" type="Texture" id=24]
+[ext_resource path="res://Card_Sprites/3_RHOM_GREEN_SOLID.png" type="Texture" id=25]
+[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=26]
+[ext_resource path="res://Card_Sprites/2_CIRC_RED_EMPTY.png" type="Texture" id=27]
+[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_DOT.png" type="Texture" id=28]
+[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_SOLID.png" type="Texture" id=29]
+[ext_resource path="res://Card_Sprites/1_RHOM_GREEN_DOT.png" type="Texture" id=30]
+[ext_resource path="res://Card_Sprites/3_RHOM_RED_SOLID.png" type="Texture" id=31]
+[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_DOT.png" type="Texture" id=32]
+[ext_resource path="res://Card_Sprites/3_XXX_BLUE_SOLID.png" type="Texture" id=33]
+[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_SOLID.png" type="Texture" id=34]
+[ext_resource path="res://Name.gd" type="Script" id=35]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Rotate"
@@ -68,6 +69,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
+
+[sub_resource type="DynamicFont" id=10]
+size = 45
+font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Anim"
@@ -272,26 +277,10 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=9]
-size = 45
-font_data = ExtResource( 15 )
+size = 32
+font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=10]
-size = 55
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 15 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 47
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 15 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 45
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 15 )
-
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
@@ -319,7 +308,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 600, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
@@ -347,13 +336,32 @@ tracks/1/keys = {
 "values": [ Vector2( 600, 0 ), Vector2( 1240, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=11]
+size = 55
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 47
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 45
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 32
+font_data = ExtResource( 3 )
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -0.00317383
-margin_bottom = -0.0090332
 
 [node name="Title" type="TextureRect" parent="."]
+editor/display_folded = true
 margin_left = 87.0
 margin_top = 128.0
 margin_right = 481.0
@@ -390,17 +398,30 @@ expand = true
 autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
 
-[node name="Singleplayer" type="TextureButton" parent="."]
+[node name="Highscore" type="Label" parent="."]
 show_behind_parent = true
-material = ExtResource( 3 )
+margin_left = 17.0
+margin_top = 35.0
+margin_right = 243.999
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High Score: 0
+"
+script = ExtResource( 4 )
+
+[node name="Singleplayer" type="TextureButton" parent="."]
+editor/display_folded = true
+show_behind_parent = true
+material = ExtResource( 5 )
 margin_left = 160.0
 margin_top = 420.0
 margin_right = 432.0
 margin_bottom = 607.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
 [node name="Flying_Tiles" type="Control" parent="Singleplayer"]
 margin_right = 39.9998
@@ -416,7 +437,7 @@ margin_bottom = -125.164
 rect_rotation = 234.475
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile"]
@@ -433,7 +454,7 @@ margin_right = -128.055
 margin_bottom = 262.364
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile4"]
@@ -450,7 +471,7 @@ margin_bottom = 593.527
 rect_rotation = 71.4217
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile2"]
@@ -467,7 +488,7 @@ margin_right = -154.714
 margin_bottom = 695.313
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile3"]
@@ -484,7 +505,7 @@ margin_bottom = 676.531
 rect_rotation = 44.4
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile5"]
@@ -501,7 +522,7 @@ margin_right = 251.777
 margin_bottom = -344.837
 rect_pivot_offset = Vector2( 81.0553, 106.083 )
 rect_clip_content = true
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Singleplayer/Flying_Tiles/Tile6"]
@@ -509,29 +530,43 @@ autoplay = "Anim"
 anims/Anim = SubResource( 8 )
 
 [node name="Multiplayer" type="TextureButton" parent="."]
-material = ExtResource( 3 )
+editor/display_folded = true
+material = ExtResource( 5 )
 margin_left = 160.0
 margin_top = 660.0
 margin_right = 432.0
 margin_bottom = 847.0
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 14 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
-[node name="Highscore" type="Label" parent="."]
-show_behind_parent = true
-margin_left = 17.0
-margin_top = 35.0
-margin_right = 243.999
-margin_bottom = 122.0
+[node name="Label" type="Label" parent="Multiplayer"]
+margin_left = 51.0
+margin_top = 194.0
+margin_right = 221.0
+margin_bottom = 259.0
 custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "High Score: 0
-"
-script = ExtResource( 16 )
+text = "Same Wifi Only"
+
+[node name="Help" type="TextureButton" parent="."]
+editor/display_folded = true
+margin_left = 510.222
+margin_top = 22.0001
+margin_right = 585.222
+margin_bottom = 97.0001
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+expand = true
+script = ExtResource( 19 )
+
+[node name="Help" type="AnimationPlayer" parent="Help"]
+anims/Help = SubResource( 14 )
+anims/Help2 = SubResource( 15 )
 
 [node name="Instructions" type="TextureRect" parent="."]
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0.215686 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -546,11 +581,12 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Instructions"]
+editor/display_folded = true
 margin_left = -5.0
 margin_top = 116.0
 margin_right = 633.0
 margin_bottom = 290.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Find 3 tiles with the same 
 or different Colour, Shape,
@@ -563,7 +599,7 @@ margin_left = 11.4153
 margin_top = 168.951
 margin_right = 599.415
 margin_bottom = 752.951
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
@@ -584,17 +620,18 @@ margin_left = 8.0
 margin_top = 7.0
 margin_right = 113.0
 margin_bottom = 93.0
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 18 )
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 21 )
 expand = true
 script = ExtResource( 19 )
 
-[node name="Invalid" type="Label" parent="."]
-margin_left = 791.901
-margin_top = 645.032
-margin_right = 1010.9
-margin_bottom = 687.032
-custom_fonts/font = SubResource( 12 )
+[node name="Invalid" type="Label" parent="Instructions"]
+editor/display_folded = true
+margin_left = 189.367
+margin_top = 642.242
+margin_right = 408.367
+margin_bottom = 684.242
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
@@ -602,12 +639,12 @@ custom_constants/line_spacing = 20
 text = "Invalid Trios"
 align = 1
 
-[node name="Numbers" type="Label" parent="Invalid"]
+[node name="Numbers" type="Label" parent="Instructions/Invalid"]
 margin_left = -95.4776
 margin_top = 66.3552
 margin_right = -49.4776
 margin_bottom = 283.355
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
@@ -617,7 +654,7 @@ text = "1.
 3."
 align = 1
 
-[node name="Sets" type="GridContainer" parent="Invalid"]
+[node name="Sets" type="GridContainer" parent="Instructions/Invalid"]
 show_behind_parent = true
 margin_left = 257.846
 margin_top = 67.3911
@@ -628,48 +665,14 @@ custom_constants/vseparation = 10
 custom_constants/hseparation = 20
 columns = 3
 
-[node name="Shadow" type="TextureRect" parent="Invalid/Sets"]
+[node name="Shadow" type="TextureRect" parent="Instructions/Invalid/Sets"]
 margin_right = 67.5
 margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 21 )
-expand = true
-
-[node name="Shadow2" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 87.0
-margin_right = 154.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow2"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
 rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 22 )
 expand = true
 
-[node name="Shadow3" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 174.0
-margin_right = 241.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow3"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -678,15 +681,15 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 23 )
 expand = true
 
-[node name="Shadow4" type="TextureRect" parent="Invalid/Sets"]
-margin_top = 100.0
-margin_right = 67.5
-margin_bottom = 190.0
+[node name="Shadow2" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_right = 154.5
+margin_bottom = 90.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow4"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow2"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -695,16 +698,15 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 24 )
 expand = true
 
-[node name="Shadow5" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 87.0
-margin_top = 100.0
-margin_right = 154.5
-margin_bottom = 190.0
+[node name="Shadow3" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_right = 241.5
+margin_bottom = 90.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow5"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow3"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -713,16 +715,15 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 25 )
 expand = true
 
-[node name="Shadow6" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 174.0
+[node name="Shadow4" type="TextureRect" parent="Instructions/Invalid/Sets"]
 margin_top = 100.0
-margin_right = 241.5
+margin_right = 67.5
 margin_bottom = 190.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow6"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow4"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -731,15 +732,16 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 26 )
 expand = true
 
-[node name="Shadow7" type="TextureRect" parent="Invalid/Sets"]
-margin_top = 200.0
-margin_right = 67.5
-margin_bottom = 290.0
+[node name="Shadow5" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_top = 100.0
+margin_right = 154.5
+margin_bottom = 190.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow7"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow5"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -748,16 +750,16 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 27 )
 expand = true
 
-[node name="Shadow8" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 87.0
-margin_top = 200.0
-margin_right = 154.5
-margin_bottom = 290.0
+[node name="Shadow6" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_top = 100.0
+margin_right = 241.5
+margin_bottom = 190.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow8"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow6"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -766,16 +768,15 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 28 )
 expand = true
 
-[node name="Shadow9" type="TextureRect" parent="Invalid/Sets"]
-margin_left = 174.0
+[node name="Shadow7" type="TextureRect" parent="Instructions/Invalid/Sets"]
 margin_top = 200.0
-margin_right = 241.5
+margin_right = 67.5
 margin_bottom = 290.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Invalid/Sets/Shadow9"]
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow7"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -784,12 +785,49 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 29 )
 expand = true
 
-[node name="Valid" type="Label" parent="."]
-margin_left = 714.975
-margin_top = 304.812
-margin_right = 1081.97
-margin_bottom = 350.812
-custom_fonts/font = SubResource( 12 )
+[node name="Shadow8" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_top = 200.0
+margin_right = 154.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow8"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 30 )
+expand = true
+
+[node name="Shadow9" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_top = 200.0
+margin_right = 241.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow9"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 31 )
+expand = true
+
+[node name="Valid" type="Label" parent="Instructions"]
+editor/display_folded = true
+margin_left = 112.441
+margin_top = 302.022
+margin_right = 479.436
+margin_bottom = 348.022
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
@@ -797,12 +835,12 @@ custom_constants/line_spacing = 20
 text = "Valid Trios"
 align = 1
 
-[node name="Numbers" type="Label" parent="Valid"]
+[node name="Numbers" type="Label" parent="Instructions/Valid"]
 margin_left = -18.6032
 margin_top = 73.8918
 margin_right = 27.3968
 margin_bottom = 290.892
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
@@ -812,7 +850,7 @@ text = "1.
 3."
 align = 1
 
-[node name="Sets" type="GridContainer" parent="Valid"]
+[node name="Sets" type="GridContainer" parent="Instructions/Valid"]
 show_behind_parent = true
 margin_left = 336.228
 margin_top = 71.9132
@@ -823,106 +861,15 @@ custom_constants/vseparation = 10
 custom_constants/hseparation = 20
 columns = 3
 
-[node name="Shadow" type="TextureRect" parent="Valid/Sets"]
+[node name="Shadow" type="TextureRect" parent="Instructions/Valid/Sets"]
 editor/display_folded = true
 margin_right = 67.5
 margin_bottom = 90.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 30 )
-expand = true
-
-[node name="Shadow2" type="TextureRect" parent="Valid/Sets"]
-editor/display_folded = true
-margin_left = 87.0
-margin_right = 154.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow2"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 31 )
-expand = true
-
-[node name="Shadow3" type="TextureRect" parent="Valid/Sets"]
-margin_left = 174.0
-margin_right = 241.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow3"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 23 )
-expand = true
-
-[node name="Shadow4" type="TextureRect" parent="Valid/Sets"]
-editor/display_folded = true
-margin_top = 100.0
-margin_right = 67.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow4"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 24 )
-expand = true
-
-[node name="Shadow5" type="TextureRect" parent="Valid/Sets"]
-editor/display_folded = true
-margin_left = 87.0
-margin_top = 100.0
-margin_right = 154.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow5"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 25 )
-expand = true
-
-[node name="Shadow6" type="TextureRect" parent="Valid/Sets"]
-editor/display_folded = true
-margin_left = 174.0
-margin_top = 100.0
-margin_right = 241.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow6"]
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -931,16 +878,70 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 32 )
 expand = true
 
-[node name="Shadow7" type="TextureRect" parent="Valid/Sets"]
+[node name="Shadow2" type="TextureRect" parent="Instructions/Valid/Sets"]
 editor/display_folded = true
-margin_top = 200.0
-margin_right = 67.5
-margin_bottom = 290.0
+margin_left = 87.0
+margin_right = 154.5
+margin_bottom = 90.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow7"]
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow2"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 33 )
+expand = true
+
+[node name="Shadow3" type="TextureRect" parent="Instructions/Valid/Sets"]
+margin_left = 174.0
+margin_right = 241.5
+margin_bottom = 90.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow3"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 25 )
+expand = true
+
+[node name="Shadow4" type="TextureRect" parent="Instructions/Valid/Sets"]
+editor/display_folded = true
+margin_top = 100.0
+margin_right = 67.5
+margin_bottom = 190.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow4"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 26 )
+expand = true
+
+[node name="Shadow5" type="TextureRect" parent="Instructions/Valid/Sets"]
+editor/display_folded = true
+margin_left = 87.0
+margin_top = 100.0
+margin_right = 154.5
+margin_bottom = 190.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow5"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -949,36 +950,35 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 27 )
 expand = true
 
-[node name="Shadow8" type="TextureRect" parent="Valid/Sets"]
+[node name="Shadow6" type="TextureRect" parent="Instructions/Valid/Sets"]
 editor/display_folded = true
-margin_left = 87.0
-margin_top = 200.0
-margin_right = 154.5
-margin_bottom = 290.0
+margin_left = 174.0
+margin_top = 100.0
+margin_right = 241.5
+margin_bottom = 190.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow8"]
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow6"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
 margin_bottom = 89.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 28 )
+texture = ExtResource( 34 )
 expand = true
 
-[node name="Shadow9" type="TextureRect" parent="Valid/Sets"]
+[node name="Shadow7" type="TextureRect" parent="Instructions/Valid/Sets"]
 editor/display_folded = true
-margin_left = 174.0
 margin_top = 200.0
-margin_right = 241.5
+margin_right = 67.5
 margin_bottom = 290.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 expand = true
 
-[node name="Card" type="TextureRect" parent="Valid/Sets/Shadow9"]
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow7"]
 margin_left = -12.0
 margin_top = -1.0
 margin_right = 55.5
@@ -987,21 +987,88 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 29 )
 expand = true
 
-[node name="Help" type="TextureButton" parent="."]
-margin_left = 510.222
-margin_top = 22.0001
-margin_right = 585.222
-margin_bottom = 97.0001
-texture_normal = ExtResource( 33 )
-texture_pressed = ExtResource( 34 )
+[node name="Shadow8" type="TextureRect" parent="Instructions/Valid/Sets"]
+editor/display_folded = true
+margin_left = 87.0
+margin_top = 200.0
+margin_right = 154.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
 expand = true
-script = ExtResource( 19 )
 
-[node name="Help" type="AnimationPlayer" parent="Help"]
-anims/Help = SubResource( 13 )
-anims/Help2 = SubResource( 14 )
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow8"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 30 )
+expand = true
+
+[node name="Shadow9" type="TextureRect" parent="Instructions/Valid/Sets"]
+editor/display_folded = true
+margin_left = 174.0
+margin_top = 200.0
+margin_right = 241.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Valid/Sets/Shadow9"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 31 )
+expand = true
+
+[node name="Name" type="Label" parent="."]
+margin_left = 204.0
+margin_top = 925.0
+margin_right = 377.0
+margin_bottom = 956.0
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hello"
+align = 1
+valign = 1
+script = ExtResource( 35 )
+
+[node name="Name" type="TextEdit" parent="Name"]
+show_behind_parent = true
+margin_left = -1.0
+margin_right = 174.0
+margin_bottom = 36.0
+custom_colors/member_variable_color = Color( 1, 1, 1, 1 )
+custom_colors/code_folding_color = Color( 1, 1, 1, 1 )
+custom_colors/function_color = Color( 1, 1, 1, 1 )
+custom_colors/safe_line_number_color = Color( 1, 1, 1, 1 )
+custom_colors/symbol_color = Color( 1, 1, 1, 1 )
+custom_colors/caret_background_color = Color( 1, 1, 1, 1 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/caret_color = Color( 1, 1, 1, 1 )
+custom_colors/breakpoint_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/line_number_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_font_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_scroll_color = Color( 1, 1, 1, 1 )
+custom_colors/background_color = Color( 1, 1, 1, 1 )
+custom_colors/number_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_background_color = Color( 1, 1, 1, 1 )
+custom_colors/brace_mismatch_color = Color( 1, 1, 1, 1 )
+custom_colors/current_line_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_selected_color = Color( 1, 1, 1, 1 )
+custom_colors/mark_color = Color( 1, 1, 1, 1 )
+custom_colors/word_highlighted_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_existing_color = Color( 1, 1, 1, 1 )
+text = "Hello bob"
+hiding_enabled = 1
 
 [connection signal="pressed" from="Singleplayer" to="Singleplayer" method="_on_Singleplayer_pressed"]
 [connection signal="pressed" from="Multiplayer" to="Multiplayer" method="_on_Multiplayer_pressed"]
-[connection signal="button_down" from="Instructions/Back" to="Instructions/Back" method="_on_Back_button_down"]
 [connection signal="pressed" from="Help" to="Help" method="_on_Help_pressed"]
+[connection signal="button_down" from="Instructions/Back" to="Instructions/Back" method="_on_Back_button_down"]

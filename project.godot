@@ -17,8 +17,6 @@ _global_script_class_icons={
 
 config/name="Set_3.0"
 run/main_scene="res://Main.tscn"
-boot_splash/image="res://Card_Sprites/3_RHOM_RED_DOT.png"
-boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -52,4 +50,4 @@ limits/multithreaded_server/rid_pool_prealloc=100
 
 quality/subsurface_scattering/quality=2
 quality/subsurface_scattering/scale=1
-environment/default_clear_color=Color( 0.886275, 0.886275, 0.886275, 1 )
+environment/default_clear_color=Color( 1, 1, 1, 1 )

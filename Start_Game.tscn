@@ -1219,7 +1219,7 @@ margin_left = -80.536
 margin_top = -75.229
 margin_right = 29.464
 margin_bottom = 74.771
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 rect_min_size = Vector2( 11, 15 )
 rect_scale = Vector2( 1.05, 1 )
@@ -1394,7 +1394,7 @@ margin_right = 379.024
 margin_bottom = 304.721
 custom_fonts/font = SubResource( 38 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "3 sets available"
+text = "3 Trios available"
 align = 1
 
 [node name="Color" type="TextureRect" parent="."]
@@ -1433,7 +1433,7 @@ position = Vector2( 700.39, 37.9707 )
 scale = Vector2( 0.136222, 0.159515 )
 frames = SubResource( 39 )
 animation = "firework"
-frame = 3
+frame = 5
 speed_scale = 0.75
 playing = true
 flip_v = true

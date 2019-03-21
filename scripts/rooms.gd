@@ -7,6 +7,8 @@ const MAX_ATTEMPTS = 150
 const BROADCAST_ADDR = "255.255.255.255"
 const BUTTON_MARGIN_TOP = 30
 const FONT_SIZE = 40
+const OUTLINE_SIZE = 3
+const ROOM_NAME_Y_OFFSET = 10
 const FONT_PATH = "res://fonts/Robi-Regular.ttf"
 const BLANK_ON_PATH = "res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_ON.png"
 const BLANK_OFF_PATH = "res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_OFF.png"
@@ -73,7 +75,7 @@ func _process(delta):
 			font.size = FONT_SIZE
 			font.font_data = FONT
 			font.outline_color = BLACK
-			font.outline_size = 3
+			font.outline_size = OUTLINE_SIZE
 			label.add_font_override("font", font)
 			#label.add_color_override("font_color", BLACK)
 			server_button.name = server_ip
@@ -90,8 +92,9 @@ func _process(delta):
 			var server = Server.new(server_button, 0, server_ip)
 			servers[server_ip] = server
 			server_button.add_child(label)
-			label.valign = label.ALIGN_CENTER
+			label.valign = label.VALIGN_CENTER
 			label.align = label.ALIGN_CENTER
+			label.rect_position.y -= ROOM_NAME_Y_OFFSET
 			label.rect_size = server_button.rect_size
 			label.text = global.ip_to_name(server_ip)
 			add_child(server_button)
