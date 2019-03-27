@@ -46,18 +46,20 @@ func find_servers():
 				parts[3] = '255'
 				global.udp_sock.set_dest_address(parts.join('.'), udp_server_port)
 				global.udp_sock.put_var(global.get_host_ip())
-				var server_ip = global.udp_sock.get_var()
-				if server_ip != null:
-					var server_ip_split = PoolStringArray(server_ip.split(".")).join("")
-					if not(server_ip in updated_servers):
-						updated_servers[server_ip] = server_ip_split
+				var server = global.udp_sock.get_var()
+				if server != null:
+					var ip = server[0]
+					var name = server[1]
+					if not(server in updated_servers):
+						updated_servers[ip] = name 
 	global.udp_sock.close()
 	return updated_servers
 	
-func _pressed(server_ip):
+func _pressed(server_ip, name):
 	set_process(false)
 	global.refresh_globals()
 	global.server_ip = server_ip
+	global.server_name = name
 	Transition.fade_to(global.LOBBY_SCENE)
 	
 func _process(delta):
@@ -81,7 +83,7 @@ func _process(delta):
 			#label.add_color_override("font_color", BLACK)
 			server_button.name = server_ip
 			server_button.mouse_filter = server_button.MOUSE_FILTER_PASS
-			server_button.connect("pressed", self, "_pressed", [server_ip])
+			server_button.connect("pressed", self, "_pressed", [server_ip, updated_servers[server_ip]])
 			server_button.texture_normal = BLANK_OFF
 			server_button.texture_pressed = BLANK_ON
 			server_button.expand = true
@@ -97,7 +99,7 @@ func _process(delta):
 			label.align = label.ALIGN_CENTER
 			label.rect_position.y -= ROOM_NAME_Y_OFFSET
 			label.rect_size = server_button.rect_size
-			label.text = global.ip_to_name(server_ip)
+			label.text = updated_servers[server_ip]
 			add_child(server_button)
 		
 func _ready():

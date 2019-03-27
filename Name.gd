@@ -11,5 +11,5 @@ func _on_Name_text_entered(new_text):
 	global.save_data('name', text_node.text)
 
 func _ready():
-	var name = global.load_data('name')
-	text_node.text = name
+	text_node.text = global.load_data('name')
+	global.player_name = text_node.text

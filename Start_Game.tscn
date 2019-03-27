@@ -799,6 +799,7 @@ align = 1
 valign = 1
 
 [node name="Game_Screen" type="GridContainer" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -875,7 +876,6 @@ expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_2"]
-editor/display_folded = true
 material = ExtResource( 4 )
 use_parent_material = true
 anchor_left = 0.5

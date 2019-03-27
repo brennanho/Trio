@@ -23,7 +23,7 @@ func _ready():
 		else:
 			font.size = FONT_SIZE_BIG
 		font.font_data = FONT
-		player.text =  global.ip_to_name(global.players_ips[player_id]) + ": " + str(global.players_score[player_id])
+		player.text =  global.players_ips[player_id] + ": " + str(global.players_score[player_id])
 		player.align = player.ALIGN_RIGHT
 		player.add_font_override("font", font)
 		player.add_color_override("font_color", BLACK)

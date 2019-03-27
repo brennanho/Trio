@@ -18,7 +18,7 @@ var game_mode
 var discover_thread
 var high_score = 0
 var player_name
-var room_name
+var server_name
 
 #CONSTS
 const LOOPBACK = "127.0.0.1"

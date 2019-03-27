@@ -19,6 +19,7 @@ remote func remove_client_from_other_client(id):
 
 func _connected_to_server(id):
 	print('Client ' + str(id) + ' connected to Server')
+	rpc_id(1, "_client_connected", id, global.load_data('name'))
 
 func _connect_to_server_fail():
 	print('Client failed to connect to Server')
@@ -32,12 +33,12 @@ func _disconnected_from_server(id):
 	global.refresh_globals()
 
 # EXECUTED ON SERVER SIDE
-func _client_connected(id):
-	print('Client ' + str(id) + ' has joined')
-	get_parent().add_player_to_screen(len(global.players_in_lobby)+1,id, global.peer.get_peer_address(id))
+remote func _client_connected(id, name):
+	print('Client ' + name + ' has joined')
+	get_parent().add_player_to_screen(len(global.players_in_lobby)+1,id, name)
 	for player_id in global.players_in_lobby.keys():
 		if player_id != 1 and player_id != id:
-			rpc_id(player_id, "add_new_client_to_other_client", id, global.peer.get_peer_address(id))
+			rpc_id(player_id, "add_new_client_to_other_client", id, name)
 	rpc_id(id, "update_players_lobby", global.players_in_lobby, global.players_ips, id)
 
 func _client_disconnected(id):
@@ -56,7 +57,7 @@ func broadcast_to_clients(nil):
 		var client_ip = global.udp_sock.get_var()
 		if client_ip != null:
 			global.udp_sock.set_dest_address(client_ip, udp_client_port)
-			global.udp_sock.put_var(my_ip)
+			global.udp_sock.put_var([my_ip, global.load_data('name')])
 	return 0
 	
 func init_server():
@@ -67,7 +68,7 @@ func init_server():
 	global.peer.set_always_ordered(true)
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)
-	get_tree().connect("network_peer_connected",    self, "_client_connected")
+	#get_tree().connect("network_peer_connected",    self, "_client_connected")
 	get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
 	
 func init_client(ip):
