@@ -223,24 +223,24 @@ tracks/1/keys = {
 "values": [ Vector2( -367.001, -392.165 ), Vector2( 306.275, -789.606 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=14]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 246, 156 )
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 246, 156 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=10]
 size = 45
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 size = 45
 font_data = ExtResource( 14 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -256,7 +256,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -438,9 +438,9 @@ margin_bottom = -531.149
 rect_scale = Vector2( 1.00981, 1.08389 )
 rect_clip_content = true
 focus_mode = 1
-custom_styles/focus = SubResource( 14 )
-custom_styles/normal = SubResource( 13 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/selection_color = Color( 1, 1, 1, 0 )
 custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
@@ -474,7 +474,7 @@ margin_left = 18.8566
 margin_top = 23.9823
 margin_right = 245.857
 margin_bottom = 110.982
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "High Score: 
 "
@@ -510,7 +510,7 @@ expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Background/Title/StarL"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 11 )
+anims/Rotate = SubResource( 12 )
 
 [node name="StarR" type="TextureRect" parent="Background/Title"]
 editor/display_folded = true
@@ -525,7 +525,7 @@ expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Background/Title/StarR"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 12 )
+anims/Rotate = SubResource( 13 )
 
 [connection signal="button_down" from="Background/Find_Opponent" to="Background/Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Background/Join_Game" to="Background/Join_Game" method="_on_Join_Game_pressed"]

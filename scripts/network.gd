@@ -19,7 +19,7 @@ remote func remove_client_from_other_client(id):
 
 func _connected_to_server(id):
 	print('Client ' + str(id) + ' connected to Server')
-	rpc_id(1, "_client_connected", id, global.load_data('name'))
+	rpc_id(1, "_client_connected", id, global.player_name)
 
 func _connect_to_server_fail():
 	print('Client failed to connect to Server')
@@ -57,7 +57,7 @@ func broadcast_to_clients(nil):
 		var client_ip = global.udp_sock.get_var()
 		if client_ip != null:
 			global.udp_sock.set_dest_address(client_ip, udp_client_port)
-			global.udp_sock.put_var([my_ip, global.load_data('name')])
+			global.udp_sock.put_var([my_ip, global.player_name])
 	return 0
 	
 func init_server():
