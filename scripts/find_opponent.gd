@@ -1,9 +1,9 @@
 extends Button
-const SERVER_URL = "ws://testing123456.localtunnel.me/socket.io/?EIO=3&transport=websocket"
+const SERVER_URL = "ws://testing123.localtunnel.me/socket.io/?EIO=3&transport=websocket"
 const LOCALHOST = "ws://127.0.0.1:8092/socket.io/?EIO=3&transport=websocket"
 
 #Websocket signals
-func _connection_established():
+func _connection_established(protocol):
 	var msg = "Find Match".to_utf8()
 	print(global.ws.get_peer(1).put_packet(msg))
 func _connection_closed(reason):
@@ -24,20 +24,23 @@ func _data_received():
 		global.socket_id = int(msg[0].substr(2,len(msg[0])))
 		global.opp_socket_id = int(msg[1].substr(6, len(msg[1])))
 		global.seed_val = int(msg[2])
-		global.game_mode = "remote"
+		global.game_mode = global.REMOTE_GAME
 		print("My ID: ", global.socket_id)
 		print("Opp ID: ", global.opp_socket_id)
 		print("Seed: ", global.seed_val)
 		global.players_score[global.socket_id] = 0
 		global.players_score[global.opp_socket_id] = 0
+		global.players_ips[global.socket_id] = global.socket_id
+		global.players_ips[global.opp_socket_id] = global.opp_socket_id
 		global.my_name = global.socket_id
-		get_tree().change_scene("Start_Game.tscn")
+		Transition.fade_to(global.GAME_SCENE)
 
 func _on_Find_Opponent_button_down():
 	self.disabled = true
-	set_process(true)
-	while global.ws.connect_to_url(SERVER_URL, PoolStringArray(['Find Opponent']), false) != 0:
+	print(OS.get_unique_id())
+	while global.ws.connect_to_url(SERVER_URL, PoolStringArray([OS.get_unique_id().replace("{","").replace("}","") + "!" + global.load_data('name')]), false) != 0:
 		print("Attempting to connect to server...")
+	set_process(true)
 
 func _process(delta):
 	global.ws.poll()

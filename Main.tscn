@@ -400,7 +400,6 @@ text = "High Score: 0
 script = ExtResource( 4 )
 
 [node name="Singleplayer" type="TextureButton" parent="."]
-editor/display_folded = true
 show_behind_parent = true
 material = ExtResource( 5 )
 margin_left = 160.0

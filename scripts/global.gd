@@ -128,25 +128,34 @@ func save_data(key, val):
 	var save_data = {key: val}
 	data.store_line(to_json(save_data))
 	data.close()
-		
-#Load high score on game start
+
+func default(key):
+	if key == 'score':
+		return 0
+	elif key == 'name':
+		return "Player"
+	return ERR_INVALID_PARAMETER		
+
 func load_data(key):
 	var data = File.new()
 	data.open(SAVE_FILE, File.READ)
-	if data.get_len() == 0:
-		data.close()
-	else:
+	if data.get_len() != 0:
 		var load_data = parse_json(data.get_line())
 		data.close()
 		if key in load_data.keys():
 			return load_data[key]
-		if key == 'name':
-			return ip_to_name(get_host_ip())
-	return 0
+		else:
+			return default(key)
+	else:
+		data.close()
+		return default(key)
 	
 func ip_to_name(ip):
-	if ip == LOOPBACK:
-		return "Connect to WiFi"
+	if typeof(ip) == TYPE_INT:
+		return "Bob"
+	if typeof(ip) == TYPE_STRING:
+		if ip == LOOPBACK:
+			return "Connect to WiFi"
 	var hashed = 0
 	ip = ip.split('.')
 	for num in ip:

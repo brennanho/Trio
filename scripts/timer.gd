@@ -8,7 +8,7 @@ func game_over():
 		Transition.fade_to(global.MAIN_SCENE)
 	else:
 		if global.players_score[global.my_name] > global.load_data('score'):
-			global.save_score('score',global.players_score[global.my_name])
+			global.save_data('score',global.players_score[global.my_name])
 		global.refresh_globals(global.network_role)
 		global.prev_scene = global.MULTIPLAYER_SCENE
 		Transition.fade_to(global.LOBBY_SCENE)
@@ -48,7 +48,7 @@ func _ready():
 	timer.start()
 	self.text = time_to_mmss(timer.time_left)
 	self.add_color_override("font_color", Color(0,0,0))
-	if global.network_role == global.ENET_SERVER:
+	if global.network_role == global.ENET_SERVER or global.game_mode == global.REMOTE_GAME:
 		set_process(true)
 	else:
 		set_process(false)

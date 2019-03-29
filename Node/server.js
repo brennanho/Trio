@@ -4,23 +4,25 @@ const WebSocketServer = require('ws').Server;
 const localtunnel = require('localtunnel');
 const port = 8092;
 const wss = new WebSocketServer({ port: port });
-
-let id = 0;					
+					
 let ids = []; //For priority queue
 let players = {}; //Dictionary of players that retain socket IDS and socket objects
 
 console.log("Starting server on port:", port);
 
 // 'Assign random public DNS'
-const tunnel = localtunnel(port, {subdomain: 'testing123456'}, (err, tunnel) => {
+const tunnel = localtunnel(port, {subdomain: 'testing123'}, (err, tunnel) => {
     console.log('Connect to', tunnel.url);
 });
 
 wss.on('connection', function connection(ws) {
 
 	//Player is searching for an opponent
-	ids.unshift(id);
-	players[id] = {socket: ws, my_ID: id++};
+	let on_connect = ws.protocol.split('!');
+	let id = on_connect[0]; //Receive MAC address of connected player
+	let name = on_connect[1]; //Name of player
+	ids.unshift(id); 
+	players[id] = {socket: ws, my_ID: name};
 	console.log("Players in queue:", ids.length);
 
 	//Player send message to server

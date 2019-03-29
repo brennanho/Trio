@@ -1,10 +1,12 @@
 extends GridContainer
 
 #CONSTANTS
-const FONT_SIZE_BIG = 45
+const FONT_SIZE_BIG = 55
+const FONT_SIZE_MED = 45
 const FONT_SIZE_SMALL = 40
 const BLACK = Color(0,0,0)
-const RED = Color(1,0,0)
+const GREEN = Color(0,1,0.25)
+const OUTLINE_SIZE = 2
 const FONT_PATH = "res://fonts/Robi-Regular.ttf"
 
 #VARS
@@ -18,18 +20,24 @@ func _ready():
 	for player_id in global.players_score.keys():
 		var player = Label.new()
 		var font = DynamicFont.new()
-		if len(global.players_score) > 1:		
+		if len(global.players_score) > 3:		
 			font.size = FONT_SIZE_SMALL
 		else:
-			font.size = FONT_SIZE_BIG
+			self.columns = 1
+			self.margin_left += 40
+			font.size = FONT_SIZE_MED
+			if len(global.players_score) == 2:
+				self.margin_top += 10
+				font.size = FONT_SIZE_BIG
 		font.font_data = FONT
+		font.outline_color = BLACK
+		font.outline_size = OUTLINE_SIZE
 		player.text =  global.players_ips[player_id] + ": " + str(global.players_score[player_id])
 		player.align = player.ALIGN_RIGHT
 		player.add_font_override("font", font)
-		player.add_color_override("font_color", BLACK)
 		player.name = str(player_id)
 		if str(player_id) == str(global.my_name):
-			player.add_color_override("font_color", RED)
+			player.add_color_override("font_color", GREEN)
 		var firework = get_node("Firework").duplicate()
 		firework.global_position = player.rect_position
 		player.add_child(firework)

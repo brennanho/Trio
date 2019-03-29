@@ -33,6 +33,7 @@ class Server:
 
 func find_servers():
 	var updated_servers = {}
+	var my_ip = global.get_host_ip()
 	if global.udp_sock == null:
 		global.udp_sock = PacketPeerUDP.new()
 	global.udp_sock.listen(udp_client_port)
@@ -45,7 +46,7 @@ func find_servers():
 			if parts.size() == 4:
 				parts[3] = '255'
 				global.udp_sock.set_dest_address(parts.join('.'), udp_server_port)
-				global.udp_sock.put_var(global.get_host_ip())
+				global.udp_sock.put_var(my_ip)
 				var server = global.udp_sock.get_var()
 				if server != null:
 					var ip = server[0]
@@ -99,7 +100,7 @@ func _process(delta):
 			label.align = label.ALIGN_CENTER
 			label.rect_position.y -= ROOM_NAME_Y_OFFSET
 			label.rect_size = server_button.rect_size
-			label.text = updated_servers[server_ip]
+			label.text = str(updated_servers[server_ip])
 			add_child(server_button)
 		
 func _ready():

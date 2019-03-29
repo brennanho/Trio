@@ -1,7 +1,8 @@
 extends VBoxContainer
-const FONT_SIZE = 45
+const FONT_SIZE = 50
 const BLACK = Color(0,0,0)
-const RED = Color(1,0,0)
+const GREEN = Color(0,1,0.25)
+const OUTLINE_SIZE = 2
 const FONT_PATH = "res://fonts/Robi-Regular.ttf"
 
 onready var FONT = load(FONT_PATH)
@@ -32,13 +33,16 @@ func add_player_to_screen(player_num, player_id, ip):
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
 	font.font_data = FONT
+	font.outline_color = BLACK
+	font.outline_size = OUTLINE_SIZE
 	player.add_font_override("font", font)
-	player.add_color_override("font_color", BLACK)
 	if str(player_id) == str(global.my_name):
-		player.add_color_override("font_color", RED)
+		player.add_color_override("font_color", GREEN)
 	player.align = ALIGN_CENTER
 	player.valign = VALIGN_CENTER
 	add_child(player)
+	if len(global.players_in_lobby) == 1:
+		get_parent().get_parent().get_node("Start_Game/Players_Ready").play("Player_Joined_Left")
 	global.players_in_lobby[player_id] = player
 	global.players_score[player_id] = 0
 	global.players_ips[player_id] = ip
@@ -47,6 +51,8 @@ func remove_player_from_screen(player_id):
 	remove_child(global.players_in_lobby[player_id])
 	global.players_in_lobby.erase(player_id)
 	global.players_score.erase(player_id)
+	if len(global.players_in_lobby) == 1:
+		get_parent().get_parent().get_node("Start_Game/Players_Ready").play_backwards("Player_Joined_Left")
 
 func _ready():
 	var seed_val
@@ -59,9 +65,7 @@ func _ready():
 		global.discover_thread = Thread.new()
 		global.discover_thread.start(get_node("Network"), "broadcast_to_clients", [null])
 	else:
-		get_parent().get_parent().get_node("Room_Name").get_font("font").size = 80
-		get_parent().get_parent().get_node("Room_Name").rect_position.x -= 100
-		get_parent().get_parent().get_node("Start_Game").queue_free()
+		#get_parent().get_parent().get_node("Start_Game/Title").text = "Reading to start"
 		global.prev_scene = global.ROOMS_SCENE
 		get_node("Network").init_client(global.server_ip)
 	var start_game_button = get_parent().get_parent().get_node("Start_Game")

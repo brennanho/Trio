@@ -105,12 +105,12 @@ func update_sets_available(num_sets):
 sync func update_game(set, player_id):
 	if global.game_mode == global.LOCAL_GAME:
 		global.players_score[player_id] += int(rand_range(80,100))
-		var firework = get_parent().get_node("Color").get_node("Scores").get_node(str(player_id)).get_node("Firework")
+		var firework = get_parent().get_node("Score_Background/Scores/" + str(player_id) + "/Firework")
 		if firework != null:
 			firework.visible = true
 			firework.play()
 			global.wait(1, firework)
-			get_parent().get_node("Color/Scores").get_node(str(player_id)).text = global.ip_to_name(global.players_ips[player_id]) + " :  " + str(global.players_score[player_id])
+			get_parent().get_node("Score_Background/Scores/" + str(player_id)).text = global.players_ips[player_id] + " :  " + str(global.players_score[player_id])
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
@@ -194,16 +194,14 @@ func add_card(card):
 					global.ws.get_peer(1).put_packet(msg.to_utf8())
 					print("Sending to server:", msg)
 					update_game(set, global.my_name)
-					global.players_score[global.socket_id] += 1
-					get_parent().get_node("Color/Scores").get_node(str(global.socket_id)).text = global.ip_to_name(global.players_ips[global.socket_id]) + " :  " + str(global.players_score[global.socket_id])
+					global.players_score[global.socket_id] += int(rand_range(80,100))
+					get_parent().get_node("Score_Background/Scores").get_node(str(global.socket_id)).text = global.ip_to_name(global.players_ips[global.socket_id]) + " :  " + str(global.players_score[global.socket_id])
 					get_node("ping").start()
 				else: #Local game
 					if global.SINGLE_PLAYER == true:
 						update_singleplayer_game(set)
 					else:
 						rpc("update_game", set, global.my_name)
-			else: #Not a set
-				pass
 			for i in range(3):
 				var card_node = get_node(set[i][4])
 				card_node.self_modulate = "#ffffff"
@@ -221,9 +219,9 @@ func _set_found_received():
 		var card_2 = msg[2]
 		var card_3 = msg[3]
 		print("Opponent has found a set: ", card_1, card_2, card_3)
-		global.players_score[global.opp_socket_id] += 1
-		get_parent().get_node("Color/Scores").get_node(str(global.opp_socket_id)).text = str(global.fruits[global.opp_socket_id%global.fruits.size()]) + " :  " + str(global.players_score[global.opp_socket_id])
-		set = [get_node("card_" + card_1).get_node("card").refresh_card(), get_node("card_" + card_2).get_node("card").refresh_card(), get_node("card_" + card_3).get_node("card").refresh_card()]
+		global.players_score[global.opp_socket_id] += int(rand_range(80,100))
+		get_parent().get_node("Score_Background/Scores").get_node(str(global.opp_socket_id)).text = global.opp_socket_id + " :  " + str(global.players_score[global.opp_socket_id])
+		set = [get_node("card_" + card_1).get_node("card/Change").play("Change"), get_node("card_" + card_2).get_node("card/Change").play("Change"), get_node("card_" + card_3).get_node("card/Change").play("Change")]
 		var num_sets = make_board_valid(card_1)
 		update_sets_available(num_sets)
 	elif msg == "WIN":
@@ -231,7 +229,7 @@ func _set_found_received():
 		global.refresh_globals()
 		Transition.fade_to(global.MAIN_SCENE)
 	
-func _connection_established(protocol):
+func _connection_established():
 	var msg = "Rejoining game".to_utf8()
 	print(global.ws.get_peer(1).put_packet(msg))
 func _connection_closed(reason):
@@ -253,6 +251,7 @@ func _ready():
 	var num_sets = make_board_valid("1")
 	update_sets_available(num_sets)
 	if global.game_mode == global.REMOTE_GAME:
+		get_parent().get_node("Single_Score").visible = false
 		global.ws.connect("data_received", self, "_set_found_received")
 		global.ws.connect("connection_established", self, "_connection_established")
 		global.ws.connect("connection_closed", self, "_connection_closed")
@@ -260,10 +259,12 @@ func _ready():
 		set_process(true)
 	else: #local game i.e. same wifi or solo
 		if global.SINGLE_PLAYER == true:
-			get_parent().get_node("Color").visible = false
+			get_parent().get_node("Score_Background").visible = false
 		else:
-			get_parent().get_node("Title").visible = false
 			get_parent().get_node("Single_Score").visible = false
+			get_parent().get_node("Title").rect_scale.x = 0.5
+			get_parent().get_node("Title").rect_scale.y = 0.5
+			get_parent().get_node("Title/Back").visible = false
 		get_node("ping").stop()
 		get_node("ping").disconnect("timeout", self, "_on_ping_timeout")
 		set_process(false)
