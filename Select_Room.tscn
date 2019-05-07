@@ -424,7 +424,7 @@ position = Vector2( 396.154, 46.6043 )
 rotation = 1.5708
 scale = Vector2( 0.0847373, 0.0920331 )
 frames = SubResource( 8 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -454,8 +454,8 @@ __meta__ = {
 [node name="Back" type="TextureButton" parent="."]
 margin_left = 13.9334
 margin_top = 23.5201
-margin_right = 152.933
-margin_bottom = 131.52
+margin_right = 118.933
+margin_bottom = 108.52
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
 expand = true

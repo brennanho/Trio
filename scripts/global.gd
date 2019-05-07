@@ -19,6 +19,9 @@ var discover_thread
 var high_score = 0
 var player_name
 var server_name
+var cards
+var game_data = {'name': 'Player', 'score': 0}
+var in_tutorial = true
 
 #CONSTS
 const LOOPBACK = "127.0.0.1"
@@ -26,7 +29,7 @@ const ENET_SERVER = "Server"
 const ENET_CLIENT = "Client"
 const LOCAL_GAME = "Local"
 const REMOTE_GAME = "Remote"
-const SAVE_FILE = "user://game.save"
+const SAVE_FILE = "user://game.cfg"
 
 #SCENES
 const MAIN_SCENE = "Main.tscn"
@@ -125,8 +128,8 @@ var fruits = [
 func save_data(key, val):
 	var data = File.new()
 	data.open(SAVE_FILE, File.WRITE)
-	var save_data = {key: val}
-	data.store_line(to_json(save_data))
+	game_data[key] = val
+	data.store_line(to_json(game_data))
 	data.close()
 
 func default(key):
@@ -140,7 +143,7 @@ func load_data(key):
 	var data = File.new()
 	data.open(SAVE_FILE, File.READ)
 	if data.get_len() != 0:
-		var load_data = parse_json(data.get_line())
+		var load_data = parse_json(data.get_as_text())
 		data.close()
 		if key in load_data.keys():
 			return load_data[key]
@@ -149,16 +152,23 @@ func load_data(key):
 	else:
 		data.close()
 		return default(key)
+		
+func load_file():
+	var data = File.new()
+	data.open(SAVE_FILE, File.READ)
+	if data.get_len() == 0:
+		return game_data
+	return parse_json(data.get_as_text())
 	
-func ip_to_name(ip):
-	if typeof(ip) == TYPE_INT:
+func ip_to_name(name):
+	if typeof(name) == TYPE_INT:
 		return "Bob"
-	if typeof(ip) == TYPE_STRING:
-		if ip == LOOPBACK:
+	if typeof(name) == TYPE_STRING:
+		if name == LOOPBACK:
 			return "Connect to WiFi"
 	var hashed = 0
-	ip = ip.split('.')
-	for num in ip:
+	name = name.split('.')
+	for num in name:
 		hashed += int(num)
 	return fruits[hashed%fruits.size()]
 	

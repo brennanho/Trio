@@ -1,823 +1,920 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/game_screen.gd" type="Script" id=2]
-[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=3]
-[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=4]
-[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=5]
-[ext_resource path="res://scripts/card.gd" type="Script" id=6]
-[ext_resource path="res://scripts/timer.gd" type="Script" id=7]
-[ext_resource path="res://icon.png" type="Texture" id=8]
-[ext_resource path="res://scripts/lifebar.gd" type="Script" id=9]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=10]
-[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=11]
-[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=12]
-[ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=13]
-[ext_resource path="res://scripts/back.gd" type="Script" id=14]
-[ext_resource path="res://scripts/Scores.gd" type="Script" id=15]
-[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=16]
-[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=17]
-[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=18]
-[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=19]
-[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=20]
+[ext_resource path="res://scripts/Scores.gd" type="Script" id=2]
+[ext_resource path="res://scripts/game_screen.gd" type="Script" id=3]
+[ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=4]
+[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=5]
+[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=6]
+[ext_resource path="res://scripts/card.gd" type="Script" id=7]
+[ext_resource path="res://scripts/timer.gd" type="Script" id=8]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=9]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=10]
+[ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=11]
+[ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=12]
+[ext_resource path="res://scripts/back.gd" type="Script" id=13]
+[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=14]
+[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=15]
+[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=16]
+[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=17]
+[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=18]
+[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=19]
+[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=20]
 [ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=21]
-[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=22]
-[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=23]
-[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=24]
+[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=2]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=43]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=44]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=45]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=46]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=47]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=48]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=49]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=50]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=51]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=52]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=53]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=54]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=55]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=56]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=57]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=58]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=59]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=60]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=61]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=62]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=63]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=64]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=65]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=66]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=67]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=68]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=69]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=70]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=71]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=72]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=73]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
-}
-
-[sub_resource type="Animation" id=74]
-resource_name = "Press"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
-}
-
-[sub_resource type="Animation" id=75]
-length = 0.5
-step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.25 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "refresh_card"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("..:rect_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=77]
-resource_name = "anim"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 585, 370 ), Vector2( 577.208, 1079.08 ) ]
-}
-
-[sub_resource type="DynamicFont" id=38]
-size = 55
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=40]
-size = 55
-font_data = ExtResource( 1 )
-
-[sub_resource type="Animation" id=41]
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-
-[sub_resource type="Animation" id=42]
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 360.0 ]
-}
-
-[sub_resource type="SpriteFrames" id=39]
-animations = [ {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "firework",
-"speed": 15.0
-} ]
-
-[sub_resource type="DynamicFont" id=76]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 120, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../../Game_Screen:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 585, 370 ), Vector2( 582.35, 1066.96 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../../Sets_Remaining:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37.0251, 248.721 ), Vector2( 650.716, 830.113 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../../../Timer/Label:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 455.059, 243.39 ), Vector2( 672.347, 372.588 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 233, 0 ), Vector2( 120, 300 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 41 ), Vector2( 120, 300 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 233, 41 ), Vector2( 120, 300 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 82 ), Vector2( 120, 300 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 233, 82 ), Vector2( 120, 300 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Press"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=44]
+length = 0.5
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=45]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=46]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=47]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=48]
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="SpriteFrames" id=49]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
 
 [node name="Main" type="Control"]
 modulate = Color( 0.984375, 0.984375, 0.984375, 1 )
@@ -829,6 +926,9 @@ margin_right = -4.0
 margin_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Single_Score" type="Label" parent="."]
 self_modulate = Color( 0, 0, 0, 1 )
@@ -841,15 +941,132 @@ text = "0"
 align = 1
 valign = 1
 
+[node name="Score_Background" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.596078 )
+margin_left = 1.85059
+margin_top = 1.0
+margin_right = 592.851
+margin_bottom = 1018.0
+rect_clip_content = true
+expand = true
+
+[node name="Ranks" type="GridContainer" parent="Score_Background"]
+show_behind_parent = true
+margin_left = 185.598
+margin_top = 381.722
+margin_right = 414.598
+margin_bottom = 854.722
+
+[node name="Scores" type="GridContainer" parent="Score_Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 51.3088
+margin_top = 92.6664
+margin_right = -47.6912
+margin_bottom = -94.3336
+rect_min_size = Vector2( 50, 50 )
+rect_rotation = 360.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 100
+columns = 2
+script = ExtResource( 2 )
+
+[node name="Player1" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+margin_right = 133.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player1"]
+anims/anim = SubResource( 3 )
+
+[node name="Player2" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+margin_left = 233.0
+margin_right = 366.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player2"]
+anims/anim = SubResource( 4 )
+
+[node name="Player3" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+visible = false
+margin_top = 41.0
+margin_right = 133.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player3"]
+anims/anim = SubResource( 5 )
+
+[node name="Player4" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+visible = false
+margin_top = 41.0
+margin_right = 133.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player4"]
+anims/anim = SubResource( 6 )
+
+[node name="Player5" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+visible = false
+margin_top = 41.0
+margin_right = 133.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player5"]
+anims/anim = SubResource( 7 )
+
+[node name="Player6" type="Label" parent="Score_Background/Scores"]
+editor/display_folded = true
+visible = false
+margin_top = 41.0
+margin_right = 133.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player: 100"
+align = 1
+valign = 1
+
+[node name="On_Win" type="AnimationPlayer" parent="Score_Background/Scores/Player6"]
+anims/anim = SubResource( 8 )
+
 [node name="Game_Screen" type="GridContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 279.708
-margin_top = 558.581
-margin_right = 862.708
-margin_bottom = 1074.58
+margin_left = 287.5
+margin_top = -150.5
+margin_right = 870.499
+margin_bottom = 365.501
 grow_horizontal = 2
 grow_vertical = 2
 rect_rotation = 90.0
@@ -857,7 +1074,10 @@ rect_scale = Vector2( 1.1, 1.1 )
 custom_constants/vseparation = 33
 custom_constants/hseparation = 47
 columns = 4
-script = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="card_1" type="TextureRect" parent="Game_Screen"]
 margin_right = 110.0
@@ -866,12 +1086,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_1"]
-material = ExtResource( 4 )
+material = ExtResource( 5 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -889,523 +1109,36 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 2 )
+anims/fader = SubResource( 9 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 3 )
+anims/Press = SubResource( 10 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_1/card"]
-anims/Change = SubResource( 4 )
-
-[node name="card_3" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 157.0
-margin_right = 267.0
-margin_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_3"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 43 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 44 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
-anims/Change = SubResource( 45 )
-
-[node name="card_4" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 314.0
-margin_right = 424.0
-margin_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_4"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 46 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 47 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
-anims/Change = SubResource( 48 )
-
-[node name="card_5" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 471.0
-margin_right = 581.0
-margin_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_5"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 49 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 50 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
-anims/Change = SubResource( 51 )
-
-[node name="card_6" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_top = 183.0
-margin_right = 110.0
-margin_bottom = 333.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_6"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 52 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 53 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
-anims/Change = SubResource( 54 )
-
-[node name="card_7" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 157.0
-margin_top = 183.0
-margin_right = 267.0
-margin_bottom = 333.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_7"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 55 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 56 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
-anims/Change = SubResource( 57 )
-
-[node name="card_8" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 314.0
-margin_top = 183.0
-margin_right = 424.0
-margin_bottom = 333.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_8"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 58 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 59 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
-anims/Change = SubResource( 60 )
-
-[node name="card_9" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 471.0
-margin_top = 183.0
-margin_right = 581.0
-margin_bottom = 333.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_9"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 61 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 62 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
-anims/Change = SubResource( 63 )
-
-[node name="card_10" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_top = 366.0
-margin_right = 110.0
-margin_bottom = 516.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_10"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 64 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 65 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
-anims/Change = SubResource( 66 )
-
-[node name="card_11" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 157.0
-margin_top = 366.0
-margin_right = 267.0
-margin_bottom = 516.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_11"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 67 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 68 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
-anims/Change = SubResource( 69 )
-
-[node name="card_12" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 314.0
-margin_top = 366.0
-margin_right = 424.0
-margin_bottom = 516.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 110, 150 )
-rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-
-[node name="card" type="TextureButton" parent="Game_Screen/card_12"]
-editor/display_folded = true
-material = ExtResource( 4 )
-use_parent_material = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.536
-margin_top = -75.229
-margin_right = 29.464
-margin_bottom = 74.771
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 11, 15 )
-rect_scale = Vector2( 1.05, 1 )
-rect_pivot_offset = Vector2( 90, 75 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-action_mode = 0
-texture_normal = ExtResource( 5 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
-playback_speed = 5.0
-anims/fader = SubResource( 70 )
-
-[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
-playback_speed = 5.0
-anims/Press = SubResource( 71 )
-
-[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
-anims/Change = SubResource( 72 )
+anims/Change = SubResource( 11 )
 
 [node name="card_2" type="TextureRect" parent="Game_Screen"]
-editor/display_folded = true
-margin_left = 471.0
-margin_top = 366.0
-margin_right = 581.0
-margin_bottom = 516.0
+margin_left = 157.0
+margin_right = 267.0
+margin_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 110, 150 )
 rect_pivot_offset = Vector2( 50, 75 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
 [node name="card" type="TextureButton" parent="Game_Screen/card_2"]
 editor/display_folded = true
-material = ExtResource( 4 )
+material = ExtResource( 5 )
 use_parent_material = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1423,34 +1156,513 @@ rect_pivot_offset = Vector2( 90, 75 )
 size_flags_horizontal = 7
 size_flags_vertical = 7
 action_mode = 0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 expand = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
 playback_speed = 5.0
-anims/fader = SubResource( 73 )
+anims/fader = SubResource( 12 )
 
 [node name="Press" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
 playback_speed = 5.0
-anims/Press = SubResource( 74 )
+anims/Press = SubResource( 13 )
 
 [node name="Change" type="AnimationPlayer" parent="Game_Screen/card_2/card"]
-anims/Change = SubResource( 75 )
+anims/Change = SubResource( 14 )
+
+[node name="card_3" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 314.0
+margin_right = 424.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_3"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 15 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 16 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_3/card"]
+anims/Change = SubResource( 17 )
+
+[node name="card_4" type="TextureRect" parent="Game_Screen"]
+margin_left = 471.0
+margin_right = 581.0
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_4"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 18 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 19 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_4/card"]
+anims/Change = SubResource( 20 )
+
+[node name="card_5" type="TextureRect" parent="Game_Screen"]
+margin_top = 183.0
+margin_right = 110.0
+margin_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_5"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 21 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 22 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_5/card"]
+anims/Change = SubResource( 23 )
+
+[node name="card_6" type="TextureRect" parent="Game_Screen"]
+margin_left = 157.0
+margin_top = 183.0
+margin_right = 267.0
+margin_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_6"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 24 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 25 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_6/card"]
+anims/Change = SubResource( 26 )
+
+[node name="card_7" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 314.0
+margin_top = 183.0
+margin_right = 424.0
+margin_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_7"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 27 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 28 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_7/card"]
+anims/Change = SubResource( 29 )
+
+[node name="card_8" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 471.0
+margin_top = 183.0
+margin_right = 581.0
+margin_bottom = 333.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_8"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 30 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 31 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_8/card"]
+anims/Change = SubResource( 32 )
+
+[node name="card_9" type="TextureRect" parent="Game_Screen"]
+margin_top = 366.0
+margin_right = 110.0
+margin_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_9"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 33 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 34 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_9/card"]
+anims/Change = SubResource( 35 )
+
+[node name="card_10" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 157.0
+margin_top = 366.0
+margin_right = 267.0
+margin_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_10"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 36 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 37 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_10/card"]
+anims/Change = SubResource( 38 )
+
+[node name="card_11" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 314.0
+margin_top = 366.0
+margin_right = 424.0
+margin_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_11"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 39 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 40 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_11/card"]
+anims/Change = SubResource( 41 )
+
+[node name="card_12" type="TextureRect" parent="Game_Screen"]
+editor/display_folded = true
+margin_left = 471.0
+margin_top = 366.0
+margin_right = 581.0
+margin_bottom = 516.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 110, 150 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Game_Screen/card_12"]
+editor/display_folded = true
+material = ExtResource( 5 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.536
+margin_top = -75.229
+margin_right = 29.464
+margin_bottom = 74.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 90, 75 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+action_mode = 0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+
+[node name="Fade" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 42 )
+
+[node name="Press" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 43 )
+
+[node name="Change" type="AnimationPlayer" parent="Game_Screen/card_12/card"]
+anims/Change = SubResource( 44 )
 
 [node name="ping" type="Timer" parent="Game_Screen"]
 wait_time = 25.0
 autostart = true
-
-[node name="anim" type="AnimationPlayer" parent="Game_Screen"]
-anims/anim = SubResource( 77 )
 
 [node name="Sets_Remaining" type="Label" parent="."]
 margin_left = 37.0251
 margin_top = 248.721
 margin_right = 379.024
 margin_bottom = 304.721
-custom_fonts/font = SubResource( 38 )
+custom_fonts/font = SubResource( 45 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3 Trios available"
 align = 1
@@ -1468,33 +1680,20 @@ margin_top = 243.39
 margin_right = 533.059
 margin_bottom = 348.39
 rect_rotation = 359.64
-custom_fonts/font = SubResource( 40 )
+custom_fonts/font = SubResource( 46 )
 text = "180
 "
 align = 3
 valign = 3
-script = ExtResource( 7 )
-
-[node name="Lifebar" type="TextureProgress" parent="."]
-visible = false
-margin_left = 53.0
-margin_top = 44.0
-margin_right = 536.0
-margin_bottom = 104.0
-value = 50.0
-texture_progress = ExtResource( 8 )
-nine_patch_stretch = true
-stretch_margin_bottom = 60
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Title" type="TextureRect" parent="."]
-editor/display_folded = true
-margin_left = 229.413
-margin_top = 11.6212
-margin_right = 436.413
-margin_bottom = 123.621
+margin_left = 228.198
+margin_top = 13.8933
+margin_right = 435.198
+margin_bottom = 125.893
 rect_scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="StarL" type="TextureRect" parent="Title"]
@@ -1505,12 +1704,12 @@ margin_right = 13.0114
 margin_bottom = 73.1866
 rect_rotation = 317.76
 rect_pivot_offset = Vector2( 19.7139, 23.335 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Title/StarL"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 41 )
+anims/Rotate = SubResource( 47 )
 
 [node name="StarR" type="TextureRect" parent="Title"]
 editor/display_folded = true
@@ -1520,125 +1719,105 @@ margin_right = 252.094
 margin_bottom = 75.1353
 rect_rotation = 45.0
 rect_pivot_offset = Vector2( 21.6329, 20.2129 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 expand = true
 
 [node name="Anim" type="AnimationPlayer" parent="Title/StarR"]
 autoplay = "Rotate"
-anims/Rotate = SubResource( 42 )
+anims/Rotate = SubResource( 48 )
 
 [node name="Back" type="TextureButton" parent="Title"]
-margin_left = -296.202
-margin_top = -1.79781
-margin_right = -205.202
-margin_bottom = 70.2022
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 13 )
+margin_left = -300.0
+margin_top = -2.0
+margin_right = -209.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
 expand = true
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
-[node name="Score_Background" type="TextureRect" parent="."]
+[node name="fireworks" type="Node2D" parent="."]
 editor/display_folded = true
-self_modulate = Color( 1, 1, 1, 0.596078 )
-margin_left = 3.14941
-margin_top = 12.1494
-margin_right = 594.149
-margin_bottom = 217.149
-expand = true
-
-[node name="Scores" type="GridContainer" parent="Score_Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 111.441
-margin_top = 97.7401
-margin_right = -113.559
-margin_bottom = 31.7405
-rect_min_size = Vector2( 50, 50 )
-rect_rotation = 360.0
-rect_clip_content = true
-custom_constants/vseparation = 10
-custom_constants/hseparation = 100
-columns = 2
-script = ExtResource( 15 )
-
-[node name="Firework" type="AnimatedSprite" parent="Score_Background/Scores"]
 visible = false
-self_modulate = Color( 1, 0.286275, 0.286275, 1 )
-position = Vector2( 634.157, 28.2306 )
-scale = Vector2( 0.136222, 0.159515 )
-frames = SubResource( 39 )
-animation = "firework"
-frame = 7
-speed_scale = 0.75
+
+[node name="1" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( 92.5806, 119.05 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 4
 playing = true
-flip_v = true
 
-[node name="Player1" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="2" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.0862745, 0.694118, 0.0980392, 1 )
+position = Vector2( 297.538, 202.44 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 4
+playing = true
 
-[node name="Player2" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="7" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.0862745, 0.694118, 0.0980392, 1 )
+position = Vector2( 99.4828, 810.552 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 3
+playing = true
 
-[node name="Player3" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="3" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.254902, 0.317647, 1, 1 )
+position = Vector2( 521.047, 124.519 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 4
+playing = true
 
-[node name="Player4" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="6" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.254902, 0.317647, 1, 1 )
+position = Vector2( 88.0319, 557.534 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 3
+playing = true
 
-[node name="Player5" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="4" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 1, 0, 1 )
+position = Vector2( 96.5845, 335.725 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 3
+playing = true
 
-[node name="Player6" type="Label" parent="Score_Background/Scores"]
-visible = false
-margin_right = 133.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 76 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player: 100"
-align = 1
-valign = 1
+[node name="8" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 1, 0, 1 )
+position = Vector2( 520.589, 550.517 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 3
+playing = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = -361.0
-margin_top = 387.0
-margin_right = -63.0
-margin_bottom = 871.0
+[node name="5" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( 502.592, 331.624 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 3
+playing = true
 
+[node name="10" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( 507.037, 765.46 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 8
+playing = true
+
+[node name="11" type="AnimatedSprite" parent="fireworks"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( 275.869, 881.414 )
+scale = Vector2( 0.190326, 0.289148 )
+frames = SubResource( 49 )
+frame = 8
+playing = true
 [connection signal="timeout" from="Game_Screen/ping" to="Game_Screen" method="_on_ping_timeout"]
-[connection signal="changed" from="Lifebar" to="Lifebar" method="_on_TextureProgress_changed"]
 [connection signal="pressed" from="Title/Back" to="Title/Back" method="_on_Back_pressed"]

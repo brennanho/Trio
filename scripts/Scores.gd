@@ -27,10 +27,11 @@ func _ready():
 			font.size = FONT_SIZE_SMALL
 		else:
 			self.columns = 1
-			self.margin_left += 40
+			self.margin_left += 50
 			font.size = FONT_SIZE_MED
 			if len(global.players_score) == 2:
-				self.margin_top += 10
+				self.margin_left += 10
+				self.margin_top += 5
 				font.size = FONT_SIZE_BIG
 		font.outline_color = BLACK
 		font.outline_size = OUTLINE_SIZE
@@ -40,7 +41,4 @@ func _ready():
 		player.name = str(player_id)
 		if str(player_id) == str(global.my_name):
 			player.add_color_override("font_color", GREEN)
-		var firework = get_node("Firework").duplicate()
-		firework.global_position = player.rect_position
-		player.add_child(firework)
 		i += 1

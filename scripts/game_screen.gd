@@ -85,11 +85,10 @@ var cards = [
 ]
 
 var set = []
-const MIN_SETS = 2
 
 #Ensures there is atleast 1 set on the board
-func make_board_valid(victim_card):
-	while get_set_count() < MIN_SETS: #Shuffle a card back into the deck from the table and draw a new one
+func make_board_valid(victim_card, min_sets=2):
+	while get_set_count() < min_sets: #Shuffle a card back into the deck from the table and draw a new one
 		var card_node = get_node("card_" + victim_card).get_node("card")
 		card_node.refresh_card()
 	return get_set_count()
@@ -105,12 +104,7 @@ func update_sets_available(num_sets):
 sync func update_game(set, player_id):
 	if global.game_mode == global.LOCAL_GAME:
 		global.players_score[player_id] += int(rand_range(80,100))
-		var firework = get_parent().get_node("Score_Background/Scores/" + str(player_id) + "/Firework")
-		if firework != null:
-			firework.visible = true
-			firework.play()
-			global.wait(1, firework)
-			get_parent().get_node("Score_Background/Scores/" + str(player_id)).text = global.players_ips[player_id] + " :  " + str(global.players_score[player_id])
+		get_parent().get_node("Score_Background/Scores/" + str(player_id)).text = global.players_ips[player_id] + ": " + str(global.players_score[player_id])
 	
 	var victim_card
 	for i in range(3): #Refresh the board with new cards
@@ -168,13 +162,13 @@ func is_set(set):
 	return is_valid_category(colours) and is_valid_category(shapes) and is_valid_category(shadings) and is_valid_category(nums)
 
 #Calculate the number of sets on the board
-func get_set_count():
+func get_set_count(a=10,b=11,c=12):
 	var sets = []
-	for i in range(1,10):
+	for i in range(1,a):
 		var card_1 = get_node("card_" + str(i)).get_node("card").current_card
-		for j in range(i+1,11):
+		for j in range(i+1,b):
 			var card_2 = get_node("card_" + str(j)).get_node("card").current_card
-			for k in range(j+1,12):
+			for k in range(j+1,c):
 				var card_3 = get_node("card_" + str(k)).get_node("card").current_card
 				var set = [card_1, card_2, card_3]
 				if is_set(set):
@@ -248,23 +242,25 @@ func _process(delta):
 	global.ws.poll()
 	
 func _ready():
-	var num_sets = make_board_valid("1")
-	update_sets_available(num_sets)
-	if global.game_mode == global.REMOTE_GAME:
-		get_parent().get_node("Single_Score").visible = false
-		global.ws.connect("data_received", self, "_set_found_received")
-		global.ws.connect("connection_established", self, "_connection_established")
-		global.ws.connect("connection_closed", self, "_connection_closed")
-		global.ws.connect("connection_error", self, "_connection_error")
-		set_process(true)
-	else: #local game i.e. same wifi or solo
-		if global.SINGLE_PLAYER == true:
-			get_parent().get_node("Score_Background").visible = false
-		else:
+	set_process(false)
+	if !global.in_tutorial:
+		global.in_tutorial = true
+		var num_sets = make_board_valid("1")
+		update_sets_available(num_sets)
+		if global.game_mode == global.REMOTE_GAME:
 			get_parent().get_node("Single_Score").visible = false
-			get_parent().get_node("Title").rect_scale.x = 0.5
-			get_parent().get_node("Title").rect_scale.y = 0.5
-			get_parent().get_node("Title/Back").visible = false
-		get_node("ping").stop()
-		get_node("ping").disconnect("timeout", self, "_on_ping_timeout")
-		set_process(false)
+			global.ws.connect("data_received", self, "_set_found_received")
+			global.ws.connect("connection_established", self, "_connection_established")
+			global.ws.connect("connection_closed", self, "_connection_closed")
+			global.ws.connect("connection_error", self, "_connection_error")
+			set_process(true)
+		else: #local game i.e. same wifi or solo
+			if global.SINGLE_PLAYER == true:
+				get_parent().get_node("Score_Background").visible = false
+			else:
+				get_parent().get_node("Single_Score").visible = false
+				get_parent().get_node("Title").rect_scale.x = 0.5
+				get_parent().get_node("Title").rect_scale.y = 0.5
+				get_parent().get_node("Title/Back").visible = false
+			get_node("ping").stop()
+			get_node("ping").disconnect("timeout", self, "_on_ping_timeout")

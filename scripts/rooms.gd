@@ -25,11 +25,11 @@ onready var BLANK_ON = load(BLANK_ON_PATH)
 class Server:
 	var button
 	var attempts
-	var ip
-	func _init(button, attempts, ip):
+	var name
+	func _init(button, attempts, name):
 		self.button = button
 		self.attempts = attempts
-		self.ip = ip
+		self.name = name
 
 func find_servers():
 	var updated_servers = {}
@@ -51,8 +51,8 @@ func find_servers():
 				if server != null:
 					var ip = server[0]
 					var name = server[1]
-					if not(server in updated_servers):
-						updated_servers[ip] = name 
+					#if not(server in updated_servers):
+					updated_servers[ip] = name 
 	global.udp_sock.close()
 	return updated_servers
 	
@@ -66,9 +66,9 @@ func _pressed(server_ip, name):
 func _process(delta):
 	var updated_servers = find_servers()
 	for server in servers.values():
-		if not(server.ip in updated_servers.values()) and server.attempts >= MAX_ATTEMPTS:
+		if not(server.name in updated_servers.values()) and server.attempts >= MAX_ATTEMPTS:
 			remove_child(server.button)
-			servers.erase(server.ip)
+			servers.erase(server.name)
 		else:
 			server.attempts += 1
 	for server_ip in updated_servers.keys():

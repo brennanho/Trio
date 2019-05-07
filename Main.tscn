@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/TRIO_TITLE.png" type="Texture" id=1]
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/LIL_STAR.png" type="Texture" id=2]
@@ -22,18 +22,34 @@
 [ext_resource path="res://Menu_Sprites/BACK_OFF.png" type="Texture" id=20]
 [ext_resource path="res://Menu_Sprites/BACK_ON.png" type="Texture" id=21]
 [ext_resource path="res://Card_Sprites/CARD_DROPSHADE_TEST.png" type="Texture" id=22]
-[ext_resource path="res://Card_Sprites/1_CIRC_RED_DOT.png" type="Texture" id=23]
-[ext_resource path="res://Card_Sprites/3_XXX_BLUE_DOT.png" type="Texture" id=24]
+[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_DOT.png" type="Texture" id=23]
+[ext_resource path="res://Card_Sprites/3_XXX_BLUE_SOLID.png" type="Texture" id=24]
 [ext_resource path="res://Card_Sprites/3_RHOM_GREEN_SOLID.png" type="Texture" id=25]
 [ext_resource path="res://Card_Sprites/1_CIRC_BLUE_EMPTY.png" type="Texture" id=26]
 [ext_resource path="res://Card_Sprites/2_CIRC_RED_EMPTY.png" type="Texture" id=27]
-[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_DOT.png" type="Texture" id=28]
+[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_SOLID.png" type="Texture" id=28]
 [ext_resource path="res://Card_Sprites/1_CIRC_BLUE_SOLID.png" type="Texture" id=29]
 [ext_resource path="res://Card_Sprites/1_RHOM_GREEN_DOT.png" type="Texture" id=30]
 [ext_resource path="res://Card_Sprites/3_RHOM_RED_SOLID.png" type="Texture" id=31]
-[ext_resource path="res://Card_Sprites/1_CIRC_BLUE_DOT.png" type="Texture" id=32]
-[ext_resource path="res://Card_Sprites/3_XXX_BLUE_SOLID.png" type="Texture" id=33]
-[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_SOLID.png" type="Texture" id=34]
+[ext_resource path="res://Card_Sprites/1_CIRC_RED_DOT.png" type="Texture" id=32]
+[ext_resource path="res://Card_Sprites/3_XXX_BLUE_DOT.png" type="Texture" id=33]
+[ext_resource path="res://Card_Sprites/3_RHOM_BLUE_DOT.png" type="Texture" id=34]
+[ext_resource path="res://scripts/game_screen.gd" type="Script" id=35]
+[ext_resource path="res://Shaders/card_shader.tres" type="Material" id=36]
+[ext_resource path="res://Card_Sprites/2_RHOM_BLUE_SOLID.png" type="Texture" id=37]
+[ext_resource path="res://scripts/card.gd" type="Script" id=38]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_OFF.png" type="Texture" id=39]
+[ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_ON.png" type="Texture" id=40]
+[ext_resource path="res://scripts/tut.gd" type="Script" id=41]
+[ext_resource path="res://Menu_Sprites/PoPs/final-1.png" type="Texture" id=42]
+[ext_resource path="res://Menu_Sprites/PoPs/final-2.png" type="Texture" id=43]
+[ext_resource path="res://Menu_Sprites/PoPs/final-3.png" type="Texture" id=44]
+[ext_resource path="res://Menu_Sprites/PoPs/final-4.png" type="Texture" id=45]
+[ext_resource path="res://Menu_Sprites/PoPs/final-5.png" type="Texture" id=46]
+[ext_resource path="res://Menu_Sprites/PoPs/final-6.png" type="Texture" id=47]
+[ext_resource path="res://Menu_Sprites/PoPs/final-7.png" type="Texture" id=48]
+[ext_resource path="res://Menu_Sprites/PoPs/final-8.png" type="Texture" id=49]
+[ext_resource path="res://Menu_Sprites/PoPs/final-9.png" type="Texture" id=50]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Rotate"
@@ -330,7 +346,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=13]
-size = 55
+size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
@@ -344,6 +360,286 @@ size = 45
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=17]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.3
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.3
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.773438, 0.773438, 0.773438, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -25.536, -0.229 ), Vector2( -25.536, -0.229 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.3
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "refresh_card"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../../Yes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "make_set"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=27]
+default_font = SubResource( 26 )
+
+[sub_resource type="DynamicFont" id=28]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=29]
+resource_name = "anim"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/path = NodePath("correct2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "", false ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("correct3")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "", false ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("correct2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("correct3:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ null, ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), null ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -388,7 +684,6 @@ autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
 
 [node name="Highscore" type="Label" parent="."]
-show_behind_parent = true
 margin_left = 17.0
 margin_top = 35.0
 margin_right = 243.999
@@ -518,7 +813,6 @@ autoplay = "Anim"
 anims/Anim = SubResource( 9 )
 
 [node name="Multiplayer" type="TextureButton" parent="."]
-editor/display_folded = true
 material = ExtResource( 5 )
 margin_left = 160.0
 margin_top = 660.0
@@ -530,13 +824,15 @@ expand = true
 script = ExtResource( 8 )
 
 [node name="Label" type="Label" parent="Multiplayer"]
-margin_left = 51.0
+margin_left = 34.2629
 margin_top = 194.0
-margin_right = 221.0
+margin_right = 233.263
 margin_bottom = 259.0
 custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Same Wifi Only"
+text = "Players must be
+on the SAME WiFi"
+align = 1
 
 [node name="Help" type="TextureButton" parent="."]
 editor/display_folded = true
@@ -554,7 +850,6 @@ anims/Help = SubResource( 11 )
 anims/Help2 = SubResource( 12 )
 
 [node name="Instructions" type="TextureRect" parent="."]
-editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0.215686 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -564,20 +859,17 @@ margin_right = 617.537
 margin_bottom = 34.7986
 expand = true
 stretch_mode = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Title" type="Label" parent="Instructions"]
 editor/display_folded = true
-margin_left = -5.0
-margin_top = 116.0
-margin_right = 633.0
-margin_bottom = 290.0
+margin_left = 123.0
+margin_top = 25.0
+margin_right = 577.0
+margin_bottom = 152.0
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Find 3 tiles with the same 
-or different Colour, Shape,
+text = "Find 3 tiles with ALL same 
+or ALL different Colour, Shape,
 Number, and Shading."
 align = 1
 
@@ -604,217 +896,21 @@ shading or DIFFERENT shading."
 align = 1
 
 [node name="Back" type="TextureButton" parent="Instructions"]
-margin_left = 8.0
-margin_top = 7.0
-margin_right = 113.0
-margin_bottom = 93.0
+margin_left = -2.71314
+margin_top = 10.9579
+margin_right = 102.287
+margin_bottom = 95.9579
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
 expand = true
 script = ExtResource( 19 )
 
-[node name="Invalid" type="Label" parent="Instructions"]
-editor/display_folded = true
-margin_left = 189.367
-margin_top = 642.242
-margin_right = 408.367
-margin_bottom = 684.242
-custom_fonts/font = SubResource( 15 )
-custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
-custom_constants/line_spacing = 20
-text = "Invalid Trios"
-align = 1
-
-[node name="Numbers" type="Label" parent="Instructions/Invalid"]
-margin_left = -95.4776
-margin_top = 66.3552
-margin_right = -49.4776
-margin_bottom = 283.355
-custom_fonts/font = SubResource( 15 )
-custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
-custom_constants/line_spacing = 40
-text = "1.
-2.
-3."
-align = 1
-
-[node name="Sets" type="GridContainer" parent="Instructions/Invalid"]
-show_behind_parent = true
-margin_left = 257.846
-margin_top = 67.3911
-margin_right = 515.846
-margin_bottom = 368.391
-rect_rotation = 90.0
-custom_constants/vseparation = 10
-custom_constants/hseparation = 20
-columns = 3
-
-[node name="Shadow" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_right = 67.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 23 )
-expand = true
-
-[node name="Shadow2" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 87.0
-margin_right = 154.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow2"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 24 )
-expand = true
-
-[node name="Shadow3" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 174.0
-margin_right = 241.5
-margin_bottom = 90.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow3"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 25 )
-expand = true
-
-[node name="Shadow4" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_top = 100.0
-margin_right = 67.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow4"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 26 )
-expand = true
-
-[node name="Shadow5" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 87.0
-margin_top = 100.0
-margin_right = 154.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow5"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 27 )
-expand = true
-
-[node name="Shadow6" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 174.0
-margin_top = 100.0
-margin_right = 241.5
-margin_bottom = 190.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow6"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 28 )
-expand = true
-
-[node name="Shadow7" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_top = 200.0
-margin_right = 67.5
-margin_bottom = 290.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow7"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 29 )
-expand = true
-
-[node name="Shadow8" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 87.0
-margin_top = 200.0
-margin_right = 154.5
-margin_bottom = 290.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow8"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 30 )
-expand = true
-
-[node name="Shadow9" type="TextureRect" parent="Instructions/Invalid/Sets"]
-margin_left = 174.0
-margin_top = 200.0
-margin_right = 241.5
-margin_bottom = 290.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 22 )
-expand = true
-
-[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow9"]
-margin_left = -12.0
-margin_top = -1.0
-margin_right = 55.5
-margin_bottom = 89.0
-rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 31 )
-expand = true
-
 [node name="Valid" type="Label" parent="Instructions"]
 editor/display_folded = true
-margin_left = 112.441
-margin_top = 302.022
-margin_right = 479.436
-margin_bottom = 348.022
+margin_left = 94.8183
+margin_top = 171.11
+margin_right = 461.813
+margin_bottom = 217.11
 custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -863,7 +959,7 @@ margin_top = -1.0
 margin_right = 55.5
 margin_bottom = 89.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 32 )
+texture = ExtResource( 23 )
 expand = true
 
 [node name="Shadow2" type="TextureRect" parent="Instructions/Valid/Sets"]
@@ -881,7 +977,7 @@ margin_top = -1.0
 margin_right = 55.5
 margin_bottom = 89.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 33 )
+texture = ExtResource( 24 )
 expand = true
 
 [node name="Shadow3" type="TextureRect" parent="Instructions/Valid/Sets"]
@@ -954,7 +1050,7 @@ margin_top = -1.0
 margin_right = 55.5
 margin_bottom = 89.0
 rect_min_size = Vector2( 67.5, 90 )
-texture = ExtResource( 34 )
+texture = ExtResource( 28 )
 expand = true
 
 [node name="Shadow7" type="TextureRect" parent="Instructions/Valid/Sets"]
@@ -1013,7 +1109,426 @@ rect_min_size = Vector2( 67.5, 90 )
 texture = ExtResource( 31 )
 expand = true
 
+[node name="Invalid" type="Label" parent="Instructions"]
+margin_left = 174.262
+margin_top = 508.813
+margin_right = 393.262
+margin_bottom = 550.813
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_constants/line_spacing = 20
+text = "Invalid Trios"
+align = 1
+
+[node name="Numbers" type="Label" parent="Instructions/Invalid"]
+margin_left = -95.4776
+margin_top = 66.3552
+margin_right = -49.4776
+margin_bottom = 283.355
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_constants/line_spacing = 40
+text = "1.
+2.
+3."
+align = 1
+
+[node name="Sets" type="GridContainer" parent="Instructions/Invalid"]
+editor/display_folded = true
+show_behind_parent = true
+margin_left = 257.846
+margin_top = 67.3911
+margin_right = 515.846
+margin_bottom = 368.391
+rect_rotation = 90.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 20
+columns = 3
+
+[node name="Shadow" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_right = 67.5
+margin_bottom = 90.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 32 )
+expand = true
+
+[node name="Shadow2" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_right = 154.5
+margin_bottom = 90.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow2"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 33 )
+expand = true
+
+[node name="Shadow3" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_right = 241.5
+margin_bottom = 90.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow3"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 25 )
+expand = true
+
+[node name="Shadow4" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_top = 100.0
+margin_right = 67.5
+margin_bottom = 190.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow4"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 26 )
+expand = true
+
+[node name="Shadow5" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_top = 100.0
+margin_right = 154.5
+margin_bottom = 190.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow5"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 27 )
+expand = true
+
+[node name="Shadow6" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_top = 100.0
+margin_right = 241.5
+margin_bottom = 190.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow6"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 34 )
+expand = true
+
+[node name="Shadow7" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_top = 200.0
+margin_right = 67.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow7"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 29 )
+expand = true
+
+[node name="Shadow8" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 87.0
+margin_top = 200.0
+margin_right = 154.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow8"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 30 )
+expand = true
+
+[node name="Shadow9" type="TextureRect" parent="Instructions/Invalid/Sets"]
+margin_left = 174.0
+margin_top = 200.0
+margin_right = 241.5
+margin_bottom = 290.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="Card" type="TextureRect" parent="Instructions/Invalid/Sets/Shadow9"]
+margin_left = -12.0
+margin_top = -1.0
+margin_right = 55.5
+margin_bottom = 89.0
+rect_min_size = Vector2( 67.5, 90 )
+texture = ExtResource( 31 )
+expand = true
+
+[node name="Test" type="Label" parent="Instructions"]
+margin_left = 140.48
+margin_top = 862.844
+margin_right = 327.48
+margin_bottom = 904.844
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 0.839216, 0.360784, 1 )
+text = "Valid Trio?"
+
+[node name="Set?" type="GridContainer" parent="Instructions/Test"]
+margin_left = 232.372
+margin_top = 67.6885
+margin_right = 323.372
+margin_bottom = 367.688
+rect_rotation = 90.0
+custom_constants/vseparation = 15
+script = ExtResource( 35 )
+
+[node name="card_1" type="TextureRect" parent="Instructions/Test/Set?"]
+margin_right = 67.5
+margin_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 67.5, 90 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Instructions/Test/Set?/card_1"]
+material = ExtResource( 36 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.6269
+margin_top = -45.229
+margin_right = 21.8731
+margin_bottom = 44.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 34.9258, 44.7865 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+disabled = true
+action_mode = 0
+texture_normal = ExtResource( 37 )
+expand = true
+script = ExtResource( 38 )
+
+[node name="Fade" type="AnimationPlayer" parent="Instructions/Test/Set?/card_1/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 17 )
+
+[node name="Press" type="AnimationPlayer" parent="Instructions/Test/Set?/card_1/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 18 )
+
+[node name="Change" type="AnimationPlayer" parent="Instructions/Test/Set?/card_1/card"]
+anims/Change = SubResource( 19 )
+
+[node name="card_2" type="TextureRect" parent="Instructions/Test/Set?"]
+margin_top = 105.0
+margin_right = 67.5
+margin_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 67.5, 90 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Instructions/Test/Set?/card_2"]
+material = ExtResource( 36 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.6269
+margin_top = -45.229
+margin_right = 21.8731
+margin_bottom = 44.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 34.9258, 44.7865 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+disabled = true
+action_mode = 0
+texture_normal = ExtResource( 37 )
+expand = true
+script = ExtResource( 38 )
+
+[node name="Fade" type="AnimationPlayer" parent="Instructions/Test/Set?/card_2/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 20 )
+
+[node name="Press" type="AnimationPlayer" parent="Instructions/Test/Set?/card_2/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 21 )
+
+[node name="Change" type="AnimationPlayer" parent="Instructions/Test/Set?/card_2/card"]
+anims/Change = SubResource( 22 )
+
+[node name="card_3" type="TextureRect" parent="Instructions/Test/Set?"]
+margin_top = 210.0
+margin_right = 67.5
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 67.5, 90 )
+rect_pivot_offset = Vector2( 50, 75 )
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+
+[node name="card" type="TextureButton" parent="Instructions/Test/Set?/card_3"]
+material = ExtResource( 36 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.6269
+margin_top = -45.229
+margin_right = 21.8731
+margin_bottom = 44.771
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 11, 15 )
+rect_scale = Vector2( 1.05, 1 )
+rect_pivot_offset = Vector2( 34.9258, 44.7865 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+disabled = true
+action_mode = 0
+texture_normal = ExtResource( 37 )
+expand = true
+script = ExtResource( 38 )
+
+[node name="Fade" type="AnimationPlayer" parent="Instructions/Test/Set?/card_3/card"]
+playback_speed = 5.0
+anims/fader = SubResource( 23 )
+
+[node name="Press" type="AnimationPlayer" parent="Instructions/Test/Set?/card_3/card"]
+playback_speed = 5.0
+anims/Press = SubResource( 24 )
+
+[node name="Change" type="AnimationPlayer" parent="Instructions/Test/Set?/card_3/card"]
+anims/Change = SubResource( 25 )
+
+[node name="Yes" type="TextureButton" parent="Instructions/Test"]
+editor/display_folded = true
+margin_left = 263.868
+margin_top = 5.0
+margin_right = 352.868
+margin_bottom = 57.0
+theme = SubResource( 27 )
+texture_normal = ExtResource( 39 )
+texture_pressed = ExtResource( 40 )
+expand = true
+script = ExtResource( 41 )
+
+[node name="Yes" type="Label" parent="Instructions/Test/Yes"]
+margin_left = 20.8932
+margin_top = 6.58667
+margin_right = 66.8932
+margin_bottom = 37.5867
+custom_fonts/font = SubResource( 28 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Yes"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="No" type="TextureButton" parent="Instructions/Test"]
+editor/display_folded = true
+margin_left = 262.672
+margin_top = 74.8416
+margin_right = 350.672
+margin_bottom = 126.842
+theme = SubResource( 27 )
+texture_normal = ExtResource( 39 )
+texture_pressed = ExtResource( 40 )
+expand = true
+script = ExtResource( 41 )
+
+[node name="No" type="Label" parent="Instructions/Test/No"]
+margin_left = 31.8933
+margin_top = 3.82666
+margin_right = 77.8933
+margin_bottom = 68.8267
+custom_fonts/font = SubResource( 28 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "No
+"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="correct" type="AnimationPlayer" parent="Instructions/Test"]
+anims/anim = SubResource( 29 )
+
+[node name="correct2" type="AnimatedSprite" parent="Instructions/Test"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( -40.0557, 5.45898 )
+scale = Vector2( 0.0960918, 0.141774 )
+frames = SubResource( 30 )
+
+[node name="correct3" type="AnimatedSprite" parent="Instructions/Test"]
+self_modulate = Color( 0.992157, 0.0588235, 0.0588235, 1 )
+position = Vector2( 220.456, 7.49902 )
+scale = Vector2( 0.091132, 0.158149 )
+frames = SubResource( 30 )
 [connection signal="pressed" from="Singleplayer" to="Singleplayer" method="_on_Singleplayer_pressed"]
 [connection signal="pressed" from="Multiplayer" to="Multiplayer" method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="Help" to="Help" method="_on_Help_pressed"]
 [connection signal="button_down" from="Instructions/Back" to="Instructions/Back" method="_on_Back_button_down"]
+[connection signal="pressed" from="Instructions/Test/Yes" to="Instructions/Test/Yes" method="_on_Yes_pressed"]
+[connection signal="pressed" from="Instructions/Test/No" to="Instructions/Test/No" method="_on_No_pressed"]

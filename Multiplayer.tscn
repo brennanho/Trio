@@ -14,7 +14,7 @@
 [ext_resource path="res://Menu_Sprites/green_circ_trans.png" type="Texture" id=12]
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/BLANKIE_ON.png" type="Texture" id=13]
 [ext_resource path="res://fonts/Robi-Regular.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://Name.gd" type="Script" id=15]
+[ext_resource path="res://scripts/Name.gd" type="Script" id=15]
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_OFF.png" type="Texture" id=16]
 [ext_resource path="res://Menu_Sprites/MENU_PROTOTYPE 2_ Playhouse/CREATEGAME_ON.png" type="Texture" id=17]
 [ext_resource path="res://scripts/highscore.gd" type="Script" id=18]
@@ -481,10 +481,10 @@ text = "High Score:
 script = ExtResource( 18 )
 
 [node name="Back" type="TextureButton" parent="Background"]
-margin_left = 457.26
-margin_top = 7.0
-margin_right = 584.26
-margin_bottom = 119.0
+margin_left = 483.169
+margin_top = 10.7012
+margin_right = 588.169
+margin_bottom = 95.7012
 texture_normal = ExtResource( 19 )
 expand = true
 script = ExtResource( 20 )
@@ -526,7 +526,6 @@ expand = true
 [node name="Anim" type="AnimationPlayer" parent="Background/Title/StarR"]
 autoplay = "Rotate"
 anims/Rotate = SubResource( 13 )
-
 [connection signal="button_down" from="Background/Find_Opponent" to="Background/Find_Opponent" method="_on_Find_Opponent_button_down"]
 [connection signal="pressed" from="Background/Join_Game" to="Background/Join_Game" method="_on_Join_Game_pressed"]
 [connection signal="text_changed" from="Background/Join_Game/Name" to="Background/Join_Game/Name" method="_on_Name_text_changed"]

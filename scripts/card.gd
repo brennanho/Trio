@@ -15,6 +15,8 @@ func refresh_card():
 	if current_card != null:
 		get_parent().get_parent().cards.append(PoolStringArray(current_card).join("_"))
 	var card_name = cards.pop_front()
+	if not (card_name in card_imgs.keys()): #broken cards???
+		card_imgs[card_name] = load(CARD_SPRITES_PATH + card_name + ".png")
 	var image = card_imgs[card_name]
 	set_normal_texture(image)
 	current_card = card_name.split("_")

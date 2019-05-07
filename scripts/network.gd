@@ -11,8 +11,8 @@ remote func update_players_lobby(players, players_ips, id):
 	global.my_name = id
 	get_parent().add_players_to_screen(global.players_in_lobby)
 	
-remote func add_new_client_to_other_client(id, ip):
-	get_parent().add_player_to_screen(len(global.players_in_lobby)+1,id, ip)
+remote func add_new_client_to_other_client(id, name):
+	get_parent().add_player_to_screen(len(global.players_in_lobby)+1, id, name)
 	
 remote func remove_client_from_other_client(id):
 	get_parent().remove_player_from_screen(id)
@@ -68,15 +68,14 @@ func init_server():
 	global.peer.set_always_ordered(true)
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)
-	#get_tree().connect("network_peer_connected",    self, "_client_connected")
 	get_tree().connect("network_peer_disconnected", self, "_client_disconnected")
 	
-func init_client(ip):
+func init_client(name):
 	global.peer = NetworkedMultiplayerENet.new()
-	global.peer.create_client(ip, port)
+	global.peer.create_client(name, port)
 	global.peer.set_always_ordered(true) 
 	global.peer.transfer_mode = global.peer.TRANSFER_MODE_RELIABLE
 	get_tree().set_network_peer(global.peer)
 	get_tree().connect("connected_to_server",  self,  "_connected_to_server", [global.peer.get_unique_id()])
 	get_tree().connect("connection_failed",    self,  "_connect_to_server_fail")
-	get_tree().connect("server_disconnected",  self,  "_disconnected_from_server", [ip])
+	get_tree().connect("server_disconnected",  self,  "_disconnected_from_server", [name])

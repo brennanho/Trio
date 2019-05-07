@@ -8,7 +8,7 @@ const FONT_PATH = "res://fonts/Robi-Regular.ttf"
 onready var FONT = load(FONT_PATH)
 
 sync func start_game(scene_to_load, seed_val, peer):
-	if peer.get_unique_id() == 1: #peer is server
+	if global.my_name == 1: #peer is server
 		global.discovery_on = false
 		global.discover_thread.wait_to_finish()
 		peer.refuse_new_connections = true
@@ -27,9 +27,9 @@ func add_players_to_screen(players):
 		add_player_to_screen(player_num, player, global.players_ips[player])
 		player_num += 1
 		
-func add_player_to_screen(player_num, player_id, ip):
+func add_player_to_screen(player_num, player_id, name):
 	var player = Label.new()
-	player.text = str(player_num) + ". " + ip
+	player.text = str(player_num) + ". " + name
 	var font = DynamicFont.new()
 	font.size = FONT_SIZE
 	font.font_data = FONT
@@ -45,12 +45,14 @@ func add_player_to_screen(player_num, player_id, ip):
 		get_parent().get_parent().get_node("Start_Game/Players_Ready").play("Player_Joined_Left")
 	global.players_in_lobby[player_id] = player
 	global.players_score[player_id] = 0
-	global.players_ips[player_id] = ip
+	global.players_ips[player_id] = name
+	get_parent().get_node("Num_Players").text = str(len(global.players_in_lobby)) + " out of 6 players"
 	
 func remove_player_from_screen(player_id):
 	remove_child(global.players_in_lobby[player_id])
 	global.players_in_lobby.erase(player_id)
 	global.players_score.erase(player_id)
+	get_parent().get_node("Num_Players").text = str(len(global.players_in_lobby)) + " out of 6 players"
 	if len(global.players_in_lobby) == 1:
 		get_parent().get_parent().get_node("Start_Game/Players_Ready").play_backwards("Player_Joined_Left")
 
